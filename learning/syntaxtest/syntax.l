@@ -2,61 +2,87 @@
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Date: 09/18/2018 */
 
-%option noyywrap nodefault yylineno
+%option noyywrap nodefault
 
 %{
-  #include <stdio.h>
+  #include "syntax.tab.h"
 
   void lexicalError(char *s);
+
   int yyval;
+  int yylineno = 1;
 %}
 
 %%
 
-"var" {printf("res_var");}
-"bool" {printf("type_bool");}
-"string" {printf("type_string");}
-"int" {printf("type_int");}
+"var"    {return T_RES_VAR;}
+"bool"   {return T_RES_BOOL;}
+"string" {return T_RES_STR;}
+"int"    {return T_RES_INT;}
 
-"true" {printf("lit_true");}
-"false" {printf("lit_false");}
+"if"     {return T_RES_IF;}
+"else"   {return T_RES_ELSE;}
 
-"if" {printf("res_if");}
-"else" {printf("res_else");}
+"for"    {return T_RES_FOR;}
+"while"  {return T_RES_WHILE;}
+"skip"   {return T_RES_SKIP;}
+"stop"   {return T_RES_STOP;}
 
-"for" {printf("res_for");}
-"while" {printf("res_while");}
-"skip" {printf("res_skip");}
-"stop" {printf("res_stop");}
+"def"    {return T_RES_DEF;}
+"return" {return T_RES_RETURN;}
 
-"def" {printf("res_def");}
-"return" {printf("res_return");}
+"read"   {return T_RES_READ;}
+"write"  {return T_RES_WRITE;}
 
-"read" {printf("res_read");}
-"write" {printf("res_write");}
+"("      {return T_SYM_OP;}
+")"      {return T_SYM_CP;}
+"["      {return T_SYM_OBK;}
+"]"      {return T_SYM_CBK;}
+"{"      {return T_SYM_OBC;}
+"}"      {return T_SYM_CBC;}
 
-"+"|"-"|"=="|"!="|"&&"|">"|">="|"<"|"<=" {printf("relop: %s ", yytext);}
-"="|"("|")"|"["|"]"|"{"|"}"|","|":"|"?" {printf(" symb: %s ", yytext);}
-";" {printf(" EOC");}
+"="      {return T_SYM_ATR;}
+"+="     {return T_SYM_ATP;}
+"-="     {return T_SYM_ATM;}
+"*="     {return T_SYM_ATMUL;}
+"/="     {return T_SYM_ATDIV;}
+"%="     {return T_SYM_ATMOD;}
 
-([a-zA-Z]|_)([a-zA-Z]|_|[0-9])* {printf("id: %s ", yytext);}
-[0-9]+ {yyval = atoi(yytext); printf("lit_val: '%d' ", yyval);}
-\"(\\.|[^"\\])*\" {printf("lit_str: %s ", yytext);}
+"+"      {return T_SYM_PLS;}
+"-"      {return T_SYM_MIN;}
+"*"      {return T_SYM_MUL;}
+"/"      {return T_SYM_DIV;}
+"%"      {return T_SYM_MOD;}
+"=="     {return T_SYM_EQL;}
+"!="     {return T_SYM_DIF;}
+">"      {return T_SYM_HIG;}
+">="     {return T_SYM_HEQ;}
+"<"      {return T_SYM_LES;}
+"<="     {return T_SYM_LEQ;}
+"||"     {return T_SYM_OR;}
+"&&"     {return T_SYM_AND;}
+"!"      {return T_SYM_NOT;}
 
-"\n" {printf("%s", yytext);}
-[ \t] {printf("%s", yytext);}
-"//".* {printf("Comment: %s", yytext);}
+";"      {return T_SYM_SMC;}
+","      {return T_SYM_CMA;}
+"?"      {return T_SYM_INTR;}
+":"      {return T_SYM_COL;}
+
+[0-9]+            {yyval = atoi(yytext);
+                   return T_LIT_INT;}
+\"(\\.|[^"\\])*\" {return T_LIT_STR;}
+"true"            {return T_LIT_TRUE;}
+"false"           {return T_LIT_FALSE;}
+
+([a-zA-Z]|_)([a-zA-Z]|_|[0-9])* {return T_ID;}
+
+"\n" {yylineno = yylineno + 1;}
+[ \t]
+"//".*
 
 . {lexicalError(yytext);}
 
 %%
-
-int main(int argc, char** argv){
-  yylineno = 1;
-
-  yylex();
-  return 0;
-}
 
 void lexicalError(char *s){
   fprintf(stderr, "Lexical error: unrecognized character %s at line %d\n", s, yylineno);
