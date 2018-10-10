@@ -1,0 +1,3206 @@
+
+
+Terminals which are not used:
+
+   T_SYM_NOT
+
+
+Conflict in state 50 between rule 59 and token T_SYM_PLS resolved as reduce.
+Conflict in state 50 between rule 59 and token T_SYM_MIN resolved as reduce.
+Conflict in state 50 between rule 59 and token T_SYM_MUL resolved as reduce.
+Conflict in state 50 between rule 59 and token T_SYM_DIV resolved as reduce.
+Conflict in state 50 between rule 59 and token T_SYM_MOD resolved as reduce.
+Conflict in state 50 between rule 59 and token T_SYM_EQL resolved as reduce.
+Conflict in state 50 between rule 59 and token T_SYM_DIF resolved as reduce.
+Conflict in state 50 between rule 59 and token T_SYM_HIG resolved as reduce.
+Conflict in state 50 between rule 59 and token T_SYM_HEQ resolved as reduce.
+Conflict in state 50 between rule 59 and token T_SYM_LES resolved as reduce.
+Conflict in state 50 between rule 59 and token T_SYM_LEQ resolved as reduce.
+Conflict in state 50 between rule 59 and token T_SYM_OR resolved as reduce.
+Conflict in state 50 between rule 59 and token T_SYM_AND resolved as reduce.
+Conflict in state 50 between rule 59 and token T_SYM_INTR resolved as reduce.
+Conflict in state 79 between rule 45 and token T_SYM_PLS resolved as reduce.
+Conflict in state 79 between rule 45 and token T_SYM_MIN resolved as reduce.
+Conflict in state 79 between rule 45 and token T_SYM_MUL resolved as shift.
+Conflict in state 79 between rule 45 and token T_SYM_DIV resolved as shift.
+Conflict in state 79 between rule 45 and token T_SYM_MOD resolved as shift.
+Conflict in state 79 between rule 45 and token T_SYM_EQL resolved as reduce.
+Conflict in state 79 between rule 45 and token T_SYM_DIF resolved as reduce.
+Conflict in state 79 between rule 45 and token T_SYM_HIG resolved as reduce.
+Conflict in state 79 between rule 45 and token T_SYM_HEQ resolved as reduce.
+Conflict in state 79 between rule 45 and token T_SYM_LES resolved as reduce.
+Conflict in state 79 between rule 45 and token T_SYM_LEQ resolved as reduce.
+Conflict in state 79 between rule 45 and token T_SYM_OR resolved as reduce.
+Conflict in state 79 between rule 45 and token T_SYM_AND resolved as reduce.
+Conflict in state 79 between rule 45 and token T_SYM_INTR resolved as reduce.
+Conflict in state 80 between rule 46 and token T_SYM_PLS resolved as reduce.
+Conflict in state 80 between rule 46 and token T_SYM_MIN resolved as reduce.
+Conflict in state 80 between rule 46 and token T_SYM_MUL resolved as shift.
+Conflict in state 80 between rule 46 and token T_SYM_DIV resolved as shift.
+Conflict in state 80 between rule 46 and token T_SYM_MOD resolved as shift.
+Conflict in state 80 between rule 46 and token T_SYM_EQL resolved as reduce.
+Conflict in state 80 between rule 46 and token T_SYM_DIF resolved as reduce.
+Conflict in state 80 between rule 46 and token T_SYM_HIG resolved as reduce.
+Conflict in state 80 between rule 46 and token T_SYM_HEQ resolved as reduce.
+Conflict in state 80 between rule 46 and token T_SYM_LES resolved as reduce.
+Conflict in state 80 between rule 46 and token T_SYM_LEQ resolved as reduce.
+Conflict in state 80 between rule 46 and token T_SYM_OR resolved as reduce.
+Conflict in state 80 between rule 46 and token T_SYM_AND resolved as reduce.
+Conflict in state 80 between rule 46 and token T_SYM_INTR resolved as reduce.
+Conflict in state 81 between rule 47 and token T_SYM_PLS resolved as reduce.
+Conflict in state 81 between rule 47 and token T_SYM_MIN resolved as reduce.
+Conflict in state 81 between rule 47 and token T_SYM_MUL resolved as reduce.
+Conflict in state 81 between rule 47 and token T_SYM_DIV resolved as reduce.
+Conflict in state 81 between rule 47 and token T_SYM_MOD resolved as reduce.
+Conflict in state 81 between rule 47 and token T_SYM_EQL resolved as reduce.
+Conflict in state 81 between rule 47 and token T_SYM_DIF resolved as reduce.
+Conflict in state 81 between rule 47 and token T_SYM_HIG resolved as reduce.
+Conflict in state 81 between rule 47 and token T_SYM_HEQ resolved as reduce.
+Conflict in state 81 between rule 47 and token T_SYM_LES resolved as reduce.
+Conflict in state 81 between rule 47 and token T_SYM_LEQ resolved as reduce.
+Conflict in state 81 between rule 47 and token T_SYM_OR resolved as reduce.
+Conflict in state 81 between rule 47 and token T_SYM_AND resolved as reduce.
+Conflict in state 81 between rule 47 and token T_SYM_INTR resolved as reduce.
+Conflict in state 82 between rule 48 and token T_SYM_PLS resolved as reduce.
+Conflict in state 82 between rule 48 and token T_SYM_MIN resolved as reduce.
+Conflict in state 82 between rule 48 and token T_SYM_MUL resolved as reduce.
+Conflict in state 82 between rule 48 and token T_SYM_DIV resolved as reduce.
+Conflict in state 82 between rule 48 and token T_SYM_MOD resolved as reduce.
+Conflict in state 82 between rule 48 and token T_SYM_EQL resolved as reduce.
+Conflict in state 82 between rule 48 and token T_SYM_DIF resolved as reduce.
+Conflict in state 82 between rule 48 and token T_SYM_HIG resolved as reduce.
+Conflict in state 82 between rule 48 and token T_SYM_HEQ resolved as reduce.
+Conflict in state 82 between rule 48 and token T_SYM_LES resolved as reduce.
+Conflict in state 82 between rule 48 and token T_SYM_LEQ resolved as reduce.
+Conflict in state 82 between rule 48 and token T_SYM_OR resolved as reduce.
+Conflict in state 82 between rule 48 and token T_SYM_AND resolved as reduce.
+Conflict in state 82 between rule 48 and token T_SYM_INTR resolved as reduce.
+Conflict in state 83 between rule 49 and token T_SYM_PLS resolved as reduce.
+Conflict in state 83 between rule 49 and token T_SYM_MIN resolved as reduce.
+Conflict in state 83 between rule 49 and token T_SYM_MUL resolved as reduce.
+Conflict in state 83 between rule 49 and token T_SYM_DIV resolved as reduce.
+Conflict in state 83 between rule 49 and token T_SYM_MOD resolved as reduce.
+Conflict in state 83 between rule 49 and token T_SYM_EQL resolved as reduce.
+Conflict in state 83 between rule 49 and token T_SYM_DIF resolved as reduce.
+Conflict in state 83 between rule 49 and token T_SYM_HIG resolved as reduce.
+Conflict in state 83 between rule 49 and token T_SYM_HEQ resolved as reduce.
+Conflict in state 83 between rule 49 and token T_SYM_LES resolved as reduce.
+Conflict in state 83 between rule 49 and token T_SYM_LEQ resolved as reduce.
+Conflict in state 83 between rule 49 and token T_SYM_OR resolved as reduce.
+Conflict in state 83 between rule 49 and token T_SYM_AND resolved as reduce.
+Conflict in state 83 between rule 49 and token T_SYM_INTR resolved as reduce.
+Conflict in state 84 between rule 50 and token T_SYM_PLS resolved as shift.
+Conflict in state 84 between rule 50 and token T_SYM_MIN resolved as shift.
+Conflict in state 84 between rule 50 and token T_SYM_MUL resolved as shift.
+Conflict in state 84 between rule 50 and token T_SYM_DIV resolved as shift.
+Conflict in state 84 between rule 50 and token T_SYM_MOD resolved as shift.
+Conflict in state 84 between rule 50 and token T_SYM_EQL resolved as reduce.
+Conflict in state 84 between rule 50 and token T_SYM_DIF resolved as reduce.
+Conflict in state 84 between rule 50 and token T_SYM_HIG resolved as shift.
+Conflict in state 84 between rule 50 and token T_SYM_HEQ resolved as shift.
+Conflict in state 84 between rule 50 and token T_SYM_LES resolved as shift.
+Conflict in state 84 between rule 50 and token T_SYM_LEQ resolved as shift.
+Conflict in state 84 between rule 50 and token T_SYM_OR resolved as reduce.
+Conflict in state 84 between rule 50 and token T_SYM_AND resolved as reduce.
+Conflict in state 84 between rule 50 and token T_SYM_INTR resolved as reduce.
+Conflict in state 85 between rule 51 and token T_SYM_PLS resolved as shift.
+Conflict in state 85 between rule 51 and token T_SYM_MIN resolved as shift.
+Conflict in state 85 between rule 51 and token T_SYM_MUL resolved as shift.
+Conflict in state 85 between rule 51 and token T_SYM_DIV resolved as shift.
+Conflict in state 85 between rule 51 and token T_SYM_MOD resolved as shift.
+Conflict in state 85 between rule 51 and token T_SYM_EQL resolved as reduce.
+Conflict in state 85 between rule 51 and token T_SYM_DIF resolved as reduce.
+Conflict in state 85 between rule 51 and token T_SYM_HIG resolved as shift.
+Conflict in state 85 between rule 51 and token T_SYM_HEQ resolved as shift.
+Conflict in state 85 between rule 51 and token T_SYM_LES resolved as shift.
+Conflict in state 85 between rule 51 and token T_SYM_LEQ resolved as shift.
+Conflict in state 85 between rule 51 and token T_SYM_OR resolved as reduce.
+Conflict in state 85 between rule 51 and token T_SYM_AND resolved as reduce.
+Conflict in state 85 between rule 51 and token T_SYM_INTR resolved as reduce.
+Conflict in state 86 between rule 52 and token T_SYM_PLS resolved as shift.
+Conflict in state 86 between rule 52 and token T_SYM_MIN resolved as shift.
+Conflict in state 86 between rule 52 and token T_SYM_MUL resolved as shift.
+Conflict in state 86 between rule 52 and token T_SYM_DIV resolved as shift.
+Conflict in state 86 between rule 52 and token T_SYM_MOD resolved as shift.
+Conflict in state 86 between rule 52 and token T_SYM_EQL resolved as reduce.
+Conflict in state 86 between rule 52 and token T_SYM_DIF resolved as reduce.
+Conflict in state 86 between rule 52 and token T_SYM_HIG resolved as reduce.
+Conflict in state 86 between rule 52 and token T_SYM_HEQ resolved as reduce.
+Conflict in state 86 between rule 52 and token T_SYM_LES resolved as reduce.
+Conflict in state 86 between rule 52 and token T_SYM_LEQ resolved as reduce.
+Conflict in state 86 between rule 52 and token T_SYM_OR resolved as reduce.
+Conflict in state 86 between rule 52 and token T_SYM_AND resolved as reduce.
+Conflict in state 86 between rule 52 and token T_SYM_INTR resolved as reduce.
+Conflict in state 87 between rule 53 and token T_SYM_PLS resolved as shift.
+Conflict in state 87 between rule 53 and token T_SYM_MIN resolved as shift.
+Conflict in state 87 between rule 53 and token T_SYM_MUL resolved as shift.
+Conflict in state 87 between rule 53 and token T_SYM_DIV resolved as shift.
+Conflict in state 87 between rule 53 and token T_SYM_MOD resolved as shift.
+Conflict in state 87 between rule 53 and token T_SYM_EQL resolved as reduce.
+Conflict in state 87 between rule 53 and token T_SYM_DIF resolved as reduce.
+Conflict in state 87 between rule 53 and token T_SYM_HIG resolved as reduce.
+Conflict in state 87 between rule 53 and token T_SYM_HEQ resolved as reduce.
+Conflict in state 87 between rule 53 and token T_SYM_LES resolved as reduce.
+Conflict in state 87 between rule 53 and token T_SYM_LEQ resolved as reduce.
+Conflict in state 87 between rule 53 and token T_SYM_OR resolved as reduce.
+Conflict in state 87 between rule 53 and token T_SYM_AND resolved as reduce.
+Conflict in state 87 between rule 53 and token T_SYM_INTR resolved as reduce.
+Conflict in state 88 between rule 54 and token T_SYM_PLS resolved as shift.
+Conflict in state 88 between rule 54 and token T_SYM_MIN resolved as shift.
+Conflict in state 88 between rule 54 and token T_SYM_MUL resolved as shift.
+Conflict in state 88 between rule 54 and token T_SYM_DIV resolved as shift.
+Conflict in state 88 between rule 54 and token T_SYM_MOD resolved as shift.
+Conflict in state 88 between rule 54 and token T_SYM_EQL resolved as reduce.
+Conflict in state 88 between rule 54 and token T_SYM_DIF resolved as reduce.
+Conflict in state 88 between rule 54 and token T_SYM_HIG resolved as reduce.
+Conflict in state 88 between rule 54 and token T_SYM_HEQ resolved as reduce.
+Conflict in state 88 between rule 54 and token T_SYM_LES resolved as reduce.
+Conflict in state 88 between rule 54 and token T_SYM_LEQ resolved as reduce.
+Conflict in state 88 between rule 54 and token T_SYM_OR resolved as reduce.
+Conflict in state 88 between rule 54 and token T_SYM_AND resolved as reduce.
+Conflict in state 88 between rule 54 and token T_SYM_INTR resolved as reduce.
+Conflict in state 89 between rule 55 and token T_SYM_PLS resolved as shift.
+Conflict in state 89 between rule 55 and token T_SYM_MIN resolved as shift.
+Conflict in state 89 between rule 55 and token T_SYM_MUL resolved as shift.
+Conflict in state 89 between rule 55 and token T_SYM_DIV resolved as shift.
+Conflict in state 89 between rule 55 and token T_SYM_MOD resolved as shift.
+Conflict in state 89 between rule 55 and token T_SYM_EQL resolved as reduce.
+Conflict in state 89 between rule 55 and token T_SYM_DIF resolved as reduce.
+Conflict in state 89 between rule 55 and token T_SYM_HIG resolved as reduce.
+Conflict in state 89 between rule 55 and token T_SYM_HEQ resolved as reduce.
+Conflict in state 89 between rule 55 and token T_SYM_LES resolved as reduce.
+Conflict in state 89 between rule 55 and token T_SYM_LEQ resolved as reduce.
+Conflict in state 89 between rule 55 and token T_SYM_OR resolved as reduce.
+Conflict in state 89 between rule 55 and token T_SYM_AND resolved as reduce.
+Conflict in state 89 between rule 55 and token T_SYM_INTR resolved as reduce.
+Conflict in state 90 between rule 56 and token T_SYM_PLS resolved as shift.
+Conflict in state 90 between rule 56 and token T_SYM_MIN resolved as shift.
+Conflict in state 90 between rule 56 and token T_SYM_MUL resolved as shift.
+Conflict in state 90 between rule 56 and token T_SYM_DIV resolved as shift.
+Conflict in state 90 between rule 56 and token T_SYM_MOD resolved as shift.
+Conflict in state 90 between rule 56 and token T_SYM_EQL resolved as shift.
+Conflict in state 90 between rule 56 and token T_SYM_DIF resolved as shift.
+Conflict in state 90 between rule 56 and token T_SYM_HIG resolved as shift.
+Conflict in state 90 between rule 56 and token T_SYM_HEQ resolved as shift.
+Conflict in state 90 between rule 56 and token T_SYM_LES resolved as shift.
+Conflict in state 90 between rule 56 and token T_SYM_LEQ resolved as shift.
+Conflict in state 90 between rule 56 and token T_SYM_OR resolved as reduce.
+Conflict in state 90 between rule 56 and token T_SYM_AND resolved as shift.
+Conflict in state 90 between rule 56 and token T_SYM_INTR resolved as reduce.
+Conflict in state 91 between rule 57 and token T_SYM_PLS resolved as shift.
+Conflict in state 91 between rule 57 and token T_SYM_MIN resolved as shift.
+Conflict in state 91 between rule 57 and token T_SYM_MUL resolved as shift.
+Conflict in state 91 between rule 57 and token T_SYM_DIV resolved as shift.
+Conflict in state 91 between rule 57 and token T_SYM_MOD resolved as shift.
+Conflict in state 91 between rule 57 and token T_SYM_EQL resolved as shift.
+Conflict in state 91 between rule 57 and token T_SYM_DIF resolved as shift.
+Conflict in state 91 between rule 57 and token T_SYM_HIG resolved as shift.
+Conflict in state 91 between rule 57 and token T_SYM_HEQ resolved as shift.
+Conflict in state 91 between rule 57 and token T_SYM_LES resolved as shift.
+Conflict in state 91 between rule 57 and token T_SYM_LEQ resolved as shift.
+Conflict in state 91 between rule 57 and token T_SYM_OR resolved as reduce.
+Conflict in state 91 between rule 57 and token T_SYM_AND resolved as reduce.
+Conflict in state 91 between rule 57 and token T_SYM_INTR resolved as reduce.
+Conflict in state 112 between rule 44 and token T_SYM_PLS resolved as shift.
+Conflict in state 112 between rule 44 and token T_SYM_MIN resolved as shift.
+Conflict in state 112 between rule 44 and token T_SYM_MUL resolved as shift.
+Conflict in state 112 between rule 44 and token T_SYM_DIV resolved as shift.
+Conflict in state 112 between rule 44 and token T_SYM_MOD resolved as shift.
+Conflict in state 112 between rule 44 and token T_SYM_EQL resolved as shift.
+Conflict in state 112 between rule 44 and token T_SYM_DIF resolved as shift.
+Conflict in state 112 between rule 44 and token T_SYM_HIG resolved as shift.
+Conflict in state 112 between rule 44 and token T_SYM_HEQ resolved as shift.
+Conflict in state 112 between rule 44 and token T_SYM_LES resolved as shift.
+Conflict in state 112 between rule 44 and token T_SYM_LEQ resolved as shift.
+Conflict in state 112 between rule 44 and token T_SYM_OR resolved as shift.
+Conflict in state 112 between rule 44 and token T_SYM_AND resolved as shift.
+Conflict in state 112 between rule 44 and token T_SYM_INTR resolved as shift.
+Conflict in state 171 between rule 89 and token T_RES_ELSE resolved as shift.
+
+Grammar
+rule 1    program -> listDec
+rule 2    listDec -> dec
+rule 3    listDec -> listDec dec
+rule 4    dec -> decVar
+rule 5    dec -> decSub
+rule 6    decVar -> T_RES_VAR listVarSpecs T_SYM_COL type T_SYM_SMC
+rule 7    listVarSpecs -> specVar
+rule 8    listVarSpecs -> specVar T_SYM_CMA listVarSpecs
+rule 9    specVar -> specVarSim
+rule 10   specVar -> specVarSimInit
+rule 11   specVar -> specVarArr
+rule 12   specVar -> specVarArrInit
+rule 13   specVarSim -> id
+rule 14   specVarSimInit -> specVarSim T_SYM_ATR expression
+rule 15   specVarArr -> id T_SYM_OBK T_LIT_INT T_SYM_CBK
+rule 16   specVarArrInit -> specVarArr T_SYM_ATR T_SYM_OBC arrInit T_SYM_CBC
+rule 17   arrInit -> literal
+rule 18   arrInit -> literal T_SYM_CMA arrInit
+rule 19   decSub -> decProc
+rule 20   decSub -> decFunc
+rule 21   decProc -> T_RES_DEF id T_SYM_OP paramList T_SYM_CP block
+rule 22   decFunc -> T_RES_DEF id T_SYM_OP paramList T_SYM_CP T_SYM_COL type block
+rule 23   paramList ->		/* empty */
+rule 24   paramList -> paramDef
+rule 25   paramList -> paramDef T_SYM_SMC paramList
+rule 26   paramDef -> paramSpec T_SYM_COL type
+rule 27   paramSpec -> param
+rule 28   paramSpec -> param T_SYM_CMA paramSpec
+rule 29   param -> id
+rule 30   param -> id T_SYM_OBK T_SYM_CBK
+rule 31   id -> T_ID
+rule 32   literal -> T_LIT_INT
+rule 33   literal -> T_LIT_STR
+rule 34   literal -> T_LIT_TRUE
+rule 35   literal -> T_LIT_FALSE
+rule 36   type -> T_RES_INT
+rule 37   type -> T_RES_BOOL
+rule 38   type -> T_RES_STR
+rule 39   block -> T_SYM_OBC blockdec T_SYM_CBC
+rule 40   blockdec -> listDec cmds
+rule 41   blockdec -> cmds
+rule 42   varUse -> id
+rule 43   varUse -> id T_SYM_OBK expression T_SYM_CBK
+rule 44   expression -> expression T_SYM_INTR expression T_SYM_COL expression
+rule 45   expression -> expression T_SYM_PLS expression
+rule 46   expression -> expression T_SYM_MIN expression
+rule 47   expression -> expression T_SYM_MUL expression
+rule 48   expression -> expression T_SYM_DIV expression
+rule 49   expression -> expression T_SYM_MOD expression
+rule 50   expression -> expression T_SYM_EQL expression
+rule 51   expression -> expression T_SYM_DIF expression
+rule 52   expression -> expression T_SYM_HIG expression
+rule 53   expression -> expression T_SYM_HEQ expression
+rule 54   expression -> expression T_SYM_LES expression
+rule 55   expression -> expression T_SYM_LEQ expression
+rule 56   expression -> expression T_SYM_OR expression
+rule 57   expression -> expression T_SYM_AND expression
+rule 58   expression -> T_SYM_OP expression T_SYM_CP
+rule 59   expression -> T_SYM_MIN expression
+rule 60   expression -> literal
+rule 61   expression -> varUse
+rule 62   expression -> callFunc
+rule 63   callFunc -> id T_SYM_OP expList T_SYM_CP
+rule 64   expList ->		/* empty */
+rule 65   expList -> expression
+rule 66   expList -> expression T_SYM_CMA expList
+rule 67   cmds ->		/* empty */
+rule 68   cmds -> cmds cmd
+rule 69   cmd -> simCmd
+rule 70   cmd -> block
+rule 71   simCmd -> cmdAtrib
+rule 72   simCmd -> cmdIf
+rule 73   simCmd -> cmdWhile
+rule 74   simCmd -> cmdFor
+rule 75   simCmd -> cmdStop
+rule 76   simCmd -> cmdSkip
+rule 77   simCmd -> cmdReturn
+rule 78   simCmd -> cmdCallProc
+rule 79   simCmd -> cmdRead
+rule 80   simCmd -> cmdWrite
+rule 81   cmdAtrib -> atrib T_SYM_SMC
+rule 82   atrib -> varUse atrbSym expression
+rule 83   atrbSym -> T_SYM_ATR
+rule 84   atrbSym -> T_SYM_ATP
+rule 85   atrbSym -> T_SYM_ATM
+rule 86   atrbSym -> T_SYM_ATMUL
+rule 87   atrbSym -> T_SYM_ATDIV
+rule 88   atrbSym -> T_SYM_ATMOD
+rule 89   cmdIf -> T_RES_IF T_SYM_OP expression T_SYM_CP cmd
+rule 90   cmdIf -> T_RES_IF T_SYM_OP expression T_SYM_CP cmd T_RES_ELSE cmd
+rule 91   cmdWhile -> T_RES_WHILE T_SYM_OP expression T_SYM_CP cmd
+rule 92   cmdFor -> T_RES_FOR T_SYM_OP atrib T_SYM_SMC expression T_SYM_SMC atrib T_SYM_CP cmd
+rule 93   cmdStop -> T_RES_STOP T_SYM_SMC
+rule 94   cmdSkip -> T_RES_SKIP T_SYM_SMC
+rule 95   cmdReturn -> T_RES_RETURN T_SYM_SMC
+rule 96   cmdReturn -> T_RES_RETURN expression T_SYM_SMC
+rule 97   cmdCallProc -> id T_SYM_OP expList T_SYM_CP T_SYM_SMC
+rule 98   cmdRead -> T_RES_READ varUse T_SYM_SMC
+rule 99   cmdWrite -> T_RES_WRITE expList T_SYM_SMC
+
+Terminals, with rules where they appear
+
+$ (-1)
+error (256)
+T_RES_VAR (258) 6
+T_RES_BOOL (259) 37
+T_RES_STR (260) 38
+T_RES_INT (261) 36
+T_RES_IF (262) 89 90
+T_RES_ELSE (263) 90
+T_RES_FOR (264) 92
+T_RES_WHILE (265) 91
+T_RES_SKIP (266) 94
+T_RES_STOP (267) 93
+T_RES_DEF (268) 21 22
+T_RES_RETURN (269) 95 96
+T_RES_READ (270) 98
+T_RES_WRITE (271) 99
+T_SYM_OP (272) 21 22 58 63 89 90 91 92 97
+T_SYM_CP (273) 21 22 58 63 89 90 91 92 97
+T_SYM_OBK (274) 15 30 43
+T_SYM_CBK (275) 15 30 43
+T_SYM_OBC (276) 16 39
+T_SYM_CBC (277) 16 39
+T_SYM_ATR (278) 14 16 83
+T_SYM_ATP (279) 84
+T_SYM_ATM (280) 85
+T_SYM_ATMUL (281) 86
+T_SYM_ATDIV (282) 87
+T_SYM_ATMOD (283) 88
+T_SYM_PLS (284) 45
+T_SYM_MIN (285) 46 59
+T_SYM_MUL (286) 47
+T_SYM_DIV (287) 48
+T_SYM_MOD (288) 49
+T_SYM_EQL (289) 50
+T_SYM_DIF (290) 51
+T_SYM_HIG (291) 52
+T_SYM_HEQ (292) 53
+T_SYM_LES (293) 54
+T_SYM_LEQ (294) 55
+T_SYM_OR (295) 56
+T_SYM_AND (296) 57
+T_SYM_NOT (297)
+T_SYM_SMC (298) 6 25 81 92 93 94 95 96 97 98 99
+T_SYM_CMA (299) 8 18 28 66
+T_SYM_INTR (300) 44
+T_SYM_COL (301) 6 22 26 44
+T_ID (302) 31
+T_LIT_INT (303) 15 32
+T_LIT_STR (304) 33
+T_LIT_TRUE (305) 34
+T_LIT_FALSE (306) 35
+LOWER_THEN_ELSE (307)
+UMINUS (308)
+
+Nonterminals, with rules where they appear
+
+program (54)
+    on left: 1
+listDec (55)
+    on left: 2 3, on right: 1 3 40
+dec (56)
+    on left: 4 5, on right: 2 3
+decVar (57)
+    on left: 6, on right: 4
+listVarSpecs (58)
+    on left: 7 8, on right: 6 8
+specVar (59)
+    on left: 9 10 11 12, on right: 7 8
+specVarSim (60)
+    on left: 13, on right: 9 14
+specVarSimInit (61)
+    on left: 14, on right: 10
+specVarArr (62)
+    on left: 15, on right: 11 16
+specVarArrInit (63)
+    on left: 16, on right: 12
+arrInit (64)
+    on left: 17 18, on right: 16 18
+decSub (65)
+    on left: 19 20, on right: 5
+decProc (66)
+    on left: 21, on right: 19
+decFunc (67)
+    on left: 22, on right: 20
+paramList (68)
+    on left: 23 24 25, on right: 21 22 25
+paramDef (69)
+    on left: 26, on right: 24 25
+paramSpec (70)
+    on left: 27 28, on right: 26 28
+param (71)
+    on left: 29 30, on right: 27 28
+id (72)
+    on left: 31, on right: 13 15 21 22 29 30 42 43 63 97
+literal (73)
+    on left: 32 33 34 35, on right: 17 18 60
+type (74)
+    on left: 36 37 38, on right: 6 22 26
+block (75)
+    on left: 39, on right: 21 22 70
+blockdec (76)
+    on left: 40 41, on right: 39
+varUse (77)
+    on left: 42 43, on right: 61 82 98
+expression (78)
+    on left: 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61
+    62, on right: 14 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58
+    59 65 66 82 89 90 91 92 96
+callFunc (79)
+    on left: 63, on right: 62
+expList (80)
+    on left: 64 65 66, on right: 63 66 97 99
+cmds (81)
+    on left: 67 68, on right: 40 41 68
+cmd (82)
+    on left: 69 70, on right: 68 89 90 91 92
+simCmd (83)
+    on left: 71 72 73 74 75 76 77 78 79 80, on right: 69
+cmdAtrib (84)
+    on left: 81, on right: 71
+atrib (85)
+    on left: 82, on right: 81 92
+atrbSym (86)
+    on left: 83 84 85 86 87 88, on right: 82
+cmdIf (87)
+    on left: 89 90, on right: 72
+cmdWhile (88)
+    on left: 91, on right: 73
+cmdFor (89)
+    on left: 92, on right: 74
+cmdStop (90)
+    on left: 93, on right: 75
+cmdSkip (91)
+    on left: 94, on right: 76
+cmdReturn (92)
+    on left: 95 96, on right: 77
+cmdCallProc (93)
+    on left: 97, on right: 78
+cmdRead (94)
+    on left: 98, on right: 79
+cmdWrite (95)
+    on left: 99, on right: 80
+
+
+state 0
+
+    T_RES_VAR	shift, and go to state 1
+    T_RES_DEF	shift, and go to state 2
+
+    program	go to state 181
+    listDec	go to state 3
+    dec 	go to state 4
+    decVar	go to state 5
+    decSub	go to state 6
+    decProc	go to state 7
+    decFunc	go to state 8
+
+
+
+state 1
+
+    decVar  ->  T_RES_VAR . listVarSpecs T_SYM_COL type T_SYM_SMC   (rule 6)
+
+    T_ID	shift, and go to state 9
+
+    listVarSpecs	go to state 10
+    specVar	go to state 11
+    specVarSim	go to state 12
+    specVarSimInit	go to state 13
+    specVarArr	go to state 14
+    specVarArrInit	go to state 15
+    id  	go to state 16
+
+
+
+state 2
+
+    decProc  ->  T_RES_DEF . id T_SYM_OP paramList T_SYM_CP block   (rule 21)
+    decFunc  ->  T_RES_DEF . id T_SYM_OP paramList T_SYM_CP T_SYM_COL type block   (rule 22)
+
+    T_ID	shift, and go to state 9
+
+    id  	go to state 17
+
+
+
+state 3
+
+    program  ->  listDec .   (rule 1)
+    listDec  ->  listDec . dec   (rule 3)
+
+    T_RES_VAR	shift, and go to state 1
+    T_RES_DEF	shift, and go to state 2
+
+    $default	reduce using rule 1 (program)
+
+    dec 	go to state 18
+    decVar	go to state 5
+    decSub	go to state 6
+    decProc	go to state 7
+    decFunc	go to state 8
+
+
+
+state 4
+
+    listDec  ->  dec .   (rule 2)
+
+    $default	reduce using rule 2 (listDec)
+
+
+
+state 5
+
+    dec  ->  decVar .   (rule 4)
+
+    $default	reduce using rule 4 (dec)
+
+
+
+state 6
+
+    dec  ->  decSub .   (rule 5)
+
+    $default	reduce using rule 5 (dec)
+
+
+
+state 7
+
+    decSub  ->  decProc .   (rule 19)
+
+    $default	reduce using rule 19 (decSub)
+
+
+
+state 8
+
+    decSub  ->  decFunc .   (rule 20)
+
+    $default	reduce using rule 20 (decSub)
+
+
+
+state 9
+
+    id  ->  T_ID .   (rule 31)
+
+    $default	reduce using rule 31 (id)
+
+
+
+state 10
+
+    decVar  ->  T_RES_VAR listVarSpecs . T_SYM_COL type T_SYM_SMC   (rule 6)
+
+    T_SYM_COL	shift, and go to state 19
+
+
+
+state 11
+
+    listVarSpecs  ->  specVar .   (rule 7)
+    listVarSpecs  ->  specVar . T_SYM_CMA listVarSpecs   (rule 8)
+
+    T_SYM_CMA	shift, and go to state 20
+
+    $default	reduce using rule 7 (listVarSpecs)
+
+
+
+state 12
+
+    specVar  ->  specVarSim .   (rule 9)
+    specVarSimInit  ->  specVarSim . T_SYM_ATR expression   (rule 14)
+
+    T_SYM_ATR	shift, and go to state 21
+
+    $default	reduce using rule 9 (specVar)
+
+
+
+state 13
+
+    specVar  ->  specVarSimInit .   (rule 10)
+
+    $default	reduce using rule 10 (specVar)
+
+
+
+state 14
+
+    specVar  ->  specVarArr .   (rule 11)
+    specVarArrInit  ->  specVarArr . T_SYM_ATR T_SYM_OBC arrInit T_SYM_CBC   (rule 16)
+
+    T_SYM_ATR	shift, and go to state 22
+
+    $default	reduce using rule 11 (specVar)
+
+
+
+state 15
+
+    specVar  ->  specVarArrInit .   (rule 12)
+
+    $default	reduce using rule 12 (specVar)
+
+
+
+state 16
+
+    specVarSim  ->  id .   (rule 13)
+    specVarArr  ->  id . T_SYM_OBK T_LIT_INT T_SYM_CBK   (rule 15)
+
+    T_SYM_OBK	shift, and go to state 23
+
+    $default	reduce using rule 13 (specVarSim)
+
+
+
+state 17
+
+    decProc  ->  T_RES_DEF id . T_SYM_OP paramList T_SYM_CP block   (rule 21)
+    decFunc  ->  T_RES_DEF id . T_SYM_OP paramList T_SYM_CP T_SYM_COL type block   (rule 22)
+
+    T_SYM_OP	shift, and go to state 24
+
+
+
+state 18
+
+    listDec  ->  listDec dec .   (rule 3)
+
+    $default	reduce using rule 3 (listDec)
+
+
+
+state 19
+
+    decVar  ->  T_RES_VAR listVarSpecs T_SYM_COL . type T_SYM_SMC   (rule 6)
+
+    T_RES_BOOL	shift, and go to state 25
+    T_RES_STR	shift, and go to state 26
+    T_RES_INT	shift, and go to state 27
+
+    type	go to state 28
+
+
+
+state 20
+
+    listVarSpecs  ->  specVar T_SYM_CMA . listVarSpecs   (rule 8)
+
+    T_ID	shift, and go to state 9
+
+    listVarSpecs	go to state 29
+    specVar	go to state 11
+    specVarSim	go to state 12
+    specVarSimInit	go to state 13
+    specVarArr	go to state 14
+    specVarArrInit	go to state 15
+    id  	go to state 16
+
+
+
+state 21
+
+    specVarSimInit  ->  specVarSim T_SYM_ATR . expression   (rule 14)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 39
+    callFunc	go to state 40
+
+
+
+state 22
+
+    specVarArrInit  ->  specVarArr T_SYM_ATR . T_SYM_OBC arrInit T_SYM_CBC   (rule 16)
+
+    T_SYM_OBC	shift, and go to state 41
+
+
+
+state 23
+
+    specVarArr  ->  id T_SYM_OBK . T_LIT_INT T_SYM_CBK   (rule 15)
+
+    T_LIT_INT	shift, and go to state 42
+
+
+
+state 24
+
+    decProc  ->  T_RES_DEF id T_SYM_OP . paramList T_SYM_CP block   (rule 21)
+    decFunc  ->  T_RES_DEF id T_SYM_OP . paramList T_SYM_CP T_SYM_COL type block   (rule 22)
+
+    T_ID	shift, and go to state 9
+
+    $default	reduce using rule 23 (paramList)
+
+    paramList	go to state 43
+    paramDef	go to state 44
+    paramSpec	go to state 45
+    param	go to state 46
+    id  	go to state 47
+
+
+
+state 25
+
+    type  ->  T_RES_BOOL .   (rule 37)
+
+    $default	reduce using rule 37 (type)
+
+
+
+state 26
+
+    type  ->  T_RES_STR .   (rule 38)
+
+    $default	reduce using rule 38 (type)
+
+
+
+state 27
+
+    type  ->  T_RES_INT .   (rule 36)
+
+    $default	reduce using rule 36 (type)
+
+
+
+state 28
+
+    decVar  ->  T_RES_VAR listVarSpecs T_SYM_COL type . T_SYM_SMC   (rule 6)
+
+    T_SYM_SMC	shift, and go to state 48
+
+
+
+state 29
+
+    listVarSpecs  ->  specVar T_SYM_CMA listVarSpecs .   (rule 8)
+
+    $default	reduce using rule 8 (listVarSpecs)
+
+
+
+state 30
+
+    expression  ->  T_SYM_OP . expression T_SYM_CP   (rule 58)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 49
+    callFunc	go to state 40
+
+
+
+state 31
+
+    expression  ->  T_SYM_MIN . expression   (rule 59)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 50
+    callFunc	go to state 40
+
+
+
+state 32
+
+    literal  ->  T_LIT_INT .   (rule 32)
+
+    $default	reduce using rule 32 (literal)
+
+
+
+state 33
+
+    literal  ->  T_LIT_STR .   (rule 33)
+
+    $default	reduce using rule 33 (literal)
+
+
+
+state 34
+
+    literal  ->  T_LIT_TRUE .   (rule 34)
+
+    $default	reduce using rule 34 (literal)
+
+
+
+state 35
+
+    literal  ->  T_LIT_FALSE .   (rule 35)
+
+    $default	reduce using rule 35 (literal)
+
+
+
+state 36
+
+    varUse  ->  id .   (rule 42)
+    varUse  ->  id . T_SYM_OBK expression T_SYM_CBK   (rule 43)
+    callFunc  ->  id . T_SYM_OP expList T_SYM_CP   (rule 63)
+
+    T_SYM_OP	shift, and go to state 51
+    T_SYM_OBK	shift, and go to state 52
+
+    $default	reduce using rule 42 (varUse)
+
+
+
+state 37
+
+    expression  ->  literal .   (rule 60)
+
+    $default	reduce using rule 60 (expression)
+
+
+
+state 38
+
+    expression  ->  varUse .   (rule 61)
+
+    $default	reduce using rule 61 (expression)
+
+
+
+state 39
+
+    specVarSimInit  ->  specVarSim T_SYM_ATR expression .   (rule 14)
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+    T_SYM_EQL	shift, and go to state 58
+    T_SYM_DIF	shift, and go to state 59
+    T_SYM_HIG	shift, and go to state 60
+    T_SYM_HEQ	shift, and go to state 61
+    T_SYM_LES	shift, and go to state 62
+    T_SYM_LEQ	shift, and go to state 63
+    T_SYM_OR	shift, and go to state 64
+    T_SYM_AND	shift, and go to state 65
+    T_SYM_INTR	shift, and go to state 66
+
+    $default	reduce using rule 14 (specVarSimInit)
+
+
+
+state 40
+
+    expression  ->  callFunc .   (rule 62)
+
+    $default	reduce using rule 62 (expression)
+
+
+
+state 41
+
+    specVarArrInit  ->  specVarArr T_SYM_ATR T_SYM_OBC . arrInit T_SYM_CBC   (rule 16)
+
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    arrInit	go to state 67
+    literal	go to state 68
+
+
+
+state 42
+
+    specVarArr  ->  id T_SYM_OBK T_LIT_INT . T_SYM_CBK   (rule 15)
+
+    T_SYM_CBK	shift, and go to state 69
+
+
+
+state 43
+
+    decProc  ->  T_RES_DEF id T_SYM_OP paramList . T_SYM_CP block   (rule 21)
+    decFunc  ->  T_RES_DEF id T_SYM_OP paramList . T_SYM_CP T_SYM_COL type block   (rule 22)
+
+    T_SYM_CP	shift, and go to state 70
+
+
+
+state 44
+
+    paramList  ->  paramDef .   (rule 24)
+    paramList  ->  paramDef . T_SYM_SMC paramList   (rule 25)
+
+    T_SYM_SMC	shift, and go to state 71
+
+    $default	reduce using rule 24 (paramList)
+
+
+
+state 45
+
+    paramDef  ->  paramSpec . T_SYM_COL type   (rule 26)
+
+    T_SYM_COL	shift, and go to state 72
+
+
+
+state 46
+
+    paramSpec  ->  param .   (rule 27)
+    paramSpec  ->  param . T_SYM_CMA paramSpec   (rule 28)
+
+    T_SYM_CMA	shift, and go to state 73
+
+    $default	reduce using rule 27 (paramSpec)
+
+
+
+state 47
+
+    param  ->  id .   (rule 29)
+    param  ->  id . T_SYM_OBK T_SYM_CBK   (rule 30)
+
+    T_SYM_OBK	shift, and go to state 74
+
+    $default	reduce using rule 29 (param)
+
+
+
+state 48
+
+    decVar  ->  T_RES_VAR listVarSpecs T_SYM_COL type T_SYM_SMC .   (rule 6)
+
+    $default	reduce using rule 6 (decVar)
+
+
+
+state 49
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+    expression  ->  T_SYM_OP expression . T_SYM_CP   (rule 58)
+
+    T_SYM_CP	shift, and go to state 75
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+    T_SYM_EQL	shift, and go to state 58
+    T_SYM_DIF	shift, and go to state 59
+    T_SYM_HIG	shift, and go to state 60
+    T_SYM_HEQ	shift, and go to state 61
+    T_SYM_LES	shift, and go to state 62
+    T_SYM_LEQ	shift, and go to state 63
+    T_SYM_OR	shift, and go to state 64
+    T_SYM_AND	shift, and go to state 65
+    T_SYM_INTR	shift, and go to state 66
+
+
+
+state 50
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+    expression  ->  T_SYM_MIN expression .   (rule 59)
+
+
+    $default	reduce using rule 59 (expression)
+
+
+
+state 51
+
+    callFunc  ->  id T_SYM_OP . expList T_SYM_CP   (rule 63)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    $default	reduce using rule 64 (expList)
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 76
+    callFunc	go to state 40
+    expList	go to state 77
+
+
+
+state 52
+
+    varUse  ->  id T_SYM_OBK . expression T_SYM_CBK   (rule 43)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 78
+    callFunc	go to state 40
+
+
+
+state 53
+
+    expression  ->  expression T_SYM_PLS . expression   (rule 45)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 79
+    callFunc	go to state 40
+
+
+
+state 54
+
+    expression  ->  expression T_SYM_MIN . expression   (rule 46)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 80
+    callFunc	go to state 40
+
+
+
+state 55
+
+    expression  ->  expression T_SYM_MUL . expression   (rule 47)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 81
+    callFunc	go to state 40
+
+
+
+state 56
+
+    expression  ->  expression T_SYM_DIV . expression   (rule 48)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 82
+    callFunc	go to state 40
+
+
+
+state 57
+
+    expression  ->  expression T_SYM_MOD . expression   (rule 49)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 83
+    callFunc	go to state 40
+
+
+
+state 58
+
+    expression  ->  expression T_SYM_EQL . expression   (rule 50)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 84
+    callFunc	go to state 40
+
+
+
+state 59
+
+    expression  ->  expression T_SYM_DIF . expression   (rule 51)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 85
+    callFunc	go to state 40
+
+
+
+state 60
+
+    expression  ->  expression T_SYM_HIG . expression   (rule 52)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 86
+    callFunc	go to state 40
+
+
+
+state 61
+
+    expression  ->  expression T_SYM_HEQ . expression   (rule 53)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 87
+    callFunc	go to state 40
+
+
+
+state 62
+
+    expression  ->  expression T_SYM_LES . expression   (rule 54)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 88
+    callFunc	go to state 40
+
+
+
+state 63
+
+    expression  ->  expression T_SYM_LEQ . expression   (rule 55)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 89
+    callFunc	go to state 40
+
+
+
+state 64
+
+    expression  ->  expression T_SYM_OR . expression   (rule 56)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 90
+    callFunc	go to state 40
+
+
+
+state 65
+
+    expression  ->  expression T_SYM_AND . expression   (rule 57)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 91
+    callFunc	go to state 40
+
+
+
+state 66
+
+    expression  ->  expression T_SYM_INTR . expression T_SYM_COL expression   (rule 44)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 92
+    callFunc	go to state 40
+
+
+
+state 67
+
+    specVarArrInit  ->  specVarArr T_SYM_ATR T_SYM_OBC arrInit . T_SYM_CBC   (rule 16)
+
+    T_SYM_CBC	shift, and go to state 93
+
+
+
+state 68
+
+    arrInit  ->  literal .   (rule 17)
+    arrInit  ->  literal . T_SYM_CMA arrInit   (rule 18)
+
+    T_SYM_CMA	shift, and go to state 94
+
+    $default	reduce using rule 17 (arrInit)
+
+
+
+state 69
+
+    specVarArr  ->  id T_SYM_OBK T_LIT_INT T_SYM_CBK .   (rule 15)
+
+    $default	reduce using rule 15 (specVarArr)
+
+
+
+state 70
+
+    decProc  ->  T_RES_DEF id T_SYM_OP paramList T_SYM_CP . block   (rule 21)
+    decFunc  ->  T_RES_DEF id T_SYM_OP paramList T_SYM_CP . T_SYM_COL type block   (rule 22)
+
+    T_SYM_OBC	shift, and go to state 95
+    T_SYM_COL	shift, and go to state 96
+
+    block	go to state 97
+
+
+
+state 71
+
+    paramList  ->  paramDef T_SYM_SMC . paramList   (rule 25)
+
+    T_ID	shift, and go to state 9
+
+    $default	reduce using rule 23 (paramList)
+
+    paramList	go to state 98
+    paramDef	go to state 44
+    paramSpec	go to state 45
+    param	go to state 46
+    id  	go to state 47
+
+
+
+state 72
+
+    paramDef  ->  paramSpec T_SYM_COL . type   (rule 26)
+
+    T_RES_BOOL	shift, and go to state 25
+    T_RES_STR	shift, and go to state 26
+    T_RES_INT	shift, and go to state 27
+
+    type	go to state 99
+
+
+
+state 73
+
+    paramSpec  ->  param T_SYM_CMA . paramSpec   (rule 28)
+
+    T_ID	shift, and go to state 9
+
+    paramSpec	go to state 100
+    param	go to state 46
+    id  	go to state 47
+
+
+
+state 74
+
+    param  ->  id T_SYM_OBK . T_SYM_CBK   (rule 30)
+
+    T_SYM_CBK	shift, and go to state 101
+
+
+
+state 75
+
+    expression  ->  T_SYM_OP expression T_SYM_CP .   (rule 58)
+
+    $default	reduce using rule 58 (expression)
+
+
+
+state 76
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+    expList  ->  expression .   (rule 65)
+    expList  ->  expression . T_SYM_CMA expList   (rule 66)
+
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+    T_SYM_EQL	shift, and go to state 58
+    T_SYM_DIF	shift, and go to state 59
+    T_SYM_HIG	shift, and go to state 60
+    T_SYM_HEQ	shift, and go to state 61
+    T_SYM_LES	shift, and go to state 62
+    T_SYM_LEQ	shift, and go to state 63
+    T_SYM_OR	shift, and go to state 64
+    T_SYM_AND	shift, and go to state 65
+    T_SYM_CMA	shift, and go to state 102
+    T_SYM_INTR	shift, and go to state 66
+
+    $default	reduce using rule 65 (expList)
+
+
+
+state 77
+
+    callFunc  ->  id T_SYM_OP expList . T_SYM_CP   (rule 63)
+
+    T_SYM_CP	shift, and go to state 103
+
+
+
+state 78
+
+    varUse  ->  id T_SYM_OBK expression . T_SYM_CBK   (rule 43)
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+
+    T_SYM_CBK	shift, and go to state 104
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+    T_SYM_EQL	shift, and go to state 58
+    T_SYM_DIF	shift, and go to state 59
+    T_SYM_HIG	shift, and go to state 60
+    T_SYM_HEQ	shift, and go to state 61
+    T_SYM_LES	shift, and go to state 62
+    T_SYM_LEQ	shift, and go to state 63
+    T_SYM_OR	shift, and go to state 64
+    T_SYM_AND	shift, and go to state 65
+    T_SYM_INTR	shift, and go to state 66
+
+
+
+state 79
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression T_SYM_PLS expression .   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+
+    $default	reduce using rule 45 (expression)
+
+
+
+state 80
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression T_SYM_MIN expression .   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+
+    $default	reduce using rule 46 (expression)
+
+
+
+state 81
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression T_SYM_MUL expression .   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+
+
+    $default	reduce using rule 47 (expression)
+
+
+
+state 82
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression T_SYM_DIV expression .   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+
+
+    $default	reduce using rule 48 (expression)
+
+
+
+state 83
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression T_SYM_MOD expression .   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+
+
+    $default	reduce using rule 49 (expression)
+
+
+
+state 84
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression T_SYM_EQL expression .   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+    T_SYM_HIG	shift, and go to state 60
+    T_SYM_HEQ	shift, and go to state 61
+    T_SYM_LES	shift, and go to state 62
+    T_SYM_LEQ	shift, and go to state 63
+
+    $default	reduce using rule 50 (expression)
+
+
+
+state 85
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression T_SYM_DIF expression .   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+    T_SYM_HIG	shift, and go to state 60
+    T_SYM_HEQ	shift, and go to state 61
+    T_SYM_LES	shift, and go to state 62
+    T_SYM_LEQ	shift, and go to state 63
+
+    $default	reduce using rule 51 (expression)
+
+
+
+state 86
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression T_SYM_HIG expression .   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+
+    $default	reduce using rule 52 (expression)
+
+
+
+state 87
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression T_SYM_HEQ expression .   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+
+    $default	reduce using rule 53 (expression)
+
+
+
+state 88
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression T_SYM_LES expression .   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+
+    $default	reduce using rule 54 (expression)
+
+
+
+state 89
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression T_SYM_LEQ expression .   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+
+    $default	reduce using rule 55 (expression)
+
+
+
+state 90
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression T_SYM_OR expression .   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+    T_SYM_EQL	shift, and go to state 58
+    T_SYM_DIF	shift, and go to state 59
+    T_SYM_HIG	shift, and go to state 60
+    T_SYM_HEQ	shift, and go to state 61
+    T_SYM_LES	shift, and go to state 62
+    T_SYM_LEQ	shift, and go to state 63
+    T_SYM_AND	shift, and go to state 65
+
+    $default	reduce using rule 56 (expression)
+
+
+
+state 91
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+    expression  ->  expression T_SYM_AND expression .   (rule 57)
+
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+    T_SYM_EQL	shift, and go to state 58
+    T_SYM_DIF	shift, and go to state 59
+    T_SYM_HIG	shift, and go to state 60
+    T_SYM_HEQ	shift, and go to state 61
+    T_SYM_LES	shift, and go to state 62
+    T_SYM_LEQ	shift, and go to state 63
+
+    $default	reduce using rule 57 (expression)
+
+
+
+state 92
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression T_SYM_INTR expression . T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+    T_SYM_EQL	shift, and go to state 58
+    T_SYM_DIF	shift, and go to state 59
+    T_SYM_HIG	shift, and go to state 60
+    T_SYM_HEQ	shift, and go to state 61
+    T_SYM_LES	shift, and go to state 62
+    T_SYM_LEQ	shift, and go to state 63
+    T_SYM_OR	shift, and go to state 64
+    T_SYM_AND	shift, and go to state 65
+    T_SYM_INTR	shift, and go to state 66
+    T_SYM_COL	shift, and go to state 105
+
+
+
+state 93
+
+    specVarArrInit  ->  specVarArr T_SYM_ATR T_SYM_OBC arrInit T_SYM_CBC .   (rule 16)
+
+    $default	reduce using rule 16 (specVarArrInit)
+
+
+
+state 94
+
+    arrInit  ->  literal T_SYM_CMA . arrInit   (rule 18)
+
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    arrInit	go to state 106
+    literal	go to state 68
+
+
+
+state 95
+
+    block  ->  T_SYM_OBC . blockdec T_SYM_CBC   (rule 39)
+
+    T_RES_VAR	shift, and go to state 1
+    T_RES_DEF	shift, and go to state 2
+
+    $default	reduce using rule 67 (cmds)
+
+    listDec	go to state 107
+    dec 	go to state 4
+    decVar	go to state 5
+    decSub	go to state 6
+    decProc	go to state 7
+    decFunc	go to state 8
+    blockdec	go to state 108
+    cmds	go to state 109
+
+
+
+state 96
+
+    decFunc  ->  T_RES_DEF id T_SYM_OP paramList T_SYM_CP T_SYM_COL . type block   (rule 22)
+
+    T_RES_BOOL	shift, and go to state 25
+    T_RES_STR	shift, and go to state 26
+    T_RES_INT	shift, and go to state 27
+
+    type	go to state 110
+
+
+
+state 97
+
+    decProc  ->  T_RES_DEF id T_SYM_OP paramList T_SYM_CP block .   (rule 21)
+
+    $default	reduce using rule 21 (decProc)
+
+
+
+state 98
+
+    paramList  ->  paramDef T_SYM_SMC paramList .   (rule 25)
+
+    $default	reduce using rule 25 (paramList)
+
+
+
+state 99
+
+    paramDef  ->  paramSpec T_SYM_COL type .   (rule 26)
+
+    $default	reduce using rule 26 (paramDef)
+
+
+
+state 100
+
+    paramSpec  ->  param T_SYM_CMA paramSpec .   (rule 28)
+
+    $default	reduce using rule 28 (paramSpec)
+
+
+
+state 101
+
+    param  ->  id T_SYM_OBK T_SYM_CBK .   (rule 30)
+
+    $default	reduce using rule 30 (param)
+
+
+
+state 102
+
+    expList  ->  expression T_SYM_CMA . expList   (rule 66)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    $default	reduce using rule 64 (expList)
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 76
+    callFunc	go to state 40
+    expList	go to state 111
+
+
+
+state 103
+
+    callFunc  ->  id T_SYM_OP expList T_SYM_CP .   (rule 63)
+
+    $default	reduce using rule 63 (callFunc)
+
+
+
+state 104
+
+    varUse  ->  id T_SYM_OBK expression T_SYM_CBK .   (rule 43)
+
+    $default	reduce using rule 43 (varUse)
+
+
+
+state 105
+
+    expression  ->  expression T_SYM_INTR expression T_SYM_COL . expression   (rule 44)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 112
+    callFunc	go to state 40
+
+
+
+state 106
+
+    arrInit  ->  literal T_SYM_CMA arrInit .   (rule 18)
+
+    $default	reduce using rule 18 (arrInit)
+
+
+
+state 107
+
+    listDec  ->  listDec . dec   (rule 3)
+    blockdec  ->  listDec . cmds   (rule 40)
+
+    T_RES_VAR	shift, and go to state 1
+    T_RES_DEF	shift, and go to state 2
+
+    $default	reduce using rule 67 (cmds)
+
+    dec 	go to state 18
+    decVar	go to state 5
+    decSub	go to state 6
+    decProc	go to state 7
+    decFunc	go to state 8
+    cmds	go to state 113
+
+
+
+state 108
+
+    block  ->  T_SYM_OBC blockdec . T_SYM_CBC   (rule 39)
+
+    T_SYM_CBC	shift, and go to state 114
+
+
+
+state 109
+
+    blockdec  ->  cmds .   (rule 41)
+    cmds  ->  cmds . cmd   (rule 68)
+
+    T_RES_IF	shift, and go to state 115
+    T_RES_FOR	shift, and go to state 116
+    T_RES_WHILE	shift, and go to state 117
+    T_RES_SKIP	shift, and go to state 118
+    T_RES_STOP	shift, and go to state 119
+    T_RES_RETURN	shift, and go to state 120
+    T_RES_READ	shift, and go to state 121
+    T_RES_WRITE	shift, and go to state 122
+    T_SYM_OBC	shift, and go to state 95
+    T_ID	shift, and go to state 9
+
+    $default	reduce using rule 41 (blockdec)
+
+    id  	go to state 123
+    block	go to state 124
+    varUse	go to state 125
+    cmd 	go to state 126
+    simCmd	go to state 127
+    cmdAtrib	go to state 128
+    atrib	go to state 129
+    cmdIf	go to state 130
+    cmdWhile	go to state 131
+    cmdFor	go to state 132
+    cmdStop	go to state 133
+    cmdSkip	go to state 134
+    cmdReturn	go to state 135
+    cmdCallProc	go to state 136
+    cmdRead	go to state 137
+    cmdWrite	go to state 138
+
+
+
+state 110
+
+    decFunc  ->  T_RES_DEF id T_SYM_OP paramList T_SYM_CP T_SYM_COL type . block   (rule 22)
+
+    T_SYM_OBC	shift, and go to state 95
+
+    block	go to state 139
+
+
+
+state 111
+
+    expList  ->  expression T_SYM_CMA expList .   (rule 66)
+
+    $default	reduce using rule 66 (expList)
+
+
+
+state 112
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression T_SYM_INTR expression T_SYM_COL expression .   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+    T_SYM_EQL	shift, and go to state 58
+    T_SYM_DIF	shift, and go to state 59
+    T_SYM_HIG	shift, and go to state 60
+    T_SYM_HEQ	shift, and go to state 61
+    T_SYM_LES	shift, and go to state 62
+    T_SYM_LEQ	shift, and go to state 63
+    T_SYM_OR	shift, and go to state 64
+    T_SYM_AND	shift, and go to state 65
+    T_SYM_INTR	shift, and go to state 66
+
+    $default	reduce using rule 44 (expression)
+
+
+
+state 113
+
+    blockdec  ->  listDec cmds .   (rule 40)
+    cmds  ->  cmds . cmd   (rule 68)
+
+    T_RES_IF	shift, and go to state 115
+    T_RES_FOR	shift, and go to state 116
+    T_RES_WHILE	shift, and go to state 117
+    T_RES_SKIP	shift, and go to state 118
+    T_RES_STOP	shift, and go to state 119
+    T_RES_RETURN	shift, and go to state 120
+    T_RES_READ	shift, and go to state 121
+    T_RES_WRITE	shift, and go to state 122
+    T_SYM_OBC	shift, and go to state 95
+    T_ID	shift, and go to state 9
+
+    $default	reduce using rule 40 (blockdec)
+
+    id  	go to state 123
+    block	go to state 124
+    varUse	go to state 125
+    cmd 	go to state 126
+    simCmd	go to state 127
+    cmdAtrib	go to state 128
+    atrib	go to state 129
+    cmdIf	go to state 130
+    cmdWhile	go to state 131
+    cmdFor	go to state 132
+    cmdStop	go to state 133
+    cmdSkip	go to state 134
+    cmdReturn	go to state 135
+    cmdCallProc	go to state 136
+    cmdRead	go to state 137
+    cmdWrite	go to state 138
+
+
+
+state 114
+
+    block  ->  T_SYM_OBC blockdec T_SYM_CBC .   (rule 39)
+
+    $default	reduce using rule 39 (block)
+
+
+
+state 115
+
+    cmdIf  ->  T_RES_IF . T_SYM_OP expression T_SYM_CP cmd   (rule 89)
+    cmdIf  ->  T_RES_IF . T_SYM_OP expression T_SYM_CP cmd T_RES_ELSE cmd   (rule 90)
+
+    T_SYM_OP	shift, and go to state 140
+
+
+
+state 116
+
+    cmdFor  ->  T_RES_FOR . T_SYM_OP atrib T_SYM_SMC expression T_SYM_SMC atrib T_SYM_CP cmd   (rule 92)
+
+    T_SYM_OP	shift, and go to state 141
+
+
+
+state 117
+
+    cmdWhile  ->  T_RES_WHILE . T_SYM_OP expression T_SYM_CP cmd   (rule 91)
+
+    T_SYM_OP	shift, and go to state 142
+
+
+
+state 118
+
+    cmdSkip  ->  T_RES_SKIP . T_SYM_SMC   (rule 94)
+
+    T_SYM_SMC	shift, and go to state 143
+
+
+
+state 119
+
+    cmdStop  ->  T_RES_STOP . T_SYM_SMC   (rule 93)
+
+    T_SYM_SMC	shift, and go to state 144
+
+
+
+state 120
+
+    cmdReturn  ->  T_RES_RETURN . T_SYM_SMC   (rule 95)
+    cmdReturn  ->  T_RES_RETURN . expression T_SYM_SMC   (rule 96)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_SYM_SMC	shift, and go to state 145
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 146
+    callFunc	go to state 40
+
+
+
+state 121
+
+    cmdRead  ->  T_RES_READ . varUse T_SYM_SMC   (rule 98)
+
+    T_ID	shift, and go to state 9
+
+    id  	go to state 147
+    varUse	go to state 148
+
+
+
+state 122
+
+    cmdWrite  ->  T_RES_WRITE . expList T_SYM_SMC   (rule 99)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    $default	reduce using rule 64 (expList)
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 76
+    callFunc	go to state 40
+    expList	go to state 149
+
+
+
+state 123
+
+    varUse  ->  id .   (rule 42)
+    varUse  ->  id . T_SYM_OBK expression T_SYM_CBK   (rule 43)
+    cmdCallProc  ->  id . T_SYM_OP expList T_SYM_CP T_SYM_SMC   (rule 97)
+
+    T_SYM_OP	shift, and go to state 150
+    T_SYM_OBK	shift, and go to state 52
+
+    $default	reduce using rule 42 (varUse)
+
+
+
+state 124
+
+    cmd  ->  block .   (rule 70)
+
+    $default	reduce using rule 70 (cmd)
+
+
+
+state 125
+
+    atrib  ->  varUse . atrbSym expression   (rule 82)
+
+    T_SYM_ATR	shift, and go to state 151
+    T_SYM_ATP	shift, and go to state 152
+    T_SYM_ATM	shift, and go to state 153
+    T_SYM_ATMUL	shift, and go to state 154
+    T_SYM_ATDIV	shift, and go to state 155
+    T_SYM_ATMOD	shift, and go to state 156
+
+    atrbSym	go to state 157
+
+
+
+state 126
+
+    cmds  ->  cmds cmd .   (rule 68)
+
+    $default	reduce using rule 68 (cmds)
+
+
+
+state 127
+
+    cmd  ->  simCmd .   (rule 69)
+
+    $default	reduce using rule 69 (cmd)
+
+
+
+state 128
+
+    simCmd  ->  cmdAtrib .   (rule 71)
+
+    $default	reduce using rule 71 (simCmd)
+
+
+
+state 129
+
+    cmdAtrib  ->  atrib . T_SYM_SMC   (rule 81)
+
+    T_SYM_SMC	shift, and go to state 158
+
+
+
+state 130
+
+    simCmd  ->  cmdIf .   (rule 72)
+
+    $default	reduce using rule 72 (simCmd)
+
+
+
+state 131
+
+    simCmd  ->  cmdWhile .   (rule 73)
+
+    $default	reduce using rule 73 (simCmd)
+
+
+
+state 132
+
+    simCmd  ->  cmdFor .   (rule 74)
+
+    $default	reduce using rule 74 (simCmd)
+
+
+
+state 133
+
+    simCmd  ->  cmdStop .   (rule 75)
+
+    $default	reduce using rule 75 (simCmd)
+
+
+
+state 134
+
+    simCmd  ->  cmdSkip .   (rule 76)
+
+    $default	reduce using rule 76 (simCmd)
+
+
+
+state 135
+
+    simCmd  ->  cmdReturn .   (rule 77)
+
+    $default	reduce using rule 77 (simCmd)
+
+
+
+state 136
+
+    simCmd  ->  cmdCallProc .   (rule 78)
+
+    $default	reduce using rule 78 (simCmd)
+
+
+
+state 137
+
+    simCmd  ->  cmdRead .   (rule 79)
+
+    $default	reduce using rule 79 (simCmd)
+
+
+
+state 138
+
+    simCmd  ->  cmdWrite .   (rule 80)
+
+    $default	reduce using rule 80 (simCmd)
+
+
+
+state 139
+
+    decFunc  ->  T_RES_DEF id T_SYM_OP paramList T_SYM_CP T_SYM_COL type block .   (rule 22)
+
+    $default	reduce using rule 22 (decFunc)
+
+
+
+state 140
+
+    cmdIf  ->  T_RES_IF T_SYM_OP . expression T_SYM_CP cmd   (rule 89)
+    cmdIf  ->  T_RES_IF T_SYM_OP . expression T_SYM_CP cmd T_RES_ELSE cmd   (rule 90)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 159
+    callFunc	go to state 40
+
+
+
+state 141
+
+    cmdFor  ->  T_RES_FOR T_SYM_OP . atrib T_SYM_SMC expression T_SYM_SMC atrib T_SYM_CP cmd   (rule 92)
+
+    T_ID	shift, and go to state 9
+
+    id  	go to state 147
+    varUse	go to state 125
+    atrib	go to state 160
+
+
+
+state 142
+
+    cmdWhile  ->  T_RES_WHILE T_SYM_OP . expression T_SYM_CP cmd   (rule 91)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 161
+    callFunc	go to state 40
+
+
+
+state 143
+
+    cmdSkip  ->  T_RES_SKIP T_SYM_SMC .   (rule 94)
+
+    $default	reduce using rule 94 (cmdSkip)
+
+
+
+state 144
+
+    cmdStop  ->  T_RES_STOP T_SYM_SMC .   (rule 93)
+
+    $default	reduce using rule 93 (cmdStop)
+
+
+
+state 145
+
+    cmdReturn  ->  T_RES_RETURN T_SYM_SMC .   (rule 95)
+
+    $default	reduce using rule 95 (cmdReturn)
+
+
+
+state 146
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+    cmdReturn  ->  T_RES_RETURN expression . T_SYM_SMC   (rule 96)
+
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+    T_SYM_EQL	shift, and go to state 58
+    T_SYM_DIF	shift, and go to state 59
+    T_SYM_HIG	shift, and go to state 60
+    T_SYM_HEQ	shift, and go to state 61
+    T_SYM_LES	shift, and go to state 62
+    T_SYM_LEQ	shift, and go to state 63
+    T_SYM_OR	shift, and go to state 64
+    T_SYM_AND	shift, and go to state 65
+    T_SYM_SMC	shift, and go to state 162
+    T_SYM_INTR	shift, and go to state 66
+
+
+
+state 147
+
+    varUse  ->  id .   (rule 42)
+    varUse  ->  id . T_SYM_OBK expression T_SYM_CBK   (rule 43)
+
+    T_SYM_OBK	shift, and go to state 52
+
+    $default	reduce using rule 42 (varUse)
+
+
+
+state 148
+
+    cmdRead  ->  T_RES_READ varUse . T_SYM_SMC   (rule 98)
+
+    T_SYM_SMC	shift, and go to state 163
+
+
+
+state 149
+
+    cmdWrite  ->  T_RES_WRITE expList . T_SYM_SMC   (rule 99)
+
+    T_SYM_SMC	shift, and go to state 164
+
+
+
+state 150
+
+    cmdCallProc  ->  id T_SYM_OP . expList T_SYM_CP T_SYM_SMC   (rule 97)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    $default	reduce using rule 64 (expList)
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 76
+    callFunc	go to state 40
+    expList	go to state 165
+
+
+
+state 151
+
+    atrbSym  ->  T_SYM_ATR .   (rule 83)
+
+    $default	reduce using rule 83 (atrbSym)
+
+
+
+state 152
+
+    atrbSym  ->  T_SYM_ATP .   (rule 84)
+
+    $default	reduce using rule 84 (atrbSym)
+
+
+
+state 153
+
+    atrbSym  ->  T_SYM_ATM .   (rule 85)
+
+    $default	reduce using rule 85 (atrbSym)
+
+
+
+state 154
+
+    atrbSym  ->  T_SYM_ATMUL .   (rule 86)
+
+    $default	reduce using rule 86 (atrbSym)
+
+
+
+state 155
+
+    atrbSym  ->  T_SYM_ATDIV .   (rule 87)
+
+    $default	reduce using rule 87 (atrbSym)
+
+
+
+state 156
+
+    atrbSym  ->  T_SYM_ATMOD .   (rule 88)
+
+    $default	reduce using rule 88 (atrbSym)
+
+
+
+state 157
+
+    atrib  ->  varUse atrbSym . expression   (rule 82)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 166
+    callFunc	go to state 40
+
+
+
+state 158
+
+    cmdAtrib  ->  atrib T_SYM_SMC .   (rule 81)
+
+    $default	reduce using rule 81 (cmdAtrib)
+
+
+
+state 159
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+    cmdIf  ->  T_RES_IF T_SYM_OP expression . T_SYM_CP cmd   (rule 89)
+    cmdIf  ->  T_RES_IF T_SYM_OP expression . T_SYM_CP cmd T_RES_ELSE cmd   (rule 90)
+
+    T_SYM_CP	shift, and go to state 167
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+    T_SYM_EQL	shift, and go to state 58
+    T_SYM_DIF	shift, and go to state 59
+    T_SYM_HIG	shift, and go to state 60
+    T_SYM_HEQ	shift, and go to state 61
+    T_SYM_LES	shift, and go to state 62
+    T_SYM_LEQ	shift, and go to state 63
+    T_SYM_OR	shift, and go to state 64
+    T_SYM_AND	shift, and go to state 65
+    T_SYM_INTR	shift, and go to state 66
+
+
+
+state 160
+
+    cmdFor  ->  T_RES_FOR T_SYM_OP atrib . T_SYM_SMC expression T_SYM_SMC atrib T_SYM_CP cmd   (rule 92)
+
+    T_SYM_SMC	shift, and go to state 168
+
+
+
+state 161
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+    cmdWhile  ->  T_RES_WHILE T_SYM_OP expression . T_SYM_CP cmd   (rule 91)
+
+    T_SYM_CP	shift, and go to state 169
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+    T_SYM_EQL	shift, and go to state 58
+    T_SYM_DIF	shift, and go to state 59
+    T_SYM_HIG	shift, and go to state 60
+    T_SYM_HEQ	shift, and go to state 61
+    T_SYM_LES	shift, and go to state 62
+    T_SYM_LEQ	shift, and go to state 63
+    T_SYM_OR	shift, and go to state 64
+    T_SYM_AND	shift, and go to state 65
+    T_SYM_INTR	shift, and go to state 66
+
+
+
+state 162
+
+    cmdReturn  ->  T_RES_RETURN expression T_SYM_SMC .   (rule 96)
+
+    $default	reduce using rule 96 (cmdReturn)
+
+
+
+state 163
+
+    cmdRead  ->  T_RES_READ varUse T_SYM_SMC .   (rule 98)
+
+    $default	reduce using rule 98 (cmdRead)
+
+
+
+state 164
+
+    cmdWrite  ->  T_RES_WRITE expList T_SYM_SMC .   (rule 99)
+
+    $default	reduce using rule 99 (cmdWrite)
+
+
+
+state 165
+
+    cmdCallProc  ->  id T_SYM_OP expList . T_SYM_CP T_SYM_SMC   (rule 97)
+
+    T_SYM_CP	shift, and go to state 170
+
+
+
+state 166
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+    atrib  ->  varUse atrbSym expression .   (rule 82)
+
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+    T_SYM_EQL	shift, and go to state 58
+    T_SYM_DIF	shift, and go to state 59
+    T_SYM_HIG	shift, and go to state 60
+    T_SYM_HEQ	shift, and go to state 61
+    T_SYM_LES	shift, and go to state 62
+    T_SYM_LEQ	shift, and go to state 63
+    T_SYM_OR	shift, and go to state 64
+    T_SYM_AND	shift, and go to state 65
+    T_SYM_INTR	shift, and go to state 66
+
+    $default	reduce using rule 82 (atrib)
+
+
+
+state 167
+
+    cmdIf  ->  T_RES_IF T_SYM_OP expression T_SYM_CP . cmd   (rule 89)
+    cmdIf  ->  T_RES_IF T_SYM_OP expression T_SYM_CP . cmd T_RES_ELSE cmd   (rule 90)
+
+    T_RES_IF	shift, and go to state 115
+    T_RES_FOR	shift, and go to state 116
+    T_RES_WHILE	shift, and go to state 117
+    T_RES_SKIP	shift, and go to state 118
+    T_RES_STOP	shift, and go to state 119
+    T_RES_RETURN	shift, and go to state 120
+    T_RES_READ	shift, and go to state 121
+    T_RES_WRITE	shift, and go to state 122
+    T_SYM_OBC	shift, and go to state 95
+    T_ID	shift, and go to state 9
+
+    id  	go to state 123
+    block	go to state 124
+    varUse	go to state 125
+    cmd 	go to state 171
+    simCmd	go to state 127
+    cmdAtrib	go to state 128
+    atrib	go to state 129
+    cmdIf	go to state 130
+    cmdWhile	go to state 131
+    cmdFor	go to state 132
+    cmdStop	go to state 133
+    cmdSkip	go to state 134
+    cmdReturn	go to state 135
+    cmdCallProc	go to state 136
+    cmdRead	go to state 137
+    cmdWrite	go to state 138
+
+
+
+state 168
+
+    cmdFor  ->  T_RES_FOR T_SYM_OP atrib T_SYM_SMC . expression T_SYM_SMC atrib T_SYM_CP cmd   (rule 92)
+
+    T_SYM_OP	shift, and go to state 30
+    T_SYM_MIN	shift, and go to state 31
+    T_ID	shift, and go to state 9
+    T_LIT_INT	shift, and go to state 32
+    T_LIT_STR	shift, and go to state 33
+    T_LIT_TRUE	shift, and go to state 34
+    T_LIT_FALSE	shift, and go to state 35
+
+    id  	go to state 36
+    literal	go to state 37
+    varUse	go to state 38
+    expression	go to state 172
+    callFunc	go to state 40
+
+
+
+state 169
+
+    cmdWhile  ->  T_RES_WHILE T_SYM_OP expression T_SYM_CP . cmd   (rule 91)
+
+    T_RES_IF	shift, and go to state 115
+    T_RES_FOR	shift, and go to state 116
+    T_RES_WHILE	shift, and go to state 117
+    T_RES_SKIP	shift, and go to state 118
+    T_RES_STOP	shift, and go to state 119
+    T_RES_RETURN	shift, and go to state 120
+    T_RES_READ	shift, and go to state 121
+    T_RES_WRITE	shift, and go to state 122
+    T_SYM_OBC	shift, and go to state 95
+    T_ID	shift, and go to state 9
+
+    id  	go to state 123
+    block	go to state 124
+    varUse	go to state 125
+    cmd 	go to state 173
+    simCmd	go to state 127
+    cmdAtrib	go to state 128
+    atrib	go to state 129
+    cmdIf	go to state 130
+    cmdWhile	go to state 131
+    cmdFor	go to state 132
+    cmdStop	go to state 133
+    cmdSkip	go to state 134
+    cmdReturn	go to state 135
+    cmdCallProc	go to state 136
+    cmdRead	go to state 137
+    cmdWrite	go to state 138
+
+
+
+state 170
+
+    cmdCallProc  ->  id T_SYM_OP expList T_SYM_CP . T_SYM_SMC   (rule 97)
+
+    T_SYM_SMC	shift, and go to state 174
+
+
+
+state 171
+
+    cmdIf  ->  T_RES_IF T_SYM_OP expression T_SYM_CP cmd .   (rule 89)
+    cmdIf  ->  T_RES_IF T_SYM_OP expression T_SYM_CP cmd . T_RES_ELSE cmd   (rule 90)
+
+    T_RES_ELSE	shift, and go to state 175
+
+    $default	reduce using rule 89 (cmdIf)
+
+
+
+state 172
+
+    expression  ->  expression . T_SYM_INTR expression T_SYM_COL expression   (rule 44)
+    expression  ->  expression . T_SYM_PLS expression   (rule 45)
+    expression  ->  expression . T_SYM_MIN expression   (rule 46)
+    expression  ->  expression . T_SYM_MUL expression   (rule 47)
+    expression  ->  expression . T_SYM_DIV expression   (rule 48)
+    expression  ->  expression . T_SYM_MOD expression   (rule 49)
+    expression  ->  expression . T_SYM_EQL expression   (rule 50)
+    expression  ->  expression . T_SYM_DIF expression   (rule 51)
+    expression  ->  expression . T_SYM_HIG expression   (rule 52)
+    expression  ->  expression . T_SYM_HEQ expression   (rule 53)
+    expression  ->  expression . T_SYM_LES expression   (rule 54)
+    expression  ->  expression . T_SYM_LEQ expression   (rule 55)
+    expression  ->  expression . T_SYM_OR expression   (rule 56)
+    expression  ->  expression . T_SYM_AND expression   (rule 57)
+    cmdFor  ->  T_RES_FOR T_SYM_OP atrib T_SYM_SMC expression . T_SYM_SMC atrib T_SYM_CP cmd   (rule 92)
+
+    T_SYM_PLS	shift, and go to state 53
+    T_SYM_MIN	shift, and go to state 54
+    T_SYM_MUL	shift, and go to state 55
+    T_SYM_DIV	shift, and go to state 56
+    T_SYM_MOD	shift, and go to state 57
+    T_SYM_EQL	shift, and go to state 58
+    T_SYM_DIF	shift, and go to state 59
+    T_SYM_HIG	shift, and go to state 60
+    T_SYM_HEQ	shift, and go to state 61
+    T_SYM_LES	shift, and go to state 62
+    T_SYM_LEQ	shift, and go to state 63
+    T_SYM_OR	shift, and go to state 64
+    T_SYM_AND	shift, and go to state 65
+    T_SYM_SMC	shift, and go to state 176
+    T_SYM_INTR	shift, and go to state 66
+
+
+
+state 173
+
+    cmdWhile  ->  T_RES_WHILE T_SYM_OP expression T_SYM_CP cmd .   (rule 91)
+
+    $default	reduce using rule 91 (cmdWhile)
+
+
+
+state 174
+
+    cmdCallProc  ->  id T_SYM_OP expList T_SYM_CP T_SYM_SMC .   (rule 97)
+
+    $default	reduce using rule 97 (cmdCallProc)
+
+
+
+state 175
+
+    cmdIf  ->  T_RES_IF T_SYM_OP expression T_SYM_CP cmd T_RES_ELSE . cmd   (rule 90)
+
+    T_RES_IF	shift, and go to state 115
+    T_RES_FOR	shift, and go to state 116
+    T_RES_WHILE	shift, and go to state 117
+    T_RES_SKIP	shift, and go to state 118
+    T_RES_STOP	shift, and go to state 119
+    T_RES_RETURN	shift, and go to state 120
+    T_RES_READ	shift, and go to state 121
+    T_RES_WRITE	shift, and go to state 122
+    T_SYM_OBC	shift, and go to state 95
+    T_ID	shift, and go to state 9
+
+    id  	go to state 123
+    block	go to state 124
+    varUse	go to state 125
+    cmd 	go to state 177
+    simCmd	go to state 127
+    cmdAtrib	go to state 128
+    atrib	go to state 129
+    cmdIf	go to state 130
+    cmdWhile	go to state 131
+    cmdFor	go to state 132
+    cmdStop	go to state 133
+    cmdSkip	go to state 134
+    cmdReturn	go to state 135
+    cmdCallProc	go to state 136
+    cmdRead	go to state 137
+    cmdWrite	go to state 138
+
+
+
+state 176
+
+    cmdFor  ->  T_RES_FOR T_SYM_OP atrib T_SYM_SMC expression T_SYM_SMC . atrib T_SYM_CP cmd   (rule 92)
+
+    T_ID	shift, and go to state 9
+
+    id  	go to state 147
+    varUse	go to state 125
+    atrib	go to state 178
+
+
+
+state 177
+
+    cmdIf  ->  T_RES_IF T_SYM_OP expression T_SYM_CP cmd T_RES_ELSE cmd .   (rule 90)
+
+    $default	reduce using rule 90 (cmdIf)
+
+
+
+state 178
+
+    cmdFor  ->  T_RES_FOR T_SYM_OP atrib T_SYM_SMC expression T_SYM_SMC atrib . T_SYM_CP cmd   (rule 92)
+
+    T_SYM_CP	shift, and go to state 179
+
+
+
+state 179
+
+    cmdFor  ->  T_RES_FOR T_SYM_OP atrib T_SYM_SMC expression T_SYM_SMC atrib T_SYM_CP . cmd   (rule 92)
+
+    T_RES_IF	shift, and go to state 115
+    T_RES_FOR	shift, and go to state 116
+    T_RES_WHILE	shift, and go to state 117
+    T_RES_SKIP	shift, and go to state 118
+    T_RES_STOP	shift, and go to state 119
+    T_RES_RETURN	shift, and go to state 120
+    T_RES_READ	shift, and go to state 121
+    T_RES_WRITE	shift, and go to state 122
+    T_SYM_OBC	shift, and go to state 95
+    T_ID	shift, and go to state 9
+
+    id  	go to state 123
+    block	go to state 124
+    varUse	go to state 125
+    cmd 	go to state 180
+    simCmd	go to state 127
+    cmdAtrib	go to state 128
+    atrib	go to state 129
+    cmdIf	go to state 130
+    cmdWhile	go to state 131
+    cmdFor	go to state 132
+    cmdStop	go to state 133
+    cmdSkip	go to state 134
+    cmdReturn	go to state 135
+    cmdCallProc	go to state 136
+    cmdRead	go to state 137
+    cmdWrite	go to state 138
+
+
+
+state 180
+
+    cmdFor  ->  T_RES_FOR T_SYM_OP atrib T_SYM_SMC expression T_SYM_SMC atrib T_SYM_CP cmd .   (rule 92)
+
+    $default	reduce using rule 92 (cmdFor)
+
+
+
+state 181
+
+    $   	go to state 182
+
+
+
+state 182
+
+    $   	go to state 183
+
+
+
+state 183
+
+    $default	accept

@@ -14,15 +14,16 @@ lex: $(FILE_NAME).l
 	flex $(FILE_NAME).l
 
 yacc: $(FILE_NAME).y
-	bison -d $(FILE_NAME).y
+	bison --verbose -d $(FILE_NAME).y
 
 clean: cleanlex cleanyacc cleanexec
 
 cleanlex: *.yy.*
 	rm *.yy.c
 
-cleanyacc: *.tab.*
+cleanyacc: *.tab.* *.output
 	rm *.tab.*
+	rm *.output
 
 cleanexec:
 	rm $(EXEC_NAME)

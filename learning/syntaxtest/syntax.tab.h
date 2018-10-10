@@ -237,7 +237,6 @@ typedef
 #define	T_LIT_FALSE	306
 #define	LOWER_THEN_ELSE	307
 #define	UMINUS	308
-#define	TERN	309
 
 
 #line 169 "/usr/share/bison++/bison.h"
@@ -337,7 +336,6 @@ static const int T_LIT_TRUE;
 static const int T_LIT_FALSE;
 static const int LOWER_THEN_ELSE;
 static const int UMINUS;
-static const int TERN;
 
 
 #line 212 "/usr/share/bison++/bison.h"
@@ -397,7 +395,6 @@ static const int TERN;
 	,T_LIT_FALSE=306
 	,LOWER_THEN_ELSE=307
 	,UMINUS=308
-	,TERN=309
 
 
 #line 215 "/usr/share/bison++/bison.h"

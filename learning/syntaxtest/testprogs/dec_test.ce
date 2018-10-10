@@ -7,16 +7,9 @@ def func(a, b, c : int; d : string) : bool {
   var x : int;
 
   def func(a, b, c : int; d : string) : bool {
-
+  x = 2;
   }
 
-  if(x + 2 + (-x*2)){
-
-  }
-  else if(w[2]){
-
-  }
-
-
+  x = func(10+10, 1);
 
 }

@@ -46,15 +46,15 @@
 %nonassoc LOWER_THEN_ELSE
 %nonassoc T_RES_ELSE
 
-%nonassoc T_SYM_OR
-%nonassoc T_SYM_AND
-%nonassoc T_SYM_EQL T_SYM_DIF
-%nonassoc T_SYM_HIG T_SYM_HEQ
-%nonassoc T_SYM_LES T_SYM_LEQ
+%right T_SYM_INTR T_SYM_COL
+%left T_SYM_OR
+%left T_SYM_AND
+%left T_SYM_EQL T_SYM_DIF
+%left T_SYM_LES T_SYM_LEQ T_SYM_HIG T_SYM_HEQ
+%right T_SYM_ATR T_SYM_ATP T_SYM_ATM T_SYM_ATMUL T_SYM_ATDIV T_SYM_ATMOD
 %left T_SYM_PLS T_SYM_MIN
 %left T_SYM_MUL T_SYM_DIV T_SYM_MOD
-%nonassoc UMINUS
-%nonassoc TERN
+%right UMINUS
 
 %start program
 
@@ -186,46 +186,33 @@ varUse:
 ;
 
 expression:
-  opTern %prec TERN
-  |expression comp expression
-  |expression aritm expression
+  expression T_SYM_INTR expression T_SYM_COL expression
+  |expression T_SYM_PLS expression
+  |expression T_SYM_MIN expression
+  |expression T_SYM_MUL expression
+  |expression T_SYM_DIV expression
+  |expression T_SYM_MOD expression
+  |expression T_SYM_EQL expression
+  |expression T_SYM_DIF expression
+  |expression T_SYM_HIG expression
+  |expression T_SYM_HEQ expression
+  |expression T_SYM_LES expression
+  |expression T_SYM_LEQ expression
+  |expression T_SYM_OR expression
+  |expression T_SYM_AND expression
   |T_SYM_OP expression T_SYM_CP
   |T_SYM_MIN expression %prec UMINUS
   |literal
   |varUse
-  |atrib
   |callFunc
-  |T_SYM_SMC
-;
-
-opTern:
-  expression T_SYM_INTR expression T_SYM_COL expression
-;
-
-comp:
-  T_SYM_OR
-  |T_SYM_AND
-  |T_SYM_EQL
-  |T_SYM_DIF
-  |T_SYM_HIG
-  |T_SYM_HEQ
-  |T_SYM_LES
-  |T_SYM_LEQ
-;
-
-aritm:
-  T_SYM_PLS
-  |T_SYM_MIN
-  |T_SYM_MUL
-  |T_SYM_DIV
-  |T_SYM_MOD
 ;
 
 callFunc:
   id T_SYM_OP expList T_SYM_CP
 
 expList:
-  expression
+
+  |expression
   |expression T_SYM_CMA expList
 ;
 
@@ -282,7 +269,7 @@ cmdWhile:
 
 
 cmdFor:
-  T_RES_FOR T_SYM_OP expression T_SYM_SMC expression T_SYM_SMC expression T_SYM_CP cmd
+  T_RES_FOR T_SYM_OP atrib T_SYM_SMC expression T_SYM_SMC atrib T_SYM_CP cmd
 ;
 
 cmdStop:
@@ -299,8 +286,7 @@ cmdReturn:
 ;
 
 cmdCallProc:
-  T_ID T_SYM_OP expList T_SYM_CP T_SYM_SMC
-  |T_ID T_SYM_OP T_SYM_CP T_SYM_SMC
+  id T_SYM_OP expList T_SYM_CP T_SYM_SMC
 ;
 
 cmdRead:
