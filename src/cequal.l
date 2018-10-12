@@ -5,12 +5,13 @@
 %option noyywrap nodefault
 
 %{
-  #include "syntax.tab.h"
+  #include <iostream>
+
+  #include "cequal.tab.h"
+
+  int yylineno = 1;
 
   void lexicalError(char *s);
-
-  int yyval;
-  int yylineno = 1;
 %}
 
 %%
@@ -55,8 +56,8 @@
 "%"      {return T_SYM_MOD;}
 "=="     {return T_SYM_EQL;}
 "!="     {return T_SYM_DIF;}
-">"      {return T_SYM_HIG;}
-">="     {return T_SYM_HEQ;}
+">"      {return T_SYM_GRT;}
+">="     {return T_SYM_GRE;}
 "<"      {return T_SYM_LES;}
 "<="     {return T_SYM_LEQ;}
 "||"     {return T_SYM_OR;}
@@ -68,7 +69,7 @@
 "?"      {return T_SYM_INTR;}
 ":"      {return T_SYM_COL;}
 
-[0-9]+            {yyval = atoi(yytext);
+[0-9]+            {yylval = atoi(yytext);
                    return T_LIT_INT;}
 \"(\\.|[^"\\])*\" {return T_LIT_STR;}
 "true"            {return T_LIT_TRUE;}
@@ -85,5 +86,5 @@
 %%
 
 void lexicalError(char *s){
-  fprintf(stderr, "Lexical error: unrecognized character %s at line %d\n", s, yylineno);
+  std::cerr << "Lexical error: unrecognized character " << s << " at line " << yylineno << std::endl;
 }

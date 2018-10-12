@@ -3,15 +3,17 @@
    Date: 09/18/2018 */
 
 %{
-  #include <stdio.h>
+  #include <iostream>
 
-  void yyerror(char* s);
-  int yylex();
+  //#define STRARGS ("a:b:c:d:t:h")
 
+  extern int yylex();
+  extern int yyparse();
+  extern FILE *yyin;
   extern int yylineno;
-%}
 
-%name cequal_parser
+  void yyerror(std::string s);
+%}
 
 /* Reserved words */
 
@@ -33,7 +35,7 @@
 %token T_SYM_ATR T_SYM_ATP T_SYM_ATM T_SYM_ATMUL T_SYM_ATDIV T_SYM_ATMOD
 /* Operators (+, -, *, /, %, ==, !=, >, >=, <, <=, ||, &&, !)*/
 %token T_SYM_PLS T_SYM_MIN T_SYM_MUL T_SYM_DIV T_SYM_MOD T_SYM_EQL T_SYM_DIF
-%token T_SYM_HIG T_SYM_HEQ T_SYM_LES T_SYM_LEQ T_SYM_OR T_SYM_AND T_SYM_NOT
+%token T_SYM_GRT T_SYM_GRE T_SYM_LES T_SYM_LEQ T_SYM_OR T_SYM_AND T_SYM_NOT
 /* Separators (;, ,, ?, :)*/
 %token T_SYM_SMC T_SYM_CMA T_SYM_INTR T_SYM_COL
 
@@ -47,10 +49,11 @@
 %nonassoc T_RES_ELSE
 
 %right T_SYM_INTR T_SYM_COL
+%right T_SYM_NOT
 %left T_SYM_OR
 %left T_SYM_AND
 %left T_SYM_EQL T_SYM_DIF
-%left T_SYM_LES T_SYM_LEQ T_SYM_HIG T_SYM_HEQ
+%left T_SYM_LES T_SYM_LEQ T_SYM_GRT T_SYM_GRE
 %right T_SYM_ATR T_SYM_ATP T_SYM_ATM T_SYM_ATMUL T_SYM_ATDIV T_SYM_ATMOD
 %left T_SYM_PLS T_SYM_MIN
 %left T_SYM_MUL T_SYM_DIV T_SYM_MOD
@@ -194,12 +197,13 @@ expression:
   |expression T_SYM_MOD expression
   |expression T_SYM_EQL expression
   |expression T_SYM_DIF expression
-  |expression T_SYM_HIG expression
-  |expression T_SYM_HEQ expression
+  |expression T_SYM_GRT expression
+  |expression T_SYM_GRE expression
   |expression T_SYM_LES expression
   |expression T_SYM_LEQ expression
   |expression T_SYM_OR expression
   |expression T_SYM_AND expression
+  |T_SYM_NOT expression
   |T_SYM_OP expression T_SYM_CP
   |T_SYM_MIN expression %prec UMINUS
   |literal
@@ -300,11 +304,61 @@ cmdWrite:
 %%
 
 int main(int argc, char** argv){
+
+  if(argc != 2){
+    std::cerr << "Invalid arguments, use: \'cequal input_file.ce\'" << std::endl;
+
+    return 1;
+  }
+  else{
+    yyin = fopen(argv[1], "r");
+
+    if(!yyin){
+      std::cerr << "Can't open \'" << argv[1] << "\' input file" << std::endl;
+
+      return 1;
+    }
+  }
+
   yyparse();
 
   return 0;
 }
 
-void yyerror(char* s){
-  fprintf(stderr, "Error: %s at line %d\n", s, yylineno);
+void yyerror(std::string s){
+  std::cerr << "Error: " << s << " at line " << yylineno << std::endl;
 }
+
+/*//Lê os argumentos com optarg
+void readArgs(int argc, char** argv, args_t* args){
+  extern char* optarg;
+  char op;
+
+  while((op = getopt(argc, argv, STRARGS)) != -1){
+	   switch(op){
+      case 'a':
+        args->la = atoi(optarg);
+        break;
+      case 'b':
+        args->ca = atoi(optarg);
+        break;
+      case 'c':
+        args->lb = atoi(optarg);
+        break;
+      case 'd':
+        args->cb = atoi(optarg);
+        break;
+      case 't':
+        args->nt = atoi(optarg);
+        break;
+      case 'h':
+        printf(HELP);
+        break;
+      default:
+        printf("Wrong argument, showing help\n");
+        printf(HELP);
+        break;
+     }
+   }
+}
+*/

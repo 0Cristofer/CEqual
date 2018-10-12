@@ -1,14 +1,10 @@
-FILE_NAME = syntax
-EXEC_NAME = syntax
-CC = gcc
-CLIBS = -lfl
-CFLAGS =
+FILE_NAME = cequal
+EXEC_NAME = cequal
+CC = g++
+CLIBS =
 
 all: yacc lex
 	$(CC) lex.yy.c $(FILE_NAME).tab.c $(CLIBS) -o $(EXEC_NAME)
-
-lexc: lex
-	$(CC) *.yy.c $(CLIBS) -o $(EXEC_NAME)
 
 lex: $(FILE_NAME).l
 	flex $(FILE_NAME).l
@@ -19,7 +15,7 @@ yacc: $(FILE_NAME).y
 clean: cleanlex cleanyacc cleanexec
 
 cleanlex: *.yy.*
-	rm *.yy.c
+	rm *.yy.*
 
 cleanyacc: *.tab.* *.output
 	rm *.tab.*
