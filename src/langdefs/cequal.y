@@ -4,6 +4,7 @@
 
 %{
   #include <iostream>
+  #include <cstdio>
 
   //#define STRARGS ("a:b:c:d:t:h")
 
