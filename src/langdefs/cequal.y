@@ -49,7 +49,6 @@
 %nonassoc T_RES_ELSE
 
 %right T_SYM_INTR T_SYM_COL
-%right T_SYM_NOT
 %left T_SYM_OR
 %left T_SYM_AND
 %left T_SYM_EQL T_SYM_DIF
@@ -57,6 +56,7 @@
 %right T_SYM_ATR T_SYM_ATP T_SYM_ATM T_SYM_ATMUL T_SYM_ATDIV T_SYM_ATMOD
 %left T_SYM_PLS T_SYM_MIN
 %left T_SYM_MUL T_SYM_DIV T_SYM_MOD
+%right T_SYM_NOT
 %right UMINUS
 
 %start program
@@ -203,8 +203,8 @@ expression:
   |expression T_SYM_LEQ expression
   |expression T_SYM_OR expression
   |expression T_SYM_AND expression
-  |T_SYM_NOT expression
   |T_SYM_OP expression T_SYM_CP
+  |T_SYM_NOT expression
   |T_SYM_MIN expression %prec UMINUS
   |literal
   |varUse
