@@ -1,10 +1,16 @@
 /* CEqual syntactic definition file
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
-   Date: 09/18/2018 */
+   Date: 09/9/2018 */
 
 %{
   #include <iostream>
   #include <cstdio>
+
+  #include "classes/include/AST.hpp"
+  #include "classes/include/ASTLiteral.hpp"
+  #include "classes/include/ASTExpression.hpp"
+  #include "classes/include/Literal.hpp"
+  #include "classes/include/LiteralInt.hpp"
 
   //#define STRARGS ("a:b:c:d:t:h")
 
@@ -15,6 +21,12 @@
 
   void yyerror(std::string s);
 %}
+
+%union{
+  AST* ast;
+  Literal* literal;
+  int op;
+}
 
 /* Reserved words */
 
@@ -35,8 +47,8 @@
 /* Attributions (=, +=, -=, *=, /=, %=) */
 %token T_SYM_ATR T_SYM_ATP T_SYM_ATM T_SYM_ATMUL T_SYM_ATDIV T_SYM_ATMOD
 /* Operators (+, -, *, /, %, ==, !=, >, >=, <, <=, ||, &&, !)*/
-%token T_SYM_PLS T_SYM_MIN T_SYM_MUL T_SYM_DIV T_SYM_MOD T_SYM_EQL T_SYM_DIF
-%token T_SYM_GRT T_SYM_GRE T_SYM_LES T_SYM_LEQ T_SYM_OR T_SYM_AND T_SYM_NOT
+%token <op> T_SYM_PLS T_SYM_MIN T_SYM_MUL T_SYM_DIV T_SYM_MOD T_SYM_EQL T_SYM_DIF
+%token <op> T_SYM_GRT T_SYM_GRE T_SYM_LES T_SYM_LEQ T_SYM_OR T_SYM_AND T_SYM_NOT
 /* Separators (;, ,, ?, :)*/
 %token T_SYM_SMC T_SYM_CMA T_SYM_INTR T_SYM_COL
 
@@ -59,6 +71,9 @@
 %left T_SYM_MUL T_SYM_DIV T_SYM_MOD
 %right T_SYM_NOT
 %right UMINUS
+
+%type <ast> expression
+%type <literal> literal
 
 %start program
 
@@ -105,7 +120,7 @@ specVarSim:
 ;
 
 specVarSimInit:
-  specVarSim T_SYM_ATR expression
+  specVarSim T_SYM_ATR expression {$3->eval();}
 ;
 
 specVarArr:
@@ -163,10 +178,10 @@ id:
 ;
 
 literal:
-  T_LIT_INT
-  |T_LIT_STR
-  |T_LIT_TRUE
-  |T_LIT_FALSE
+  T_LIT_INT {$$ = yylval.literal;}
+  |T_LIT_STR {$$ = yylval.literal;}
+  |T_LIT_TRUE {$$ = yylval.literal;}
+  |T_LIT_FALSE {$$ = yylval.literal;}
 ;
 
 type:
@@ -190,30 +205,31 @@ varUse:
 ;
 
 expression:
-  expression T_SYM_INTR expression T_SYM_COL expression
-  |expression T_SYM_PLS expression
-  |expression T_SYM_MIN expression
-  |expression T_SYM_MUL expression
-  |expression T_SYM_DIV expression
-  |expression T_SYM_MOD expression
-  |expression T_SYM_EQL expression
+  //expression T_SYM_INTR expression T_SYM_COL expression
+  expression T_SYM_PLS expression {$$ = new ASTExpression(PLUS, $1, $3);}
+  |expression T_SYM_MIN expression {$$ = new ASTExpression(MINUS, $1, $3);}
+  |expression T_SYM_MUL expression {$$ = new ASTExpression(MUL, $1, $3);}
+  |expression T_SYM_DIV expression {$$ = new ASTExpression(DIV, $1, $3);}
+  |expression T_SYM_MOD expression {$$ = new ASTExpression(MOD, $1, $3);}
+  /*|expression T_SYM_EQL expression
   |expression T_SYM_DIF expression
   |expression T_SYM_GRT expression
   |expression T_SYM_GRE expression
   |expression T_SYM_LES expression
   |expression T_SYM_LEQ expression
   |expression T_SYM_OR expression
-  |expression T_SYM_AND expression
-  |T_SYM_OP expression T_SYM_CP
-  |T_SYM_NOT expression
-  |T_SYM_MIN expression %prec UMINUS
-  |literal
-  |varUse
-  |callFunc
+  |expression T_SYM_AND expression*/
+  |T_SYM_OP expression T_SYM_CP {$$ = $2;}
+  //|T_SYM_NOT expression
+  |T_SYM_MIN expression %prec UMINUS {$$ = new ASTExpression(U_MINUS, $2, NULL);}
+  |literal {$$ = new ASTLiteral($1);}
+  //|varUse
+  //|callFunc
 ;
 
-callFunc:
+/*callFunc:
   id T_SYM_OP expList T_SYM_CP
+;*/
 
 expList:
 

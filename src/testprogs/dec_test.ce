@@ -1,4 +1,1 @@
-def main() : int {
-var a : int;
-
-}
+var a = -2 + ((1 + 1)/2 + 3 + 7)*3, b = (2 + 5) % 6 : int;

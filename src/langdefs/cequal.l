@@ -1,12 +1,15 @@
 /* CEqual syntax definition file
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
-   Date: 09/18/2018 */
+   Date: 09/9/2018 */
 
 %option noyywrap nodefault
 
 %{
   #include <iostream>
 
+  #include "classes/include/AST.hpp"
+  #include "classes/include/Literal.hpp"
+  #include "classes/include/LiteralInt.hpp"
   #include "cequal.tab.h"
 
   int yylineno = 1;
@@ -49,11 +52,11 @@
 "/="     {return T_SYM_ATDIV;}
 "%="     {return T_SYM_ATMOD;}
 
-"+"      {return T_SYM_PLS;}
-"-"      {return T_SYM_MIN;}
-"*"      {return T_SYM_MUL;}
-"/"      {return T_SYM_DIV;}
-"%"      {return T_SYM_MOD;}
+"+"      {yylval.op = T_SYM_PLS; return T_SYM_PLS;}
+"-"      {yylval.op = T_SYM_MIN; return T_SYM_MIN;}
+"*"      {yylval.op = T_SYM_MUL; return T_SYM_MUL;}
+"/"      {yylval.op = T_SYM_DIV; return T_SYM_DIV;}
+"%"      {yylval.op = T_SYM_MOD; return T_SYM_MOD;}
 "=="     {return T_SYM_EQL;}
 "!="     {return T_SYM_DIF;}
 ">"      {return T_SYM_GRT;}
@@ -69,7 +72,7 @@
 "?"      {return T_SYM_INTR;}
 ":"      {return T_SYM_COL;}
 
-[0-9]+            {yylval = atoi(yytext);
+[0-9]+            {yylval.literal = new LiteralInt(atoi(yytext));
                    return T_LIT_INT;}
 \"(\\.|[^"\\])*\" {return T_LIT_STR;}
 "true"            {return T_LIT_TRUE;}
