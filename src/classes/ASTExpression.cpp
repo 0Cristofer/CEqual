@@ -1,63 +1,160 @@
 /* Abstract Syntax Tree expression node definitions
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
-   Date: 15/10/2018 */
+   Created: 15/10/2018
+   Edited: 18/10/2018 */
 
 #include <iostream>
 
+#include "../include/util.hpp"
 #include "include/ASTExpression.hpp"
 #include "include/ASTLiteral.hpp"
-#include "include/LiteralInt.hpp"
-#include "../cequal.tab.h"
 
-ASTExpression::ASTExpression(Operand op, AST* l, AST* r): AST(EXPRESSION), operand(op){
-  addChildren(l);
-  addChildren(r);
+// Adds the operands nodes if they exist
+ASTExpression::ASTExpression(ExpType t, Operand op, AST* l, AST* r, AST* test):
+                              AST(EXPRESSION), type(t), operand(op){
+  if(l) addChild(l);
+  if(r) addChild(r);
+  if(test) addChild(test);
 }
 
-int ASTExpression::eval(){
-  int res, lval, rval;
+// Verify the operation type and calls the correct function if the operands types are correct
+Value* ASTExpression::inEval(){
+  Value *lval = NULL, *rval = NULL, *testval = NULL, *res = NULL;
 
-  std::cout << "Evaluating..." << std::endl;
-  //printNode();
-  switch (operand) {
-    case PLUS:
+  switch (type) {
+    case ARITM:
+      lval = children[0]->eval();
+      if(operand != U_MINUS) rval = children[1]->eval(); // Only evaluate right child if it is not a unary minus operation
+
+      if(typeCheck(lval, INT) && typeCheck(rval, INT)){ // Check for the type
+        res = intEval(((LiteralInt*)lval)->val, rval ? ((LiteralInt*)rval)->val : 0); // Perform action
+      }
+      else{
+        res = new LiteralInt(0); // If types are wrong, return 0
+      }
+
+      break;
+
+    case COMP:
       lval = children[0]->eval();
       rval = children[1]->eval();
-      res = lval + rval;
-      std::cout << "Calculating: " << lval << " + " << rval << " = " << res << std::endl;
+
+      if(typeCheck(lval, INT) && typeCheck(rval, INT)){
+        res = compEval(((LiteralInt*)lval)->val, ((LiteralInt*)rval)->val);
+      }
+      else{
+        res = new LiteralBool(false);
+      }
+
       break;
-    case MINUS:
+
+    case LOGIC:
       lval = children[0]->eval();
-      rval = children[1]->eval();
-      res = lval - rval;
-      std::cout << "Calculating: " << lval << " - " << rval << " = " << res << std::endl;
-      break;
-    case MUL:
-      lval = children[0]->eval();
-      rval = children[1]->eval();
-      res = lval * rval;
-      std::cout << "Calculating: " << lval << " * " << rval << " = " << res << std::endl;
-      break;
-    case DIV:
-      lval = children[0]->eval();
-      rval = children[1]->eval();
-      res = lval / rval;
-      std::cout << "Calculating: " << lval << " / " << rval << " = " << res << std::endl;
-      break;
-    case MOD:
-      lval = children[0]->eval();
-      rval = children[1]->eval();
-      res = lval % rval;
-      std::cout << "Calculating: " << lval << " \% " << rval << " = " << res << std::endl;
-      break;
-    case U_MINUS:
-      lval = children[0]->eval();
-      res = -lval;
-      std::cout << "Calculating: " << "-" << lval << " = " << res << std::endl;
+      if(operand != NOT) rval = children[1]->eval();
+
+      if(typeCheck(lval, BOOL) && typeCheck(rval, BOOL)){
+        res = logicEval(((LiteralBool*)lval)->val, rval ? ((LiteralBool*)rval)->val : false);
+      }
+      else{
+        res = new LiteralBool(false);
+      }
+
       break;
   }
 
+  // Free the evaluated children
+  if(lval) free(lval);
+  if(rval) free(rval);
+  if(testval) free(testval);
+
   return res;
+}
+
+// Evaluates a integer expression by performing the correct aritmetic action based on the operator
+LiteralInt* ASTExpression::intEval(int l, int r){
+  int res;
+
+  switch (operand) {
+    case PLUS:
+      res = l + r;
+      break;
+
+    case MINUS:
+      res = l - r;
+      break;
+
+    case MUL:
+      res = l * r;
+      break;
+
+    case DIV:
+      res = l / r;
+      break;
+
+    case MOD:
+      res = l % r;
+      break;
+
+    case U_MINUS:
+      res = -l;
+      break;
+  }
+
+  return new LiteralInt(res);
+}
+
+// Evaluates a comparition expression by performing the correct comparition action based on the operator
+LiteralBool* ASTExpression::compEval(int l, int r){
+  bool res;
+
+  switch (operand) {
+    case EQL:
+      res = l == r;
+      break;
+
+    case DIF:
+      res = l != r;
+      break;
+
+    case GRT:
+      res = l > r;
+      break;
+
+    case GRE:
+      res = l >= r;
+      break;
+
+    case LES:
+      res = l < r;
+      break;
+
+    case LEQ:
+      res = l <= r;
+      break;
+  }
+
+  return new LiteralBool(res);
+}
+
+// Evaluates a logic expression by performing the correct logic action based on the operator
+LiteralBool* ASTExpression::logicEval(bool l, bool r){
+  int res;
+
+  switch (operand) {
+    case AND:
+      res = l && r;
+      break;
+
+    case OR:
+      res = l || r;
+      break;
+
+    case NOT:
+      res = !l;
+      break;
+  }
+
+  return new LiteralBool(res);
 }
 
 void ASTExpression::printNode(){

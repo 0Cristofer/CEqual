@@ -1,7 +1,8 @@
-LANG_DEFS = langdefs/
+LANG_DEFS = src/parsers/
 FILE_NAME = cequal
 EXEC_NAME = cequal
-CLASSES = classes/AST.cpp classes/ASTLiteral.cpp classes/ASTExpression.cpp classes/Literal.cpp classes/LiteralInt.cpp
+CLASSES = src/classes/*.cpp
+ETC = src/*.cpp
 CC = g++
 CLIBS =
 
@@ -11,7 +12,7 @@ all: exec
 	rm *.output
 
 exec: yacc lex
-	$(CC) lex.yy.c $(FILE_NAME).tab.c $(CLASSES) $(CLIBS) -o $(EXEC_NAME)
+	$(CC) lex.yy.c $(FILE_NAME).tab.c $(CLASSES) $(ETC) $(CLIBS) -o $(EXEC_NAME)
 
 lex: $(LANG_DEFS)$(FILE_NAME).l
 	flex $(LANG_DEFS)$(FILE_NAME).l

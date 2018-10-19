@@ -1,6 +1,7 @@
 /* Abstract Syntax Tree literal node definitions
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
-   Date: 15/10/2018 */
+   Created: 15/10/2018
+   Edited: 18/10/2018 */
 
 #include <iostream>
 
@@ -8,12 +9,11 @@
 #include "include/LiteralInt.hpp"
 
 ASTLiteral::ASTLiteral(Literal* lit): AST(LITERAL), literal(lit){
+
 }
 
-int ASTLiteral::eval(){
-  if(literal->type == INT){
-    return ((LiteralInt*)literal)->val;
-  }
+Value* ASTLiteral::inEval(){
+  return literal;
 }
 
 void ASTLiteral::printNode(){

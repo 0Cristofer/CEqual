@@ -1,25 +1,14 @@
 /* CEqual syntactic definition file
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
-   Date: 09/9/2018 */
+   Created: 9/9/2018
+   Edited: 18/10/2018 */
 
 %{
   #include <iostream>
-  #include <cstdio>
 
-  #include "classes/include/AST.hpp"
-  #include "classes/include/ASTLiteral.hpp"
-  #include "classes/include/ASTExpression.hpp"
-  #include "classes/include/Literal.hpp"
-  #include "classes/include/LiteralInt.hpp"
-
-  //#define STRARGS ("a:b:c:d:t:h")
-
-  extern int yylex();
-  extern int yyparse();
-  extern FILE *yyin;
-  extern int yylineno;
-
-  void yyerror(std::string s);
+  #include "src/include/util.hpp"
+  #include "src/classes/include/ASTLiteral.hpp"
+  #include "src/classes/include/ASTExpression.hpp"
 %}
 
 %union{
@@ -120,7 +109,12 @@ specVarSim:
 ;
 
 specVarSimInit:
-  specVarSim T_SYM_ATR expression {$3->eval();}
+  specVarSim T_SYM_ATR expression {
+    if(((Literal*)$3)->type == INT)
+      std::cout << ((LiteralInt*)$3->eval())->val << std::endl;
+    else
+      std::cout << ((LiteralBool*)$3->eval())->val << std::endl;
+  }
 ;
 
 specVarArr:
@@ -206,22 +200,22 @@ varUse:
 
 expression:
   //expression T_SYM_INTR expression T_SYM_COL expression
-  expression T_SYM_PLS expression {$$ = new ASTExpression(PLUS, $1, $3);}
-  |expression T_SYM_MIN expression {$$ = new ASTExpression(MINUS, $1, $3);}
-  |expression T_SYM_MUL expression {$$ = new ASTExpression(MUL, $1, $3);}
-  |expression T_SYM_DIV expression {$$ = new ASTExpression(DIV, $1, $3);}
-  |expression T_SYM_MOD expression {$$ = new ASTExpression(MOD, $1, $3);}
-  /*|expression T_SYM_EQL expression
-  |expression T_SYM_DIF expression
-  |expression T_SYM_GRT expression
-  |expression T_SYM_GRE expression
-  |expression T_SYM_LES expression
-  |expression T_SYM_LEQ expression
-  |expression T_SYM_OR expression
-  |expression T_SYM_AND expression*/
+  expression T_SYM_PLS expression {$$ = new ASTExpression(ARITM, PLUS, $1, $3, NULL);}
+  |expression T_SYM_MIN expression {$$ = new ASTExpression(ARITM, MINUS, $1, $3, NULL);}
+  |expression T_SYM_MUL expression {$$ = new ASTExpression(ARITM, MUL, $1, $3, NULL);}
+  |expression T_SYM_DIV expression {$$ = new ASTExpression(ARITM, DIV, $1, $3, NULL);}
+  |expression T_SYM_MOD expression {$$ = new ASTExpression(ARITM, MOD, $1, $3, NULL);}
+  |expression T_SYM_EQL expression {$$ = new ASTExpression(COMP, EQL, $1, $3, NULL);}
+  |expression T_SYM_DIF expression {$$ = new ASTExpression(COMP, DIF, $1, $3, NULL);}
+  |expression T_SYM_GRT expression {$$ = new ASTExpression(COMP, GRT, $1, $3, NULL);}
+  |expression T_SYM_GRE expression {$$ = new ASTExpression(COMP, GRE, $1, $3, NULL);}
+  |expression T_SYM_LES expression {$$ = new ASTExpression(COMP, LES, $1, $3, NULL);}
+  |expression T_SYM_LEQ expression {$$ = new ASTExpression(COMP, LEQ, $1, $3, NULL);}
+  |expression T_SYM_OR expression {$$ = new ASTExpression(LOGIC, OR, $1, $3, NULL);}
+  |expression T_SYM_AND expression {$$ = new ASTExpression(LOGIC, AND, $1, $3, NULL);}
   |T_SYM_OP expression T_SYM_CP {$$ = $2;}
-  //|T_SYM_NOT expression
-  |T_SYM_MIN expression %prec UMINUS {$$ = new ASTExpression(U_MINUS, $2, NULL);}
+  |T_SYM_NOT expression {$$ = new ASTExpression(LOGIC, NOT, $2, NULL, NULL);}
+  |T_SYM_MIN expression %prec UMINUS {$$ = new ASTExpression(ARITM, U_MINUS, $2, NULL, NULL);}
   |literal {$$ = new ASTLiteral($1);}
   //|varUse
   //|callFunc
@@ -343,7 +337,7 @@ int main(int argc, char** argv){
 }
 
 void yyerror(std::string s){
-  std::cerr << "Error: " << s << " at line " << yylineno << std::endl;
+  std::cerr << "Syntax error at line " << yylineno << ". Message: " << s << std::endl;
 }
 
 /*//Lê os argumentos com optarg

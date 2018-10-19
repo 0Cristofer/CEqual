@@ -1,15 +1,17 @@
 /* CEqual syntax definition file
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
-   Date: 09/9/2018 */
+   Created: 9/9/2018
+   Edited: 18/10/2018 */
 
 %option noyywrap nodefault
 
 %{
   #include <iostream>
 
-  #include "classes/include/AST.hpp"
-  #include "classes/include/Literal.hpp"
-  #include "classes/include/LiteralInt.hpp"
+  #include "src/include/util.hpp"
+  #include "src/classes/include/AST.hpp"
+  #include "src/classes/include/LiteralInt.hpp"
+  #include "src/classes/include/LiteralBool.hpp"
   #include "cequal.tab.h"
 
   int yylineno = 1;
@@ -74,9 +76,12 @@
 
 [0-9]+            {yylval.literal = new LiteralInt(atoi(yytext));
                    return T_LIT_INT;}
-\"(\\.|[^"\\])*\" {return T_LIT_STR;}
-"true"            {return T_LIT_TRUE;}
-"false"           {return T_LIT_FALSE;}
+"true"            {yylval.literal = new LiteralBool(true);
+                   return T_LIT_TRUE;}
+"false"           {yylval.literal = new LiteralBool(false);
+                   return T_LIT_FALSE;}
+\"(\\.|[^"\\])*\" {yylval.literal = new LiteralInt(atoi(yytext));
+                   return T_LIT_STR;}
 
 ([a-zA-Z]|_)([a-zA-Z]|_|[0-9])* {return T_ID;}
 
