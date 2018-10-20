@@ -1,26 +1,27 @@
 /* Abstract Syntax Tree expression node
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 15/10/2018
-   Edited: 18/10/2018 */
+   Edited: 19/10/2018 */
 
 #ifndef ASTEXPRESSION_HPP
 #define ASTEXPRESSION_HPP
 
 #include "AST.hpp"
-#include "Literal.hpp"
-#include "LiteralInt.hpp"
-#include "LiteralBool.hpp"
+#include "../../value/include/Literal.hpp"
+#include "../../value/include/LiteralInt.hpp"
+#include "../../value/include/LiteralBool.hpp"
 
 // Possible expression operands
 enum Operand{
   PLUS, MINUS, MUL, DIV, MOD, U_MINUS, // Aritmetic operands
   EQL, DIF, GRT, GRE, LES, LEQ, // Comparition operands
-  OR, AND, NOT // Logic operands
+  OR, AND, NOT, // Logic operands
+  NOOPERAND // For ternary
 };
 
 // Possible expression types
 enum ExpType{
-  ARITM, COMP, LOGIC
+  ARITM, COMP, LOGIC, TERN
 };
 
 class ASTExpression: public AST{
@@ -31,6 +32,7 @@ public:
   // Implementation of the pure virtual. Evaluates the expression, verifing its operands and returning a generic value
   Value* inEval();
   void printNode();
+
 private:
   // Evaluates a integer expression
   LiteralInt* intEval(int l, int r);

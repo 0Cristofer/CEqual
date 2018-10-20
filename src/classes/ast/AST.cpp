@@ -7,7 +7,7 @@
 
 #include "include/AST.hpp"
 
-AST::AST(ASTType t): type(t){
+AST::AST(ASTType t): a_type(t){
 
 }
 
@@ -16,7 +16,7 @@ void AST::addChild(AST* ast){
 }
 
 Value* AST::eval(){
-  Value* res = this->inEval(); // Calls the main evaluation of the node 
+  Value* res = this->inEval(); // Calls the main evaluation of the node
 
   for(AST* ast : children){
     free(ast);

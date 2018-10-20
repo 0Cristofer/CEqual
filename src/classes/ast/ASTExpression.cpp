@@ -1,11 +1,11 @@
 /* Abstract Syntax Tree expression node definitions
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 15/10/2018
-   Edited: 18/10/2018 */
+   Edited: 19/10/2018 */
 
 #include <iostream>
 
-#include "../include/util.hpp"
+#include "../../include/util.hpp"
 #include "include/ASTExpression.hpp"
 #include "include/ASTLiteral.hpp"
 
@@ -60,9 +60,24 @@ Value* ASTExpression::inEval(){
       }
 
       break;
+
+    case TERN:
+      testval = children[2]->eval();
+
+      if(typeCheck(testval, BOOL)){
+        if(((LiteralBool*)testval)->val){
+          res = children[0]->eval(); // 0 = left operand
+        }
+        else{
+          res = children[1]->eval(); // 1 = right operand
+        }
+      }
+      else{
+        res = new LiteralInt(0);
+      }
   }
 
-  // Free the evaluated children
+  // Free the evaluated children values
   if(lval) free(lval);
   if(rval) free(rval);
   if(testval) free(testval);

@@ -4,7 +4,7 @@
    Edited: 18/10/2018 */
 
 #include "include/util.hpp"
-#include "classes/include/AST.hpp"
+#include "classes/ast/include/AST.hpp"
 
 bool typeCheck(Value* v, LiteralType t){
   bool res;
@@ -31,4 +31,8 @@ void semanticError(){
 
 void typeError(){
   std::cerr << "Semantic error: type error at line " << yylineno << std::endl;
+}
+
+void arraySizeMismatchError(){
+  std::cerr << "Semantic error: array initialization with more elements than specified at line " << yylineno << std::endl;
 }

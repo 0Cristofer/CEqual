@@ -1,18 +1,18 @@
 /* Abstract Syntax Tree abstract class.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 15/10/2018
-   Edited: 18/10/2018 */
+   Edited: 19/10/2018 */
 
 #ifndef AST_HPP
 #define AST_HPP
 
 #include <vector>
-#include "Value.hpp"
-#include "Literal.hpp"
+#include "../../value/include/Value.hpp"
+#include "../../value/include/Literal.hpp"
 
 // Possible AST types
 enum ASTType{
- LITERAL, EXPRESSION
+ LITERAL, EXPRESSION, BLOCK, SPECVAR, LISTSPECVAR, ARRAYINIT, DECVAR, VARUSE, CMDWRITE
 };
 
 class AST{
@@ -27,7 +27,7 @@ public:
   // Pure virtual. Should print node information
   virtual void printNode() = 0;
 
-  ASTType type;
+  ASTType a_type;
 protected:
   // Pure virtual. Should make the actual evaluation of the node and its children
   virtual Value* inEval() = 0;

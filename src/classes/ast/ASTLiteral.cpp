@@ -6,7 +6,7 @@
 #include <iostream>
 
 #include "include/ASTLiteral.hpp"
-#include "include/LiteralInt.hpp"
+#include "../value/include/LiteralInt.hpp"
 
 ASTLiteral::ASTLiteral(Literal* lit): AST(LITERAL), literal(lit){
 

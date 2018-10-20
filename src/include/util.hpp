@@ -3,24 +3,26 @@
    Created: 18/10/2018
    Edited: 18/10/2018 */
 
-#ifndef UTIL_H
-#define UTIL_H
+#ifndef UTIL_HPP
+#define UTIL_HPP
 
 #include <cstdio>
 #include <iostream>
 
-#include "../classes/include/Value.hpp"
-#include "../classes/include/Literal.hpp"
+#include "../classes/value/include/Value.hpp"
+#include "../classes/value/include/Literal.hpp"
+#include "../classes/symbol/include/Scope.hpp"
 
 //#define STRARGS ("a:b:c:d:t:h")
 
 extern int yylineno;
 extern FILE *yyin;
+extern Scope* actual_scope;
 
 // Lexical parser function
-extern int yylex();
+int yylex();
 // Syntax parser function
-extern int yyparse();
+int yyparse();
 // Syntax parser error function
 void yyerror(std::string s);
 // Checks if a value is of given type
@@ -29,5 +31,7 @@ bool typeCheck(Value* v, LiteralType t);
 void semanticError();
 // Prints to standart error output a type error
 void typeError();
+// Prints to standart error output a array size mismatch error
+void arraySizeMismatchError();
 
-#endif /* UTIL_H */
+#endif /* UTIL_HPP */

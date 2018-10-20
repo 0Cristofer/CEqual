@@ -7,14 +7,27 @@
   #include <iostream>
 
   #include "src/include/util.hpp"
-  #include "src/classes/include/ASTLiteral.hpp"
-  #include "src/classes/include/ASTExpression.hpp"
+  #include "src/classes/ast/include/ASTLiteral.hpp"
+  #include "src/classes/ast/include/ASTExpression.hpp"
+  #include "src/classes/ast/include/ASTSpecVar.hpp"
+  #include "src/classes/ast/include/ASTListSpecVar.hpp"
+  #include "src/classes/ast/include/ASTArrayInit.hpp"
+  #include "src/classes/ast/include/ASTDecVar.hpp"
+  #include "src/classes/ast/include/ASTBlock.hpp"
+  #include "src/classes/ast/include/ASTVarUse.hpp"
+  #include "src/classes/ast/include/ASTCmdWrite.hpp"
+  #include "src/classes/value/include/LiteralStr.hpp"
+
+  bool decproc = false;
+  Scope* actual_scope;
 %}
 
 %union{
   AST* ast;
   Literal* literal;
-  int op;
+  Symbol* sym;
+  LiteralType l_type;
+  std::string* sym_name;
 }
 
 /* Reserved words */
@@ -61,8 +74,13 @@
 %right T_SYM_NOT
 %right UMINUS
 
-%type <ast> expression
-%type <literal> literal
+%type <sym> id
+%type <ast> expression literal
+%type <ast> decVar listSpecVar specVar
+%type <ast> specVarSim specVarSimInit specVarArr specVarArrInit arrInit
+%type <ast> block varUse
+%type <ast> cmdWrite
+%type <l_type> type
 
 %start program
 
@@ -82,52 +100,63 @@ listDec:
 ;
 
 dec:
-  decVar
+  decVar {$1->eval();}
   |decSub
 ;
 
 /* Variable declaration rules. TODO: String specifics */
 
 decVar:
-  T_RES_VAR listVarSpecs T_SYM_COL type T_SYM_SMC
+  T_RES_VAR listSpecVar T_SYM_COL type T_SYM_SMC {$$ = new ASTDecVar($2, $4);}
 ;
 
-listVarSpecs:
-  specVar
-  |specVar T_SYM_CMA listVarSpecs
+listSpecVar:
+  specVar {$$ = new ASTListSpecVar($1);}
+  |specVar T_SYM_CMA listSpecVar {
+                                    $3->addChild($1);
+                                    $$ = $3;
+                                  }
 ;
 
 specVar:
-  specVarSim
-  |specVarSimInit
-  |specVarArr
-  |specVarArrInit
+  specVarSim      {$$ = $1;}
+  |specVarSimInit {$$ = $1;}
+  |specVarArr     {$$ = $1;}
+  |specVarArrInit {$$ = $1;}
 ;
 
 specVarSim:
-  id
+  id {$$ = new ASTSpecVar($1, SIMVAR);}
 ;
 
 specVarSimInit:
   specVarSim T_SYM_ATR expression {
-    if(((Literal*)$3)->type == INT)
-      std::cout << ((LiteralInt*)$3->eval())->val << std::endl;
-    else
-      std::cout << ((LiteralBool*)$3->eval())->val << std::endl;
-  }
+                                    $$ = $1;
+                                    $1->addChild($3);
+                                  }
 ;
 
 specVarArr:
-  id T_SYM_OBK T_LIT_INT T_SYM_CBK
+  id T_SYM_OBK T_LIT_INT T_SYM_CBK {
+                                      $1->size = ((LiteralInt*)yylval.literal)->val;
+                                      free(yylval.literal);
+                                      $$ = new ASTSpecVar($1, ARRAYVAR);
+                                   }
 ;
 
 specVarArrInit:
-  specVarArr T_SYM_ATR T_SYM_OBC arrInit T_SYM_CBC
+  specVarArr T_SYM_ATR T_SYM_OBC arrInit T_SYM_CBC {
+                                                      $$ = $1;
+                                                      $1->addChild($4);
+                                                   }
 ;
 
 arrInit:
-  literal
-  |literal T_SYM_CMA arrInit
+  literal {$$ = new ASTArrayInit($1);}
+  |literal T_SYM_CMA arrInit {
+                                $3->addChild($1);
+                                $$ = $3;
+                             }
 ;
 
 /* Routine declaration rules */
@@ -137,12 +166,20 @@ decSub:
   |decFunc
 ;
 
+// Starting a new function, should start a new scope
+startfunc:
+  T_RES_DEF id T_SYM_OP {
+                          actual_scope = new Scope(actual_scope);
+                          decproc = true;
+                        }
+;
+
 decProc:
-  T_RES_DEF id T_SYM_OP paramList T_SYM_CP block
+  startfunc paramList T_SYM_CP block
 ;
 
 decFunc:
-  T_RES_DEF id T_SYM_OP paramList T_SYM_CP T_SYM_COL type block
+  startfunc paramList T_SYM_CP T_SYM_COL type block
 ;
 
 paramList:
@@ -167,25 +204,48 @@ param:
 
 /* Basic rules */
 
+// Found a identifier, so we need to make a new symbol and add to the actual scope symbol table
 id:
-  T_ID
+  T_ID {
+          $$ = new Symbol(yylval.sym_name, yylineno);
+          $$ = actual_scope->addSym($$);
+        }
 ;
 
 literal:
-  T_LIT_INT {$$ = yylval.literal;}
-  |T_LIT_STR {$$ = yylval.literal;}
-  |T_LIT_TRUE {$$ = yylval.literal;}
-  |T_LIT_FALSE {$$ = yylval.literal;}
+  T_LIT_INT    {$$ = new ASTLiteral(yylval.literal);}
+  |T_LIT_STR   {$$ = new ASTLiteral(yylval.literal);}
+  |T_LIT_TRUE  {$$ = new ASTLiteral(yylval.literal);}
+  |T_LIT_FALSE {$$ = new ASTLiteral(yylval.literal);}
 ;
 
 type:
-  T_RES_INT
-  |T_RES_BOOL
-  |T_RES_STR
+  T_RES_INT   {$$ = INT;}
+  |T_RES_BOOL {$$ = BOOL;}
+  |T_RES_STR  {$$ = STR;}
 ;
 
+// Starting a new block, so we need to verify if it is a function block.
+// If it is a function block, the scope is already initialized, otherwise start a new one
+startblock:
+  T_SYM_OBC {
+              if(!decproc){
+                actual_scope = new Scope(actual_scope);
+              }
+              else{
+                decproc = false;
+              }
+            }
+;
+
+// When the block ends, its scope is finalized and the actual scope is the previus one
 block:
-  T_SYM_OBC blockdec T_SYM_CBC
+  startblock blockdec T_SYM_CBC {
+                                  Scope* prev = actual_scope->prev;
+                                  $$ = new ASTBlock(actual_scope);
+                                  actual_scope = prev;
+                                  //$$->addChild($2)
+                                }
 ;
 
 blockdec:
@@ -194,30 +254,31 @@ blockdec:
 ;
 
 varUse:
-  id
-  |id T_SYM_OBK expression T_SYM_CBK
+  id {$$ = new ASTVarUse($1, NULL);}
+  |id T_SYM_OBK expression T_SYM_CBK {$$ = new ASTVarUse($1, $3);}
 ;
 
+// Creates a AST for each expression.
 expression:
-  //expression T_SYM_INTR expression T_SYM_COL expression
-  expression T_SYM_PLS expression {$$ = new ASTExpression(ARITM, PLUS, $1, $3, NULL);}
-  |expression T_SYM_MIN expression {$$ = new ASTExpression(ARITM, MINUS, $1, $3, NULL);}
-  |expression T_SYM_MUL expression {$$ = new ASTExpression(ARITM, MUL, $1, $3, NULL);}
-  |expression T_SYM_DIV expression {$$ = new ASTExpression(ARITM, DIV, $1, $3, NULL);}
-  |expression T_SYM_MOD expression {$$ = new ASTExpression(ARITM, MOD, $1, $3, NULL);}
-  |expression T_SYM_EQL expression {$$ = new ASTExpression(COMP, EQL, $1, $3, NULL);}
-  |expression T_SYM_DIF expression {$$ = new ASTExpression(COMP, DIF, $1, $3, NULL);}
-  |expression T_SYM_GRT expression {$$ = new ASTExpression(COMP, GRT, $1, $3, NULL);}
-  |expression T_SYM_GRE expression {$$ = new ASTExpression(COMP, GRE, $1, $3, NULL);}
-  |expression T_SYM_LES expression {$$ = new ASTExpression(COMP, LES, $1, $3, NULL);}
-  |expression T_SYM_LEQ expression {$$ = new ASTExpression(COMP, LEQ, $1, $3, NULL);}
-  |expression T_SYM_OR expression {$$ = new ASTExpression(LOGIC, OR, $1, $3, NULL);}
-  |expression T_SYM_AND expression {$$ = new ASTExpression(LOGIC, AND, $1, $3, NULL);}
-  |T_SYM_OP expression T_SYM_CP {$$ = $2;}
-  |T_SYM_NOT expression {$$ = new ASTExpression(LOGIC, NOT, $2, NULL, NULL);}
+  expression T_SYM_INTR expression T_SYM_COL expression {$$ = new ASTExpression(TERN, NOOPERAND, $3, $5, $1);}
+  |expression T_SYM_OR expression    {$$ = new ASTExpression(LOGIC, OR, $1, $3, NULL);}
+  |expression T_SYM_AND expression   {$$ = new ASTExpression(LOGIC, AND, $1, $3, NULL);}
+  |expression T_SYM_EQL expression   {$$ = new ASTExpression(COMP, EQL, $1, $3, NULL);}
+  |expression T_SYM_DIF expression   {$$ = new ASTExpression(COMP, DIF, $1, $3, NULL);}
+  |expression T_SYM_GRT expression   {$$ = new ASTExpression(COMP, GRT, $1, $3, NULL);}
+  |expression T_SYM_GRE expression   {$$ = new ASTExpression(COMP, GRE, $1, $3, NULL);}
+  |expression T_SYM_LES expression   {$$ = new ASTExpression(COMP, LES, $1, $3, NULL);}
+  |expression T_SYM_LEQ expression   {$$ = new ASTExpression(COMP, LEQ, $1, $3, NULL);}
+  |expression T_SYM_PLS expression   {$$ = new ASTExpression(ARITM, PLUS, $1, $3, NULL);}
+  |expression T_SYM_MIN expression   {$$ = new ASTExpression(ARITM, MINUS, $1, $3, NULL);}
+  |expression T_SYM_MUL expression   {$$ = new ASTExpression(ARITM, MUL, $1, $3, NULL);}
+  |expression T_SYM_DIV expression   {$$ = new ASTExpression(ARITM, DIV, $1, $3, NULL);}
+  |expression T_SYM_MOD expression   {$$ = new ASTExpression(ARITM, MOD, $1, $3, NULL);}
+  |T_SYM_NOT expression              {$$ = new ASTExpression(LOGIC, NOT, $2, NULL, NULL);}
   |T_SYM_MIN expression %prec UMINUS {$$ = new ASTExpression(ARITM, U_MINUS, $2, NULL, NULL);}
-  |literal {$$ = new ASTLiteral($1);}
-  //|varUse
+  |T_SYM_OP expression T_SYM_CP      {$$ = $2;}
+  |literal                           {$$ = $1;}
+  |varUse                            {$$ = $1;}
   //|callFunc
 ;
 
@@ -252,8 +313,8 @@ simCmd:
   |cmdSkip
   |cmdReturn
   |cmdCallProc
-  |cmdRead
-  |cmdWrite
+  |cmdRead //{$1->eval();}
+  |cmdWrite {$1->eval();}
 ;
 
 cmdAtrib:
@@ -309,7 +370,8 @@ cmdRead:
 ;
 
 cmdWrite:
-  T_RES_WRITE expList T_SYM_SMC
+  //T_RES_WRITE expList T_SYM_SMC
+  T_RES_WRITE varUse T_SYM_SMC {$$ = new ASTCmdWrite($2);}
 ;
 
 %%
@@ -331,7 +393,11 @@ int main(int argc, char** argv){
     }
   }
 
+  actual_scope = new Scope(NULL);
+
   yyparse();
+
+  free(actual_scope);
 
   return 0;
 }

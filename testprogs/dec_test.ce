@@ -1,3 +1,19 @@
 var a = -2 + ((1 + 1)/2 + 3 + 7)*3 : int;
-var a = ((-2 + ((1 + 1)/2 + 3 + 7)*3) > 30) || (1 < 2) : bool;
-var b = true && !true : bool;
+var a = -2 + ((1 + 1)/2 + 3 + 7)*2 : int;
+var e = a > 2 ? 10 : 15: int;
+var x[2] : int;
+var y[3] = {36, 2, 2} : int;
+
+def f(a, b: int){
+  var e = 37 : int;
+  if(1){
+    def g(){
+      var y[3] = {36, 54, 11} : int;
+      write y[1];
+    }
+    if(2){
+
+    }
+  }
+
+}

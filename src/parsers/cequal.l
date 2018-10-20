@@ -9,9 +9,10 @@
   #include <iostream>
 
   #include "src/include/util.hpp"
-  #include "src/classes/include/AST.hpp"
-  #include "src/classes/include/LiteralInt.hpp"
-  #include "src/classes/include/LiteralBool.hpp"
+  #include "src/classes/ast/include/AST.hpp"
+  #include "src/classes/value/include/LiteralInt.hpp"
+  #include "src/classes/value/include/LiteralBool.hpp"
+  #include "src/classes/value/include/LiteralStr.hpp"
   #include "cequal.tab.h"
 
   int yylineno = 1;
@@ -54,11 +55,11 @@
 "/="     {return T_SYM_ATDIV;}
 "%="     {return T_SYM_ATMOD;}
 
-"+"      {yylval.op = T_SYM_PLS; return T_SYM_PLS;}
-"-"      {yylval.op = T_SYM_MIN; return T_SYM_MIN;}
-"*"      {yylval.op = T_SYM_MUL; return T_SYM_MUL;}
-"/"      {yylval.op = T_SYM_DIV; return T_SYM_DIV;}
-"%"      {yylval.op = T_SYM_MOD; return T_SYM_MOD;}
+"+"      {return T_SYM_PLS;}
+"-"      {return T_SYM_MIN;}
+"*"      {return T_SYM_MUL;}
+"/"      {return T_SYM_DIV;}
+"%"      {return T_SYM_MOD;}
 "=="     {return T_SYM_EQL;}
 "!="     {return T_SYM_DIF;}
 ">"      {return T_SYM_GRT;}
@@ -80,10 +81,11 @@
                    return T_LIT_TRUE;}
 "false"           {yylval.literal = new LiteralBool(false);
                    return T_LIT_FALSE;}
-\"(\\.|[^"\\])*\" {yylval.literal = new LiteralInt(atoi(yytext));
+\"(\\.|[^"\\])*\" {yylval.literal = new LiteralStr(new std::string(yytext));
                    return T_LIT_STR;}
 
-([a-zA-Z]|_)([a-zA-Z]|_|[0-9])* {return T_ID;}
+([a-zA-Z]|_)([a-zA-Z]|_|[0-9])* {yylval.sym_name = new std::string(yytext);
+                                 return T_ID;}
 
 "\n" {yylineno = yylineno + 1;}
 [ \t]
