@@ -11,15 +11,15 @@
 
 class ASTBlock: public AST{
 public:
-  // Sets up scope stored by this node
-  ASTBlock(Scope* s);
+    // Sets up scope stored by this node
+    explicit ASTBlock(Scope* s);
 
-  // Implementation of the pure virtual.
-  Value* inEval();
-  void printNode();
+    // Implementation of the pure virtual.
+    Value* inEval() override;
+    void printNode() override;
 
-  // The scope of this block
-  Scope* scope;
+    // The scope of this block
+    Scope* scope;
 private:
 };
 

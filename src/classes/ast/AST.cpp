@@ -12,15 +12,15 @@ AST::AST(ASTType t): a_type(t){
 }
 
 void AST::addChild(AST* ast){
-  children.push_back(ast);
+    children.push_back(ast);
 }
 
 Value* AST::eval(){
-  Value* res = this->inEval(); // Calls the main evaluation of the node
+    Value* res = this->inEval(); // Calls the main evaluation of the node
 
-  for(AST* ast : children){
-    free(ast);
-  }
+    for(AST* ast : children){
+        free(ast);
+    }
 
-  return res;
+    return res;
 }

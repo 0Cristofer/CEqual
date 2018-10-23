@@ -13,13 +13,13 @@
 
 class ASTListSpecVar: public AST{
 public:
-  ASTListSpecVar(AST* r);
+    explicit ASTListSpecVar(AST* r);
 
-  // Implementation of the pure virtual.
-  Value* inEval();
-  void printNode();
+    // Implementation of the pure virtual.
+    Value* inEval() override;
+    void printNode() override;
 
-  std::vector<Symbol*> syms;
+    std::vector<Symbol*> syms;
 private:
 };
 

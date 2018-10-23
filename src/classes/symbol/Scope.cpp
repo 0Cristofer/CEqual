@@ -12,18 +12,18 @@ Scope::Scope(Scope* p): prev(p){
 }
 
 Symbol* Scope::addSym(Symbol* s){
-  auto ins = sym_tab.insert(s);
+    auto ins = sym_tab.insert(s);
 
-  if(!ins.second){
-    free(s);
-    //std::cout << "New symbol, id: " << *(s->id) << " at: " << s->lineno << std::endl;
-  }
+    if(!ins.second){
+        free(s);
+        //std::cout << "New symbol, id: " << *(s->id) << " at: " << s->lineno << std::endl;
+    }
 
-  return *ins.first;
+    return *ins.first;
 }
 
 Scope::~Scope(){
-  for(Symbol* s : sym_tab){
-    free(s);
-  }
+    for(Symbol* s : sym_tab){
+        free(s);
+    }
 }

@@ -13,13 +13,13 @@
 
 class ASTArrayInit: public AST{
 public:
-  ASTArrayInit(AST* l);
+    explicit ASTArrayInit(AST* l);
 
-  // Implementation of the pure virtual.
-  Value* inEval();
-  void printNode();
+    // Implementation of the pure virtual.
+    Value* inEval() override;
+    void printNode() override;
 
-  std::vector<Value*>* vals;
+    std::vector<Value*>* vals;
 private:
 };
 

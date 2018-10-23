@@ -10,10 +10,10 @@
 
 class LiteralBool: public Literal{
 public:
-  // Stores the boolean value of the node
-  LiteralBool(bool b);
+    // Stores the boolean value of the node
+    explicit LiteralBool(bool b);
 
-  bool val;
+    bool val;
 };
 
 #endif /* LITERALBOOL_HPP */

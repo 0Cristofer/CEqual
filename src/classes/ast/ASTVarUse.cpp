@@ -12,39 +12,39 @@
 #include "../../include/util.hpp"
 
 ASTVarUse::ASTVarUse(Symbol* s, AST* e): AST(VARUSE), sym(s){
-  if(e) addChild(e);
+    if(e) addChild(e);
 }
 
 Value* ASTVarUse::inEval(){
-  Value* v, *e;
+    Value* v = nullptr, *e;
 
-  if(children.size() > 0){
-    e = children[0]->eval();
+    if(!children.empty()){
+        e = children[0]->eval();
 
-    if(typeCheck(e, INT)){
-      v = (*(sym->vals))[((LiteralInt*)e)->val];
+        if(typeCheck(e, INT)){
+            v = (*(sym->vals))[((LiteralInt*)e)->val];
+        }
+
+    }
+    else{
+        v = sym->val;
     }
 
-  }
-  else{
-    v = sym->val;
-  }
+    switch (((Literal*)(sym->val))->type) {
+        case INT:
+            v = new LiteralInt(((LiteralInt*)(sym->val))->val);
+            break;
+        case BOOL:
+            v = new LiteralBool(((LiteralBool*)(sym->val))->val);
+            break;
+        case STR:
+            v = new LiteralStr(new std::string(*(((LiteralStr*)(sym->val))->val)));
+            break;
+    }
 
-  switch (((Literal*)(sym->val))->type) {
-    case INT:
-      v = new LiteralInt(((LiteralInt*)(sym->val))->val);
-      break;
-    case BOOL:
-      v = new LiteralBool(((LiteralBool*)(sym->val))->val);
-      break;
-    case STR:
-      v = new LiteralStr(new std::string(*(((LiteralStr*)(sym->val))->val)));
-      break;
-  }
-
-  return v;
+    return v;
 }
 
 void ASTVarUse::printNode(){
-  std::cout << "Node type: ASTLiteral" << std::endl;
+    std::cout << "Node type: ASTLiteral" << std::endl;
 }

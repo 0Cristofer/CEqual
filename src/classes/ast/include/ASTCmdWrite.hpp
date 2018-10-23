@@ -10,10 +10,10 @@
 
 class ASTCmdWrite: public AST{
 public:
-  ASTCmdWrite(AST* e);
+    explicit ASTCmdWrite(AST* e);
 
-  Value* inEval();
-  void printNode();
+    Value* inEval() override;
+    void printNode() override;
 
 private:
 };

@@ -10,10 +10,10 @@
 
 class LiteralInt: public Literal{
 public:
-  // Stores the integer value of the node
-  LiteralInt(int v);
+    // Stores the integer value of the node
+    explicit LiteralInt(int v);
 
-  int val;
+    int val;
 };
 
 #endif /* LITERALINT_HPP */

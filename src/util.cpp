@@ -7,32 +7,32 @@
 #include "classes/ast/include/AST.hpp"
 
 bool typeCheck(Value* v, LiteralType t){
-  bool res;
+    bool res = false;
 
-  if(!v) return true;
+    if(!v) return true;
 
-  switch (v->type) {
-    case LITERAL:
-      res = ((Literal*)v)->type == t;
-      if(!res) typeError();
-      break;
+    switch (v->type) {
+        case LITERALVAL:
+            res = ((Literal*)v)->type == t;
+            if(!res) typeError();
+            break;
 
-    default:
-      std::cout << "Not implemented" << std::endl;
-      break;
-  }
+        default:
+            std::cout << "Not implemented" << std::endl;
+            break;
+    }
 
-  return res;
+    return res;
 }
 
 void semanticError(){
-  std::cerr << "Semantic error at line " << yylineno << std::endl;
+    std::cerr << "Semantic error at line " << yylineno << std::endl;
 }
 
 void typeError(){
-  std::cerr << "Semantic error: type error at line " << yylineno << std::endl;
+    std::cerr << "Semantic error: type error at line " << yylineno << std::endl;
 }
 
 void arraySizeMismatchError(){
-  std::cerr << "Semantic error: array initialization with more elements than specified at line " << yylineno << std::endl;
+    std::cerr << "Semantic error: array initialization with more elements than specified at line " << yylineno << std::endl;
 }

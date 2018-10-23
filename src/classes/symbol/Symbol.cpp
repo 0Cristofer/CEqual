@@ -10,23 +10,23 @@ Symbol::Symbol(std::string* sym, int n): id(sym), lineno(n), state(UNDEFINED){
 }
 
 bool SymCmp::operator()(const Symbol* l, const Symbol* r) const{
-  return (*(l->id)) < (*(r->id));
+    return (*(l->id)) < (*(r->id));
 }
 
 Symbol::~Symbol(){
-  free(id);
+    free(id);
 
-  switch (type) {
-    case SIM:
-      if(val) free(val);
-      break;
-    case ARRAY:
-      if(vals){
-        for(Value* v : *vals){
-          free(v);
-        }
-        free(vals);
-      }
-      break;
-  }
+    switch (type) {
+        case SIM:
+            if(val) free(val);
+            break;
+        case ARRAY:
+            if(vals){
+                for(Value* v : *vals){
+                    free(v);
+                }
+                free(vals);
+            }
+            break;
+    }
 }

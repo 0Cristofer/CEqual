@@ -12,16 +12,16 @@
 
 class Scope{
 public:
-  // Create a new scope having the reference to the previous one
-  Scope(Scope *p);
-  ~Scope();
+    // Create a new scope having the reference to the previous one
+    explicit Scope(Scope *p);
+    ~Scope();
 
-  // Adds a symbol to this scope's table
-  Symbol* addSym(Symbol* s);
+    // Adds a symbol to this scope's table
+    Symbol* addSym(Symbol* s);
 
-  Scope* prev;
+    Scope* prev;
 private:
-  std::set<Symbol*, SymCmp> sym_tab;
+    std::set<Symbol*, SymCmp> sym_tab;
 };
 
 #endif /* SCOPE_HPP */

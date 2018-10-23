@@ -10,14 +10,14 @@
 
 // Possble literal types
 enum LiteralType{
-  INT, BOOL, STR
+    INT, BOOL, STR
 };
 
 class Literal: public Value{
 public:
-  Literal(LiteralType t);
+    explicit Literal(LiteralType t);
 
-  LiteralType type;
+    LiteralType type;
 };
 
 #endif /* LITERAL_HPP */

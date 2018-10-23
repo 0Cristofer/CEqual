@@ -13,10 +13,10 @@ ASTBlock::ASTBlock(Scope* s): AST(BLOCK), scope(s){
 
 // TODO
 Value* ASTBlock::inEval(){
-  free(scope);
-  return NULL;
+    free(scope);
+    return nullptr;
 }
 
 void ASTBlock::printNode(){
-  std::cout << "Node type: ASTBlock" << std::endl;
+    std::cout << "Node type: ASTBlock" << std::endl;
 }

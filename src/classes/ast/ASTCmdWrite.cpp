@@ -11,26 +11,26 @@
 #include "../value/include/LiteralStr.hpp"
 
 ASTCmdWrite::ASTCmdWrite(AST* e): AST(CMDWRITE){
-  if(e) addChild(e);
+    if(e) addChild(e);
 }
 
 Value* ASTCmdWrite::inEval(){
-  Value* v;
+    Value* v;
 
-  v = children[0]->eval();
+    v = children[0]->eval();
 
-  switch (((Literal*)v)->type) {
-    case INT:
-      std::cout << ((LiteralInt*)v)->val << std::endl;
-    case BOOL:
-      std::cout << ((LiteralBool*)v)->val << std::endl;
-    case STR:
-      std::cout << *(((LiteralStr*)v)->val) << std::endl;
-  }
+    switch (((Literal*)v)->type) {
+        case INT:
+            std::cout << ((LiteralInt*)v)->val << std::endl;
+        case BOOL:
+            std::cout << ((LiteralBool*)v)->val << std::endl;
+        case STR:
+            std::cout << *(((LiteralStr*)v)->val) << std::endl;
+    }
 
-  return NULL;
+    return nullptr;
 }
 
 void ASTCmdWrite::printNode(){
-  std::cout << "Node type: ASTLiteral" << std::endl;
+    std::cout << "Node type: ASTLiteral" << std::endl;
 }

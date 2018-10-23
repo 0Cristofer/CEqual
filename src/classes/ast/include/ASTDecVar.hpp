@@ -11,13 +11,13 @@
 
 class ASTDecVar: public AST{
 public:
-  ASTDecVar(AST* list, LiteralType t);
+    ASTDecVar(AST* list, LiteralType t);
 
-  // Implementation of the pure virtual.
-  Value* inEval();
-  void printNode();
+    // Implementation of the pure virtual.
+    Value* inEval() override;
+    void printNode() override;
 
-  LiteralType s_type; // The type of the new variable
+    LiteralType s_type; // The type of the new variable
 private:
 };
 

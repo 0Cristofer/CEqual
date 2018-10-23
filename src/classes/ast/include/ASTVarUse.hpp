@@ -11,14 +11,14 @@
 
 class ASTVarUse: public AST{
 public:
-  // Sets up the literal value stored by this node
-  ASTVarUse(Symbol* s, AST* e);
+    // Sets up the literal value stored by this node
+    ASTVarUse(Symbol* s, AST* e);
 
-  // Implementation of the pure virtual. Evaluates the literal by returning a literal value
-  Value* inEval();
-  void printNode();
+    // Implementation of the pure virtual. Evaluates the literal by returning a literal value
+    Value* inEval() override;
+    void printNode() override;
 
-  Symbol* sym;
+    Symbol* sym;
 private:
 };
 

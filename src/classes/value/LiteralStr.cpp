@@ -10,5 +10,5 @@ LiteralStr::LiteralStr(std::string* s): Literal(STR), val(s){
 }
 
 LiteralStr::~LiteralStr(){
-  free(val);
+    free(val);
 }

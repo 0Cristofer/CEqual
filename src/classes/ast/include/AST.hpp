@@ -12,27 +12,27 @@
 
 // Possible AST types
 enum ASTType{
- LITERAL, EXPRESSION, BLOCK, SPECVAR, LISTSPECVAR, ARRAYINIT, DECVAR, VARUSE, CMDWRITE
+    LITERAL, EXPRESSION, BLOCK, SPECVAR, LISTSPECVAR, ARRAYINIT, DECVAR, VARUSE, CMDWRITE
 };
 
 class AST{
 public:
-  AST(ASTType t);
+    explicit AST(ASTType t);
 
-  // Adds a child to this node
-  void addChild(AST* ast);
-  // Evaluates the node, freeing its children and returning a generic value
-  Value* eval();
+    // Adds a child to this node
+    void addChild(AST* ast);
+    // Evaluates the node, freeing its children and returning a generic value
+    Value* eval();
 
-  // Pure virtual. Should print node information
-  virtual void printNode() = 0;
+    // Pure virtual. Should print node information
+    virtual void printNode() = 0;
 
-  ASTType a_type;
+    ASTType a_type;
 protected:
-  // Pure virtual. Should make the actual evaluation of the node and its children
-  virtual Value* inEval() = 0;
+    // Pure virtual. Should make the actual evaluation of the node and its children
+    virtual Value* inEval() = 0;
 
-  std::vector<AST*> children;
+    std::vector<AST*> children;
 };
 
 #endif /* AST_HPP */

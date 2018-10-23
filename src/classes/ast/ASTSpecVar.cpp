@@ -14,47 +14,47 @@ ASTSpecVar::ASTSpecVar(Symbol* s, SpecType t): AST(SPECVAR), sym(s), type(t){
 }
 
 Value* ASTSpecVar::inEval(){
-  Value* res = NULL;
-  std::vector<Value*>* v;
+    Value* res = nullptr;
+    std::vector<Value*>* v;
 
-  if(type == SIMVAR){
-    if(children.size() != 0){
-      res = children[0]->eval();
-    }
-
-    if(sym->val){
-      free(sym->val);
-    }
-
-    sym->type = SIM;
-  }
-  else{
-    if(children.size() != 0){
-      children[0]->eval();
-      v = ((ASTArrayInit*)children[0])->vals;
-
-      if(v->size() > sym->size){
-        arraySizeMismatchError();
-      }
-      else{
-        if(sym->vals){
-          for(Value* oldv : *(sym->vals)){
-            free(oldv);
-          }
-
-          free(sym->vals);
+    if(type == SIMVAR){
+        if(!children.empty()){
+            res = children[0]->eval();
         }
 
-        sym->vals = v;
-      }
+        if(sym->val){
+            free(sym->val);
+        }
+
+        sym->type = SIM;
+    }
+    else{
+        if(!children.empty()){
+            children[0]->eval();
+            v = ((ASTArrayInit*)children[0])->vals;
+
+            if(v->size() > sym->size){
+                arraySizeMismatchError();
+            }
+            else{
+                if(sym->vals){
+                    for(Value* oldv : *(sym->vals)){
+                        free(oldv);
+                    }
+
+                    free(sym->vals);
+                }
+
+                sym->vals = v;
+            }
+        }
+
+        sym->type = ARRAY;
     }
 
-    sym->type = ARRAY;
-  }
-
-  return res;
+    return res;
 }
 
 void ASTSpecVar::printNode(){
-  std::cout << "Node type: ASTSpecVar" << std::endl;
+    std::cout << "Node type: ASTSpecVar" << std::endl;
 }

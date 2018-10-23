@@ -11,14 +11,14 @@
 
 class ASTLiteral: public AST{
 public:
-  // Sets up the literal value stored by this node
-  ASTLiteral(Literal* lit);
+    // Sets up the literal value stored by this node
+    explicit ASTLiteral(Literal* lit);
 
-  // Implementation of the pure virtual. Evaluates the literal by returning a literal value
-  Value* inEval();
-  void printNode();
+    // Implementation of the pure virtual. Evaluates the literal by returning a literal value
+    Value* inEval() override;
+    void printNode() override;
 private:
-  Literal* literal;
+    Literal* literal;
 };
 
 #endif /* ASTLITERAL_HPP */

@@ -12,31 +12,31 @@
 #include "../../value/include/Value.hpp"
 
 enum SymState{
-  UNDEFINED, DEFINED
+    UNDEFINED, DEFINED
 };
 
 enum SymType{
-  SIM, ARRAY
+    SIM, ARRAY
 };
 
 class Symbol{
 public:
-  Symbol(std::string* sym, int n);
-  ~Symbol();
+    Symbol(std::string* sym, int n);
+    ~Symbol();
 
-  int lineno;
-  int size;
-  std::string* id;
-  std::vector<Value*>* vals;
-  SymState state;
-  SymType type;
-  Value* val = NULL;
+    int lineno;
+    int size;
+    std::string* id;
+    std::vector<Value*>* vals;
+    SymState state;
+    SymType type;
+    Value* val = nullptr;
 private:
 };
 
 // Implements the symbol pointer comparition for use in set
 struct SymCmp{
-  bool operator()(const Symbol* l, const Symbol* r) const;
+    bool operator()(const Symbol* l, const Symbol* r) const;
 };
 
 #endif /* SYMBOL_HPP */

@@ -9,27 +9,27 @@
 #include "include/ASTSpecVar.hpp"
 
 ASTListSpecVar::ASTListSpecVar(AST* r): AST(LISTSPECVAR){
-  if(r) addChild(r);
+    if(r) addChild(r);
 }
 
 Value* ASTListSpecVar::inEval(){
-  Symbol* sym;
+    Symbol* sym;
 
-  for(AST* a : children){
-    sym = ((ASTSpecVar*)a)->sym;
+    for(AST* a : children){
+        sym = ((ASTSpecVar*)a)->sym;
 
-    if(sym->type == SIM){
-      sym->val = a->eval();
+        if(sym->type == SIM){
+            sym->val = a->eval();
+        }
+        else{
+            a->eval();
+        }
+        syms.push_back(sym);
     }
-    else{
-      a->eval();
-    }
-    syms.push_back(sym);
-  }
 
-  return NULL;
+    return nullptr;
 }
 
 void ASTListSpecVar::printNode(){
-  std::cout << "Node type: ASTSListSpecVar" << std::endl;
+    std::cout << "Node type: ASTSListSpecVar" << std::endl;
 }

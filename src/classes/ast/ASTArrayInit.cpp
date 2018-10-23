@@ -11,40 +11,39 @@
 #include "../../include/util.hpp"
 
 ASTArrayInit::ASTArrayInit(AST* l): AST(ARRAYINIT){
-  if(l) addChild(l);
+    if(l) addChild(l);
 }
 
 Value* ASTArrayInit::inEval(){
-  int i;
-  Value *v, *prev = NULL;
-  Symbol* sym;
+    int i;
+    Value *v, *prev = nullptr;
 
-  vals = new std::vector<Value*>(children.size());
+    vals = new std::vector<Value*>(children.size());
 
-  // Since this is a array, we initialize a vector to hold it's elements
-  // and evaluate the children to populate it. Ps.: the values are inverted 
-  for(i = children.size(); i > 0; i--){
-    v = children[(i-1)]->eval();
+    // Since this is a array, we initialize a vector to hold it's elements
+    // and evaluate the children to populate it. Ps.: the values are inverted
+    for(i = static_cast<int>(children.size()); i > 0; i--){
+        v = children[(i-1)]->eval();
 
-    if(prev){
-      if(typeCheck(v, ((Literal*)prev)->type)){
-        (*vals)[(children.size()-i)] = v;
-        prev = v;
-      }
-      else{
-        free(vals);
-        break;
-      }
+        if(prev){
+            if(typeCheck(v, ((Literal *) prev)->type)){
+                (*vals)[(children.size()-i)] = v;
+                prev = v;
+            }
+            else{
+                free(vals);
+                break;
+            }
+        }
+        else{
+            prev = v;
+            (*vals)[(children.size()-i)] = v;
+        }
     }
-    else{
-      prev = v;
-      (*vals)[(children.size()-i)] = v;
-    }
-  }
 
-  return NULL;
+    return nullptr;
 }
 
 void ASTArrayInit::printNode(){
-  std::cout << "Node type: ASTArrayInit" << std::endl;
+    std::cout << "Node type: ASTArrayInit" << std::endl;
 }

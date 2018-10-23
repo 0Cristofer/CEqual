@@ -12,11 +12,11 @@
 
 class LiteralStr: public Literal{
 public:
-  // Stores the boolean value of the node
-  LiteralStr(std::string* s);
-  ~LiteralStr();
+    // Stores the boolean value of the node
+    explicit LiteralStr(std::string* s);
+    ~LiteralStr();
 
-  std::string* val;
+    std::string* val;
 };
 
 #endif /* LITERALSTR_HPP */

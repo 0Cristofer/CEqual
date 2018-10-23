@@ -26,7 +26,7 @@ int yyparse();
 // Syntax parser error function
 void yyerror(std::string s);
 // Checks if a value is of given type
-bool typeCheck(Value* v, LiteralType t);
+bool typeCheck(Value *v, LiteralType t);
 // Prints to standart error output a semantic error
 void semanticError();
 // Prints to standart error output a type error

@@ -8,14 +8,14 @@
 
 // Possible evaluation values
 enum ValueType{
-  LITERALVAL
+    LITERALVAL
 };
 
 class Value{
 public:
-  Value(ValueType t): type(t){}
+    explicit Value(ValueType t): type(t){}
 
-  ValueType type;
+    ValueType type;
 };
 
 #endif /* VALUE_HPP */

@@ -9,7 +9,6 @@ def f(a, b: int){
   if(1){
     def g(){
       var y[3] = {36, 54, 11} : int;
-      write y[1];
     }
     if(2){
 

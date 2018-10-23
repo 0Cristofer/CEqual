@@ -10,20 +10,20 @@
 #include "../../symbol/include/Symbol.hpp"
 
 enum SpecType{
-  SIMVAR, ARRAYVAR
+    SIMVAR, ARRAYVAR
 };
 
 class ASTSpecVar: public AST{
 public:
-  // Sets up the literal value stored by this node and the specification type
-  ASTSpecVar(Symbol* s, SpecType t);
+    // Sets up the literal value stored by this node and the specification type
+    ASTSpecVar(Symbol* s, SpecType t);
 
-  // Implementation of the pure virtual.
-  Value* inEval();
-  void printNode();
+    // Implementation of the pure virtual.
+    Value* inEval() override;
+    void printNode() override;
 
-  Symbol* sym;
-  SpecType type;
+    Symbol* sym;
+    SpecType type;
 private:
 };
 

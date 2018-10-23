@@ -13,9 +13,9 @@ ASTLiteral::ASTLiteral(Literal* lit): AST(LITERAL), literal(lit){
 }
 
 Value* ASTLiteral::inEval(){
-  return literal;
+    return literal;
 }
 
 void ASTLiteral::printNode(){
-  std::cout << "Node type: ASTLiteral" << std::endl;
+    std::cout << "Node type: ASTLiteral" << std::endl;
 }
