@@ -1,7 +1,7 @@
 /* Abstract Syntax Tree literal node definitions
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 19/10/2018
-   Edited: 19/10/2018 */
+   Edited: 07/11/2018 */
 
 #include <iostream>
 
@@ -9,7 +9,7 @@
 #include "include/ASTArrayInit.hpp"
 #include "../../include/util.hpp"
 
-ASTSpecVar::ASTSpecVar(Symbol* s, SpecType t): AST(SPECVAR), sym(s), type(t){
+ASTSpecVar::ASTSpecVar(Symbol* s, SpecType t, Scope* sc): AST(SPECVAR, sc), sym(s), type(t){
 
 }
 
@@ -30,7 +30,7 @@ Value* ASTSpecVar::inEval(){
             v = ((ASTArrayInit*)children[0])->vals;
 
             if(v->size() > sym->size){
-                arraySizeMismatchError();
+                arraySizeMismatchError(line);
             }
             else{
                 if(sym->vals){
@@ -42,6 +42,10 @@ Value* ASTSpecVar::inEval(){
                 }
 
                 sym->vals = v;
+
+                if(v->size() < sym->size){
+                    v->resize(static_cast<unsigned long>(sym->size));
+                }
             }
         }
 

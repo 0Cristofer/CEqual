@@ -1,7 +1,7 @@
 /* Scope class for symbol management
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 19/10/2018
-   Edited: 19/10/2018 */
+   Edited: 07/11/2018 */
 
 #include <iostream>
 #include <src/classes/symbol/include/Scope.hpp>
@@ -32,15 +32,16 @@ Scope::~Scope(){
 
 Symbol *Scope::getSym(Symbol *s) {
     auto sm = sym_tab.find(s);
-    Symbol* a_sym;
+    Symbol* a_sym = nullptr;
 
     if (sm != sym_tab.end()){
         free(s);
         return *sm;
     }
 
+
     a_sym = s;
-    s = prev->getSym(a_sym);
+    if(prev != nullptr) s = prev->getSym(a_sym);
 
     return s;
 }

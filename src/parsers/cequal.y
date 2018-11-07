@@ -20,7 +20,7 @@
   #include "src/classes/ast/include/ASTListDec.hpp"
   #include "src/classes/value/include/LiteralStr.hpp"
 
-  bool decproc = false;
+  bool declaring = false;
   Scope* actual_scope;
 %}
 
@@ -97,7 +97,7 @@ program:
 ;
 
 listDec:
-  dec {$$ = new ASTListDec($1);}
+  dec {$$ = new ASTListDec($1, actual_scope);}
   |dec listDec{
                 $2->addChild($1);
                 $$ = $2;
@@ -113,11 +113,11 @@ dec:
 /* Variable declaration rules. TODO: String specifics */
 
 decVar:
-  T_RES_VAR listSpecVar T_SYM_COL type T_SYM_SMC {$$ = new ASTDecVar($2, $4);}
+  T_RES_VAR listSpecVar T_SYM_COL type T_SYM_SMC {$$ = new ASTDecVar($2, $4, actual_scope);}
 ;
 
 listSpecVar:
-  specVar {$$ = new ASTListSpecVar($1);}
+  specVar {$$ = new ASTListSpecVar($1, actual_scope);}
   |specVar T_SYM_CMA listSpecVar {
                                     $3->addChild($1);
                                     $$ = $3;
@@ -132,7 +132,7 @@ specVar:
 ;
 
 specVarSim:
-  id {$$ = new ASTSpecVar($1, SIMVAR);}
+  id {$$ = new ASTSpecVar($1, SIMVAR, actual_scope);}
 ;
 
 specVarSimInit:
@@ -146,7 +146,7 @@ specVarArr:
   id T_SYM_OBK T_LIT_INT T_SYM_CBK {
                                       $1->size = ((LiteralInt*)yylval.literal)->val;
                                       free(yylval.literal);
-                                      $$ = new ASTSpecVar($1, ARRAYVAR);
+                                      $$ = new ASTSpecVar($1, ARRAYVAR, actual_scope);
                                    }
 ;
 
@@ -158,7 +158,7 @@ specVarArrInit:
 ;
 
 arrInit:
-  literal {$$ = new ASTArrayInit($1);}
+  literal {$$ = new ASTArrayInit($1, actual_scope);}
   |literal T_SYM_CMA arrInit {
                                 $3->addChild($1);
                                 $$ = $3;
@@ -176,7 +176,7 @@ decSub:
 startfunc:
   T_RES_DEF id T_SYM_OP {
                           actual_scope = new Scope(actual_scope);
-                          decproc = true;
+                          declaring = true;
                         }
 ;
 
@@ -218,10 +218,10 @@ id:
 ;
 
 literal:
-  T_LIT_INT    {$$ = new ASTLiteral(yylval.literal);}
-  |T_LIT_STR   {$$ = new ASTLiteral(yylval.literal);}
-  |T_LIT_TRUE  {$$ = new ASTLiteral(yylval.literal);}
-  |T_LIT_FALSE {$$ = new ASTLiteral(yylval.literal);}
+  T_LIT_INT    {$$ = new ASTLiteral(yylval.literal, actual_scope);}
+  |T_LIT_STR   {$$ = new ASTLiteral(yylval.literal, actual_scope);}
+  |T_LIT_TRUE  {$$ = new ASTLiteral(yylval.literal, actual_scope);}
+  |T_LIT_FALSE {$$ = new ASTLiteral(yylval.literal, actual_scope);}
 ;
 
 type:
@@ -234,11 +234,11 @@ type:
 // If it is a function block, the scope is already initialized, otherwise start a new one
 startblock:
   T_SYM_OBC {
-              if(!decproc){
+              if(!declaring){
                 actual_scope = new Scope(actual_scope);
               }
               else{
-                decproc = false;
+                declaring = false;
               }
             }
 ;
@@ -246,43 +246,41 @@ startblock:
 // When the block ends, its scope is finalized and the actual scope is the previus one
 block:
   startblock listDec cmds T_SYM_CBC {
-                                      Scope* prev = actual_scope->prev;
                                       $$ = new ASTBlock(actual_scope);
-                                      actual_scope = prev;
-                                      $$->addChild($2);
+                                      actual_scope = actual_scope->prev;
                                       $$->addChild($3);
+                                      $$->addChild($2);
                                     }
   |startblock cmds T_SYM_CBC {
-                                Scope* prev = actual_scope->prev;
                                 $$ = new ASTBlock(actual_scope);
-                                actual_scope = prev;
+                                actual_scope = actual_scope->prev;
                                 $$->addChild($2);
                              }
 ;
 
 varUse:
-  id {$$ = new ASTVarUse($1, NULL);}
-  |id T_SYM_OBK expression T_SYM_CBK {$$ = new ASTVarUse($1, $3);}
+  id {$$ = new ASTVarUse($1, NULL, actual_scope);}
+  |id T_SYM_OBK expression T_SYM_CBK {$$ = new ASTVarUse($1, $3, actual_scope);}
 ;
 
 // Creates a AST for each expression.
 expression:
-  expression T_SYM_INTR expression T_SYM_COL expression {$$ = new ASTExpression(TERN, NOOPERAND, $3, $5, $1);}
-  |expression T_SYM_OR expression    {$$ = new ASTExpression(LOGIC, OR, $1, $3, NULL);}
-  |expression T_SYM_AND expression   {$$ = new ASTExpression(LOGIC, AND, $1, $3, NULL);}
-  |expression T_SYM_EQL expression   {$$ = new ASTExpression(COMP, EQL, $1, $3, NULL);}
-  |expression T_SYM_DIF expression   {$$ = new ASTExpression(COMP, DIF, $1, $3, NULL);}
-  |expression T_SYM_GRT expression   {$$ = new ASTExpression(COMP, GRT, $1, $3, NULL);}
-  |expression T_SYM_GRE expression   {$$ = new ASTExpression(COMP, GRE, $1, $3, NULL);}
-  |expression T_SYM_LES expression   {$$ = new ASTExpression(COMP, LES, $1, $3, NULL);}
-  |expression T_SYM_LEQ expression   {$$ = new ASTExpression(COMP, LEQ, $1, $3, NULL);}
-  |expression T_SYM_PLS expression   {$$ = new ASTExpression(ARITM, PLUS, $1, $3, NULL);}
-  |expression T_SYM_MIN expression   {$$ = new ASTExpression(ARITM, MINUS, $1, $3, NULL);}
-  |expression T_SYM_MUL expression   {$$ = new ASTExpression(ARITM, MUL, $1, $3, NULL);}
-  |expression T_SYM_DIV expression   {$$ = new ASTExpression(ARITM, DIV, $1, $3, NULL);}
-  |expression T_SYM_MOD expression   {$$ = new ASTExpression(ARITM, MOD, $1, $3, NULL);}
-  |T_SYM_NOT expression              {$$ = new ASTExpression(LOGIC, NOT, $2, NULL, NULL);}
-  |T_SYM_MIN expression %prec UMINUS {$$ = new ASTExpression(ARITM, U_MINUS, $2, NULL, NULL);}
+  expression T_SYM_INTR expression T_SYM_COL expression {$$ = new ASTExpression(TERN, NOOPERAND, $3, $5, $1, actual_scope);}
+  |expression T_SYM_OR expression    {$$ = new ASTExpression(LOGIC, OR, $1, $3, NULL, actual_scope);}
+  |expression T_SYM_AND expression   {$$ = new ASTExpression(LOGIC, AND, $1, $3, NULL, actual_scope);}
+  |expression T_SYM_EQL expression   {$$ = new ASTExpression(COMP, EQL, $1, $3, NULL, actual_scope);}
+  |expression T_SYM_DIF expression   {$$ = new ASTExpression(COMP, DIF, $1, $3, NULL, actual_scope);}
+  |expression T_SYM_GRT expression   {$$ = new ASTExpression(COMP, GRT, $1, $3, NULL, actual_scope);}
+  |expression T_SYM_GRE expression   {$$ = new ASTExpression(COMP, GRE, $1, $3, NULL, actual_scope);}
+  |expression T_SYM_LES expression   {$$ = new ASTExpression(COMP, LES, $1, $3, NULL, actual_scope);}
+  |expression T_SYM_LEQ expression   {$$ = new ASTExpression(COMP, LEQ, $1, $3, NULL, actual_scope);}
+  |expression T_SYM_PLS expression   {$$ = new ASTExpression(ARITM, PLUS, $1, $3, NULL, actual_scope);}
+  |expression T_SYM_MIN expression   {$$ = new ASTExpression(ARITM, MINUS, $1, $3, NULL, actual_scope);}
+  |expression T_SYM_MUL expression   {$$ = new ASTExpression(ARITM, MUL, $1, $3, NULL, actual_scope);}
+  |expression T_SYM_DIV expression   {$$ = new ASTExpression(ARITM, DIV, $1, $3, NULL, actual_scope);}
+  |expression T_SYM_MOD expression   {$$ = new ASTExpression(ARITM, MOD, $1, $3, NULL, actual_scope);}
+  |T_SYM_NOT expression              {$$ = new ASTExpression(LOGIC, NOT, $2, NULL, NULL, actual_scope);}
+  |T_SYM_MIN expression %prec UMINUS {$$ = new ASTExpression(ARITM, U_MINUS, $2, NULL, NULL, actual_scope);}
   |T_SYM_OP expression T_SYM_CP      {$$ = $2;}
   |literal                           {$$ = $1;}
   |varUse                            {$$ = $1;}
@@ -302,7 +300,7 @@ expList:
 /* Commands */
 
 cmds:
-    {$$ = new ASTCmds();}
+    {$$ = new ASTCmds(actual_scope);}
   |cmd cmds {
               $2->addChild($1);
               $$ = $2;
@@ -310,8 +308,8 @@ cmds:
 ;
 
 cmd:
-  simCmd
-  |block
+  simCmd {$$ = $1;}
+  |block {$$ = $1;}
 ;
 
 simCmd:
@@ -324,7 +322,7 @@ simCmd:
   |cmdReturn
   |cmdCallProc
   |cmdRead*/
-  cmdWrite
+  cmdWrite {$$ = $1;}
 ;
 
 cmdAtrib:
@@ -381,7 +379,7 @@ cmdRead:
 
 cmdWrite:
   //T_RES_WRITE expList T_SYM_SMC
-  T_RES_WRITE varUse T_SYM_SMC {$$ = new ASTCmdWrite($2);}
+  T_RES_WRITE varUse T_SYM_SMC {$$ = new ASTCmdWrite($2, actual_scope);}
 ;
 
 %%

@@ -11,18 +11,18 @@
 #include "../value/include/LiteralStr.hpp"
 #include "../../include/util.hpp"
 
-ASTVarUse::ASTVarUse(Symbol* s, AST* e): AST(VARUSE), sym(s){
+ASTVarUse::ASTVarUse(Symbol* s, AST* e, Scope* sc): AST(VARUSE, sc), sym(s){
     if(e) addChild(e);
 }
 
 Value* ASTVarUse::inEval(){
     int ind = 0;
-    Value* v = nullptr, *e;
+    Value* v = nullptr, *e = nullptr;
 
-    sym = actual_scope->getSym(sym);
+    sym = scope->getSym(sym);
 
     if(sym->state == UNDEFINED){
-        notInitializedError();
+        notInitializedError(line, *(sym->id));
         free(sym);
         return v;
     }
@@ -30,7 +30,7 @@ Value* ASTVarUse::inEval(){
     if(!children.empty()){
         e = children[0]->eval();
 
-        if(typeCheck(e, INT)){
+        if(typeCheck(e, INT, line)){
             ind = ((LiteralInt*)e)->val;
             v = (*(sym->vals))[ind];
         }

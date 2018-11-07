@@ -1,7 +1,7 @@
 /* Abstract Syntax Tree array initialization
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 19/10/2018
-   Edited: 19/10/2018 */
+   Edited: 07/11/2018 */
 
 #include <iostream>
 
@@ -10,7 +10,7 @@
 #include "../symbol/include/Symbol.hpp"
 #include "../../include/util.hpp"
 
-ASTArrayInit::ASTArrayInit(AST* l): AST(ARRAYINIT){
+ASTArrayInit::ASTArrayInit(AST* l, Scope* s): AST(ARRAYINIT, s){
     if(l) addChild(l);
 }
 
@@ -26,7 +26,7 @@ Value* ASTArrayInit::inEval(){
         v = children[(i-1)]->eval();
 
         if(prev){
-            if(typeCheck(v, ((Literal *) prev)->type)){
+            if(typeCheck(v, ((Literal *) prev)->type, line)){
                 (*vals)[(children.size()-i)] = v;
                 prev = v;
             }

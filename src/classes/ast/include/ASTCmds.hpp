@@ -1,7 +1,7 @@
 /* Abstract Syntax Tree command list
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 07/11/2018
-   Edited: 07/1/2018 */
+   Edited: 07/11/2018 */
 
 #ifndef CEQUAL_ASTCMDS_HPP
 #define CEQUAL_ASTCMDS_HPP
@@ -11,7 +11,7 @@
 
 class ASTCmds: public AST {
 public:
-    explicit ASTCmds();
+    explicit ASTCmds(Scope* s);
 
     void printNode() override;
 

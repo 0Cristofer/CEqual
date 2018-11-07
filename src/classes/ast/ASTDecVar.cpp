@@ -10,7 +10,7 @@
 #include "../value/include/LiteralInt.hpp"
 #include "../../include/util.hpp"
 
-ASTDecVar::ASTDecVar(AST* list, LiteralType t): AST(DECVAR), s_type(t){
+ASTDecVar::ASTDecVar(AST* list, LiteralType t, Scope* s): AST(DECVAR, s), s_type(t){
     addChild(list);
 }
 
@@ -22,27 +22,27 @@ Value* ASTDecVar::inEval(){
     for(Symbol* s : list->syms){
         if(s->type == SIM){
             if(s->val){
-                if(typeCheck((Literal *) s->val, s_type)){
+                if(typeCheck((Literal *) s->val, s_type, line)){
                     s->state = DEFINED;
-                    actual_scope->addSym(s);
+                    scope->addSym(s);
                 }
             }
             else{
                 s->state = DEFINED;
-                actual_scope->addSym(s);
+                scope->addSym(s);
             }
         }
         else{
             if(s->vals){
-                if(typeCheck((*(s->vals))[0], s_type)){
+                if(typeCheck((*(s->vals))[0], s_type, line)){
                     s->state = DEFINED;
-                    actual_scope->addSym(s);
+                    scope->addSym(s);
                 }
             }
             else{
                 s->vals = new std::vector<Value*>();
                 s->state = DEFINED;
-                actual_scope->addSym(s);
+                scope->addSym(s);
             }
         }
     }

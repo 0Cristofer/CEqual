@@ -1,7 +1,7 @@
 /* Symbol definitions
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 19/10/2018
-   Edited: 19/10/2018 */
+   Edited: 07/11/2018 */
 
 #ifndef SYMBOL_HPP
 #define SYMBOL_HPP

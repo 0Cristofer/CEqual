@@ -7,15 +7,16 @@
 
 #include "include/ASTBlock.hpp"
 
-ASTBlock::ASTBlock(Scope* s): AST(BLOCK), scope(s){
+ASTBlock::ASTBlock(Scope* s): AST(BLOCK, s){
 
 }
 
 // TODO
 Value* ASTBlock::inEval(){
-    for(AST* child : children){
-        child->eval();
+    for(auto it = children.rbegin(); it != children.rend(); ++it){
+        (*it)->eval();
     }
+
     free(scope);
     return nullptr;
 }

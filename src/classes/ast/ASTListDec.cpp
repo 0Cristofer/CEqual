@@ -7,13 +7,13 @@
 
 #include "src/classes/ast/include/ASTListDec.hpp"
 
-ASTListDec::ASTListDec(AST* child) : AST(LISTDEC) {
+ASTListDec::ASTListDec(AST* child, Scope* s) : AST(LISTDEC, s) {
     children.push_back(child);
 }
 
 Value *ASTListDec::inEval() {
-    for(AST* a : children){
-        a->eval();
+    for(auto it = children.rbegin(); it != children.rend(); ++it){
+        (*it)->eval();
     }
 
     return nullptr;

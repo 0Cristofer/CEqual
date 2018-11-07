@@ -1,7 +1,7 @@
 /* Abstract Syntax Tree expression node
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 15/10/2018
-   Edited: 19/10/2018 */
+   Edited: 07/11/2018 */
 
 #ifndef ASTEXPRESSION_HPP_CEQUAL
 #define ASTEXPRESSION_HPP_CEQUAL
@@ -27,7 +27,7 @@ enum ExpType{
 class ASTExpression: public AST{
 public:
     // Creates a expression node with its type, operand em children
-    ASTExpression(ExpType t, Operand op, AST* l, AST* r, AST* test);
+    ASTExpression(ExpType t, Operand op, AST* l, AST* r, AST* test, Scope* s);
 
     //Evaluates the expression, verifing its operands and returning a generic value
     Value* inEval() override;

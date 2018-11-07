@@ -1,7 +1,7 @@
 /* Abstract Syntax Tree command write
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 15/10/2018
-   Edited: 18/10/2018 */
+   Edited: 07/11/2018 */
 
 #ifndef ASTCMDWRITE_HPP_CEQUAL
 #define ASTCMDWRITE_HPP_CEQUAL
@@ -10,7 +10,7 @@
 
 class ASTCmdWrite: public AST{
 public:
-    explicit ASTCmdWrite(AST* e);
+    explicit ASTCmdWrite(AST* e, Scope* s);
 
     Value* inEval() override;
     void printNode() override;

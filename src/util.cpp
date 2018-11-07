@@ -1,12 +1,12 @@
 /* Util informations and routines
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 18/10/2018
-   Edited: 18/10/2018 */
+   Edited: 07/11/2018 */
 
 #include "include/util.hpp"
 #include "classes/ast/include/AST.hpp"
 
-bool typeCheck(Value* v, LiteralType t){
+bool typeCheck(Value* v, LiteralType t, int line){
     bool res = false;
 
     if(!v) return true;
@@ -14,7 +14,7 @@ bool typeCheck(Value* v, LiteralType t){
     switch (v->type) {
         case LITERALVAL:
             res = ((Literal*)v)->type == t;
-            if(!res) typeError();
+            if(!res) typeError(line);
             break;
 
         default:
@@ -25,18 +25,18 @@ bool typeCheck(Value* v, LiteralType t){
     return res;
 }
 
-void semanticError(){
-    std::cerr << "Semantic error at line " << yylineno << std::endl;
+void semanticError(int line){
+    std::cerr << "Semantic error at line " << line << std::endl;
 }
 
-void typeError(){
-    std::cerr << "Semantic error: type error at line " << yylineno << std::endl;
+void typeError(int line){
+    std::cerr << "Semantic error: type error at line " << line << std::endl;
 }
 
-void arraySizeMismatchError(){
-    std::cerr << "Semantic error: array initialization with more elements than specified at line " << yylineno << std::endl;
+void arraySizeMismatchError(int line){
+    std::cerr << "Semantic error: array initialization with more elements than specified at line " << line << std::endl;
 }
 
-void notInitializedError(){
-    std::cerr << "Semantic error: symbol not defined" << yylineno << std::endl;
+void notInitializedError(int line, std::string symbol){
+    std::cerr << "Semantic error: symbol \'" << symbol  << "\' not defined at: " << line << std::endl;
 }
