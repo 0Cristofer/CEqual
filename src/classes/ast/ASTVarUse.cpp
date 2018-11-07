@@ -1,7 +1,7 @@
 /* Abstract Syntax Tree variable use
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 20/10/2018
-   Edited: 20/10/2018 */
+   Edited: 07/11/2018 */
 
 #include <iostream>
 
@@ -16,13 +16,23 @@ ASTVarUse::ASTVarUse(Symbol* s, AST* e): AST(VARUSE), sym(s){
 }
 
 Value* ASTVarUse::inEval(){
+    int ind = 0;
     Value* v = nullptr, *e;
+
+    sym = actual_scope->getSym(sym);
+
+    if(sym->state == UNDEFINED){
+        notInitializedError();
+        free(sym);
+        return v;
+    }
 
     if(!children.empty()){
         e = children[0]->eval();
 
         if(typeCheck(e, INT)){
-            v = (*(sym->vals))[((LiteralInt*)e)->val];
+            ind = ((LiteralInt*)e)->val;
+            v = (*(sym->vals))[ind];
         }
 
     }
@@ -30,7 +40,9 @@ Value* ASTVarUse::inEval(){
         v = sym->val;
     }
 
-    switch (((Literal*)(sym->val))->type) {
+
+    //std::cout << "usou variável: " << *sym->id << ", com valor: " << ((LiteralInt*)(*sym->vals)[ind])->val << std::endl;
+    /*switch (((Literal*)(sym->val))->type) {
         case INT:
             v = new LiteralInt(((LiteralInt*)(sym->val))->val);
             break;
@@ -40,7 +52,7 @@ Value* ASTVarUse::inEval(){
         case STR:
             v = new LiteralStr(new std::string(*(((LiteralStr*)(sym->val))->val)));
             break;
-    }
+    }*/
 
     return v;
 }

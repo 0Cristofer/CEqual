@@ -1,7 +1,7 @@
 /* Abstract Syntax Tree block
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 19/10/2018
-   Edited: 19/10/2018 */
+   Edited: 07/11/2018 */
 
 #include <iostream>
 
@@ -13,6 +13,9 @@ ASTBlock::ASTBlock(Scope* s): AST(BLOCK), scope(s){
 
 // TODO
 Value* ASTBlock::inEval(){
+    for(AST* child : children){
+        child->eval();
+    }
     free(scope);
     return nullptr;
 }

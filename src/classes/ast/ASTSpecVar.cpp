@@ -22,10 +22,6 @@ Value* ASTSpecVar::inEval(){
             res = children[0]->eval();
         }
 
-        if(sym->val){
-            free(sym->val);
-        }
-
         sym->type = SIM;
     }
     else{

@@ -3,8 +3,8 @@
    Created: 19/10/2018
    Edited: 19/10/2018 */
 
-#ifndef ASTBLOCK_HPP
-#define ASTBLOCK_HPP
+#ifndef ASTBLOCK_HPP_CEQUAL
+#define ASTBLOCK_HPP_CEQUAL
 
 #include "AST.hpp"
 #include "../../symbol/include/Scope.hpp"
@@ -14,7 +14,6 @@ public:
     // Sets up scope stored by this node
     explicit ASTBlock(Scope* s);
 
-    // Implementation of the pure virtual.
     Value* inEval() override;
     void printNode() override;
 
@@ -23,4 +22,4 @@ public:
 private:
 };
 
-#endif /* ASTBLOCK_HPP */
+#endif /* ASTBLOCK_HPP_CEQUAL */

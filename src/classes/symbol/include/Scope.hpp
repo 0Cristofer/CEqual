@@ -19,6 +19,9 @@ public:
     // Adds a symbol to this scope's table
     Symbol* addSym(Symbol* s);
 
+    // Gets a symbol from this scope or previus one
+    Symbol* getSym(Symbol* s);
+
     Scope* prev;
 private:
     std::set<Symbol*, SymCmp> sym_tab;

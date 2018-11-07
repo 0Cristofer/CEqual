@@ -3,23 +3,24 @@
    Created: 15/10/2018
    Edited: 18/10/2018 */
 
-#ifndef ASTVARUSE_HPP
-#define ASTVARUSE_HPP
+#ifndef ASTVARUSE_HPP_CEQUAL
+#define ASTVARUSE_HPP_CEQUAL
 
 #include "AST.hpp"
 #include "../../symbol/include/Symbol.hpp"
 
 class ASTVarUse: public AST{
 public:
-    // Sets up the literal value stored by this node
+    // Gets the symbol referenced by the ID and the value to access (if it is an array)
     ASTVarUse(Symbol* s, AST* e);
 
-    // Implementation of the pure virtual. Evaluates the literal by returning a literal value
+    // Reads the value stored in this symbol, if it exists
     Value* inEval() override;
     void printNode() override;
 
+    // The referenced symbol
     Symbol* sym;
 private:
 };
 
-#endif /* ASTVARUSE_HPP */
+#endif /* ASTVARUSE_HPP_CEQUAL */

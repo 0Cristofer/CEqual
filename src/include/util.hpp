@@ -33,5 +33,7 @@ void semanticError();
 void typeError();
 // Prints to standart error output a array size mismatch error
 void arraySizeMismatchError();
+// Prints to standart error output a not initizlized error
+void notInitializedError();
 
 #endif /* UTIL_HPP */

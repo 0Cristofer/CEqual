@@ -4,6 +4,8 @@
    Edited: 19/10/2018 */
 
 #include <iostream>
+#include <src/classes/symbol/include/Scope.hpp>
+
 
 #include "include/Scope.hpp"
 
@@ -26,4 +28,19 @@ Scope::~Scope(){
     for(Symbol* s : sym_tab){
         free(s);
     }
+}
+
+Symbol *Scope::getSym(Symbol *s) {
+    auto sm = sym_tab.find(s);
+    Symbol* a_sym;
+
+    if (sm != sym_tab.end()){
+        free(s);
+        return *sm;
+    }
+
+    a_sym = s;
+    s = prev->getSym(a_sym);
+
+    return s;
 }

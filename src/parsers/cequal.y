@@ -16,6 +16,8 @@
   #include "src/classes/ast/include/ASTBlock.hpp"
   #include "src/classes/ast/include/ASTVarUse.hpp"
   #include "src/classes/ast/include/ASTCmdWrite.hpp"
+  #include "src/classes/ast/include/ASTCmds.hpp"
+  #include "src/classes/ast/include/ASTListDec.hpp"
   #include "src/classes/value/include/LiteralStr.hpp"
 
   bool decproc = false;
@@ -76,9 +78,9 @@
 
 %type <sym> id
 %type <ast> expression literal
-%type <ast> decVar listSpecVar specVar
+%type <ast> listDec dec decVar listSpecVar specVar decSub
 %type <ast> specVarSim specVarSimInit specVarArr specVarArrInit arrInit
-%type <ast> block varUse
+%type <ast> block varUse cmds cmd simCmd
 %type <ast> cmdWrite
 %type <l_type> type
 
@@ -91,16 +93,19 @@
 /* Start rules */
 
 program:
-  listDec
+  listDec {$1->eval();}
 ;
 
 listDec:
-  dec
-  |listDec dec
+  dec {$$ = new ASTListDec($1);}
+  |dec listDec{
+                $2->addChild($1);
+                $$ = $2;
+              }
 ;
 
 dec:
-  decVar {$1->eval();}
+  decVar {$$ = $1}
   |decSub
 ;
 
@@ -208,7 +213,6 @@ param:
 id:
   T_ID {
           $$ = new Symbol(yylval.sym_name, yylineno);
-          $$ = actual_scope->addSym($$);
         }
 ;
 
@@ -240,17 +244,19 @@ startblock:
 
 // When the block ends, its scope is finalized and the actual scope is the previus one
 block:
-  startblock blockdec T_SYM_CBC {
-                                  Scope* prev = actual_scope->prev;
-                                  $$ = new ASTBlock(actual_scope);
-                                  actual_scope = prev;
-                                  //$$->addChild($2)
-                                }
-;
-
-blockdec:
-  listDec cmds
-  |cmds
+  startblock listDec cmds T_SYM_CBC {
+                                      Scope* prev = actual_scope->prev;
+                                      $$ = new ASTBlock(actual_scope);
+                                      actual_scope = prev;
+                                      $$->addChild($2);
+                                      $$->addChild($3);
+                                    }
+  |startblock cmds T_SYM_CBC {
+                                Scope* prev = actual_scope->prev;
+                                $$ = new ASTBlock(actual_scope);
+                                actual_scope = prev;
+                                $$->addChild($2)
+                             }
 ;
 
 varUse:
@@ -295,8 +301,11 @@ expList:
 /* Commands */
 
 cmds:
-
-  |cmds cmd
+    {$$ = new ASTCmds();}
+  |cmd cmds {
+              $2->addChild($1);
+              $$ = $2;
+            }
 ;
 
 cmd:
@@ -305,7 +314,7 @@ cmd:
 ;
 
 simCmd:
-  cmdAtrib
+  /*cmdAtrib
   |cmdIf
   |cmdWhile
   |cmdFor
@@ -313,8 +322,8 @@ simCmd:
   |cmdSkip
   |cmdReturn
   |cmdCallProc
-  |cmdRead //{$1->eval();}
-  |cmdWrite {$1->eval();}
+  |cmdRead*/
+  cmdWrite
 ;
 
 cmdAtrib:

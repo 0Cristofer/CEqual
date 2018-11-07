@@ -3,8 +3,8 @@
    Created: 15/10/2018
    Edited: 18/10/2018 */
 
-#ifndef ASTLITERAL_HPP
-#define ASTLITERAL_HPP
+#ifndef ASTLITERAL_HPP_CEQUAL
+#define ASTLITERAL_HPP_CEQUAL
 
 #include "AST.hpp"
 #include "../../value/include/Literal.hpp"
@@ -14,11 +14,11 @@ public:
     // Sets up the literal value stored by this node
     explicit ASTLiteral(Literal* lit);
 
-    // Implementation of the pure virtual. Evaluates the literal by returning a literal value
+    // Evaluates the literal by returning a literal value
     Value* inEval() override;
     void printNode() override;
 private:
     Literal* literal;
 };
 
-#endif /* ASTLITERAL_HPP */
+#endif /* ASTLITERAL_HPP_CEQUAL */

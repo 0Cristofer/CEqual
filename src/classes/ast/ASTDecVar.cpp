@@ -1,7 +1,7 @@
 /* Abstract Syntax Tree variable list specification
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 19/10/2018
-   Edited: 19/10/2018 */
+   Edited: 07/11/2018 */
 
 #include <iostream>
 
@@ -24,21 +24,25 @@ Value* ASTDecVar::inEval(){
             if(s->val){
                 if(typeCheck((Literal *) s->val, s_type)){
                     s->state = DEFINED;
+                    actual_scope->addSym(s);
                 }
             }
             else{
                 s->state = DEFINED;
+                actual_scope->addSym(s);
             }
         }
         else{
             if(s->vals){
                 if(typeCheck((*(s->vals))[0], s_type)){
                     s->state = DEFINED;
+                    actual_scope->addSym(s);
                 }
             }
             else{
                 s->vals = new std::vector<Value*>();
                 s->state = DEFINED;
+                actual_scope->addSym(s);
             }
         }
     }

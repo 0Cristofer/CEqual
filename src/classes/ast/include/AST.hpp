@@ -3,10 +3,11 @@
    Created: 15/10/2018
    Edited: 19/10/2018 */
 
-#ifndef AST_HPP
-#define AST_HPP
+#ifndef AST_HPP_CEQUAL
+#define AST_HPP_CEQUAL
 
 #include <vector>
+
 #include "../../value/include/Value.hpp"
 #include "../../value/include/Literal.hpp"
 
@@ -27,6 +28,7 @@ public:
     // Pure virtual. Should print node information
     virtual void printNode() = 0;
 
+    // Actual node tipe
     ASTType a_type;
 protected:
     // Pure virtual. Should make the actual evaluation of the node and its children
@@ -35,4 +37,4 @@ protected:
     std::vector<AST*> children;
 };
 
-#endif /* AST_HPP */
+#endif /* AST_HPP_CEQUAL */

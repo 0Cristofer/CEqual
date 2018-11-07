@@ -36,3 +36,7 @@ void typeError(){
 void arraySizeMismatchError(){
     std::cerr << "Semantic error: array initialization with more elements than specified at line " << yylineno << std::endl;
 }
+
+void notInitializedError(){
+    std::cerr << "Semantic error: symbol not defined" << yylineno << std::endl;
+}

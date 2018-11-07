@@ -3,8 +3,8 @@
    Created: 19/10/2018
    Edited: 19/10/2018 */
 
-#ifndef ASTLISTSPECVAR_HPP
-#define ASTLISTSPECVAR_HPP
+#ifndef ASTLISTSPECVAR_HPP_CEQUAL
+#define ASTLISTSPECVAR_HPP_CEQUAL
 
 #include <vector>
 
@@ -15,12 +15,13 @@ class ASTListSpecVar: public AST{
 public:
     explicit ASTListSpecVar(AST* r);
 
-    // Implementation of the pure virtual.
+    // Reads all children and creates a vector with all the new variables (symbols)
     Value* inEval() override;
     void printNode() override;
 
+    // The symbol vector to be read in the next phase
     std::vector<Symbol*> syms;
 private:
 };
 
-#endif /* ASTLISTSPECVAR_HPP */
+#endif /* ASTLISTSPECVAR_HPP_CEQUAL */

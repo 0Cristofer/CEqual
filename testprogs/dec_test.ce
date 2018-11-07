@@ -1,18 +1,14 @@
 var a = -2 + ((1 + 1)/2 + 3 + 7)*3 : int;
 var a = -2 + ((1 + 1)/2 + 3 + 7)*2 : int;
-var e = a > 2 ? 10 : 15: int;
+var er[5] = {47, 32, 1, 10} : int;
+var e = er[0] > 2 ? 10 : 15: int;
 var x[2] : int;
 var y[3] = {36, 2, 2} : int;
 
 def f(a, b: int){
-  var e = 37 : int;
-  if(1){
-    def g(){
-      var y[3] = {36, 54, 11} : int;
-    }
-    if(2){
-
-    }
-  }
+  var er[5] = {5, 21, 40, 33} : int;
+  var e = 37 + er[0] : int;
+  write e;
+  
 
 }

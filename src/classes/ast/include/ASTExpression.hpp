@@ -3,8 +3,8 @@
    Created: 15/10/2018
    Edited: 19/10/2018 */
 
-#ifndef ASTEXPRESSION_HPP
-#define ASTEXPRESSION_HPP
+#ifndef ASTEXPRESSION_HPP_CEQUAL
+#define ASTEXPRESSION_HPP_CEQUAL
 
 #include "AST.hpp"
 #include "../../value/include/Literal.hpp"
@@ -29,7 +29,7 @@ public:
     // Creates a expression node with its type, operand em children
     ASTExpression(ExpType t, Operand op, AST* l, AST* r, AST* test);
 
-    // Implementation of the pure virtual. Evaluates the expression, verifing its operands and returning a generic value
+    //Evaluates the expression, verifing its operands and returning a generic value
     Value* inEval() override;
     void printNode() override;
 
@@ -45,4 +45,4 @@ private:
     Operand operand;
 };
 
-#endif /* ASTEXPRESSION_HPP */
+#endif /* ASTEXPRESSION_HPP_CEQUAL */

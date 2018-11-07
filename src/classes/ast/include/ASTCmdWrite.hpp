@@ -3,8 +3,8 @@
    Created: 15/10/2018
    Edited: 18/10/2018 */
 
-#ifndef ASTCMDWRITE_HPP
-#define ASTCMDWRITE_HPP
+#ifndef ASTCMDWRITE_HPP_CEQUAL
+#define ASTCMDWRITE_HPP_CEQUAL
 
 #include "AST.hpp"
 
@@ -18,4 +18,4 @@ public:
 private:
 };
 
-#endif /* ASTCMDWRITE_HPP */
+#endif /* ASTCMDWRITE_HPP_CEQUAL */

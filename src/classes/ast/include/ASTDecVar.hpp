@@ -3,8 +3,8 @@
    Created: 19/10/2018
    Edited: 19/10/2018 */
 
-#ifndef ASTDECVAR_HPP
-#define ASTDECVAR_HPP
+#ifndef ASTDECVAR_HPP_CEQUAL
+#define ASTDECVAR_HPP_CEQUAL
 
 #include "AST.hpp"
 #include "../../value/include/Literal.hpp"
@@ -13,7 +13,7 @@ class ASTDecVar: public AST{
 public:
     ASTDecVar(AST* list, LiteralType t);
 
-    // Implementation of the pure virtual.
+    // May have more than one child, the id and the variable initialization. Adds the id to the current scope
     Value* inEval() override;
     void printNode() override;
 
@@ -21,4 +21,4 @@ public:
 private:
 };
 
-#endif /* ASTDECVAR_HPP */
+#endif /* ASTDECVAR_HPP_CEQUAL */

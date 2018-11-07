@@ -21,7 +21,7 @@ Value* ASTArrayInit::inEval(){
     vals = new std::vector<Value*>(children.size());
 
     // Since this is a array, we initialize a vector to hold it's elements
-    // and evaluate the children to populate it. Ps.: the values are inverted
+    // and evaluate the children to populate it. Ps.: the values are inverted because of the botton-up read
     for(i = static_cast<int>(children.size()); i > 0; i--){
         v = children[(i-1)]->eval();
 
