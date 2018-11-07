@@ -7,7 +7,9 @@
 
 #include "src/classes/ast/include/ASTListDec.hpp"
 
-ASTListDec::ASTListDec(ASTType t) : AST(t) {}
+ASTListDec::ASTListDec(AST* child) : AST(LISTDEC) {
+    children.push_back(child);
+}
 
 Value *ASTListDec::inEval() {
     for(AST* a : children){

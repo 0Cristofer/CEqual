@@ -6,7 +6,8 @@
 #include <iostream>
 #include "src/classes/ast/include/ASTCmds.hpp"
 
-ASTCmds::ASTCmds(ASTType t) : AST(t) {}
+ASTCmds::ASTCmds() : AST(CMDS) {
+}
 
 Value *ASTCmds::inEval() {
     for(AST* a : children){

@@ -11,7 +11,7 @@
 
 class ASTCmds: public AST {
 public:
-    ASTCmds(ASTType t);
+    explicit ASTCmds();
 
     void printNode() override;
 

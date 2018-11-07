@@ -11,7 +11,7 @@
 
 class ASTListDec: public AST {
 public:
-    ASTListDec(ASTType t);
+    explicit ASTListDec(AST* child);
 
     void printNode() override;
 

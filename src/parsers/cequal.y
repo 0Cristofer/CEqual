@@ -78,7 +78,7 @@
 
 %type <sym> id
 %type <ast> expression literal
-%type <ast> listDec dec decVar listSpecVar specVar decSub
+%type <ast> listDec dec decVar listSpecVar specVar
 %type <ast> specVarSim specVarSimInit specVarArr specVarArrInit arrInit
 %type <ast> block varUse cmds cmd simCmd
 %type <ast> cmdWrite
@@ -105,8 +105,9 @@ listDec:
 ;
 
 dec:
-  decVar {$$ = $1}
-  |decSub
+  decVar {$$ = $1;}
+  |block {$$ = $1;}
+  //|decSub
 ;
 
 /* Variable declaration rules. TODO: String specifics */
@@ -255,7 +256,7 @@ block:
                                 Scope* prev = actual_scope->prev;
                                 $$ = new ASTBlock(actual_scope);
                                 actual_scope = prev;
-                                $$->addChild($2)
+                                $$->addChild($2);
                              }
 ;
 
