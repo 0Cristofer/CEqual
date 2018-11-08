@@ -20,29 +20,27 @@ Value* ASTDecVar::inEval(){
     list = (ASTListSpecVar*)children[0];
 
     for(Symbol* s : list->syms){
+        s->state = UNDEFINED;
+
         if(s->type == SIM){
             if(s->val){
                 if(typeCheck((Literal *) s->val, s_type, line)){
                     s->state = DEFINED;
-                    scope->addSym(s);
                 }
             }
             else{
                 s->state = DEFINED;
-                scope->addSym(s);
             }
         }
         else{
             if(s->vals){
                 if(typeCheck((*(s->vals))[0], s_type, line)){
                     s->state = DEFINED;
-                    scope->addSym(s);
                 }
             }
             else{
                 s->vals = new std::vector<Value*>();
                 s->state = DEFINED;
-                scope->addSym(s);
             }
         }
     }

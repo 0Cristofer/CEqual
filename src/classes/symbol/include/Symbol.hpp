@@ -12,7 +12,7 @@
 #include "../../value/include/Value.hpp"
 
 enum SymState{
-    UNDEFINED, DEFINED
+    UNDEFINED, DEFINING, DEFINED
 };
 
 enum SymType{

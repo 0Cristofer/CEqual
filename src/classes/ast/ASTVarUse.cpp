@@ -24,7 +24,7 @@ Value* ASTVarUse::inEval(){
     if(sym->state == UNDEFINED){
         notInitializedError(line, *(sym->id));
         free(sym);
-        return v;
+        return new LiteralInt(0);
     }
 
     if(!children.empty()){
