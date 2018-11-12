@@ -18,6 +18,8 @@
   #include "src/classes/ast/include/ASTCmdWrite.hpp"
   #include "src/classes/ast/include/ASTCmds.hpp"
   #include "src/classes/ast/include/ASTListDec.hpp"
+  #include "src/classes/ast/include/ASTParamSpec.hpp"
+  #include "src/classes/ast/include/ASTParamList.hpp"
   #include "src/classes/value/include/LiteralStr.hpp"
 
   bool declaring = false;
@@ -76,11 +78,11 @@
 %right T_SYM_NOT
 %right UMINUS
 
-%type <sym> id
+%type <sym> id param
 %type <ast> expression literal
 %type <ast> listDec dec decVar listSpecVar specVar
 %type <ast> specVarSim specVarSimInit specVarArr specVarArrInit arrInit
-%type <ast> block varUse cmds cmd simCmd
+%type <ast> block varUse cmds cmd simCmd paramSpec paramDef paramList
 %type <ast> cmdWrite
 %type <l_type> type
 
@@ -189,23 +191,38 @@ decFunc:
 ;
 
 paramList:
-
-  |paramDef
-  |paramDef T_SYM_SMC paramList
+            {$$ = nullptr;}
+  |paramDef {$$ = new ASTParamList($1, actual_scope);}
+  |paramDef T_SYM_SMC paramList {
+                                    $$ = $3;
+                                    $3->addChild($1);
+                                }
 ;
 
 paramDef:
-  paramSpec T_SYM_COL type
+  paramSpec T_SYM_COL type {
+                                $1->type = $3;
+                                $$ = $1;
+                           }
 ;
 
 paramSpec:
-  param
-  |param T_SYM_CMA paramSpec
+  param {$$ = new ASTParamSpec($1, actual_scope);}
+  |param T_SYM_CMA paramSpec {
+                                $$ = $3;
+                                $3->addSymbol($1);
+                             }
 ;
 
 param:
-  id
-  |id T_SYM_OBK T_SYM_CBK
+  id {
+      $1->type = SIM;
+      $$ = $1
+     }
+  |id T_SYM_OBK T_SYM_CBK {
+                            $1->type = ARRAY;
+                            $$ = $1;
+                          }
 ;
 
 /* Basic rules */
