@@ -15,7 +15,7 @@
 // Possible AST types
 enum ASTType{
     LITERAL, EXPRESSION, BLOCK, SPECVAR, LISTSPECVAR, ARRAYINIT, DECVAR, VARUSE, CMDWRITE, LISTDEC, CMDS,
-    PARAMSPEC, PARAMLIST
+    PARAMSPEC, PARAMLIST, DECSUB, EXPLIST, CALLPROC
 };
 
 class AST{
@@ -28,17 +28,16 @@ public:
     Value* eval();
 
     // Pure virtual. Should print node information
-    virtual void printNode() = 0;
+    virtual void printNode();
 
     // Actual node tipe
     ASTType a_type;
+    std::vector<AST*> children;
 protected:
     // Pure virtual. Should make the actual evaluation of the node and its children
     virtual Value* inEval() = 0;
 
     int line = 0;
-
-    std::vector<AST*> children;
 
     Scope* scope;
 };

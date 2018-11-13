@@ -11,12 +11,14 @@
 
 #include "../../value/include/Value.hpp"
 
+class AST;
+
 enum SymState{
     UNDEFINED, DEFINING, DEFINED
 };
 
 enum SymType{
-    SIM, ARRAY
+    SIM, ARRAY, PROC, FUNC
 };
 
 class Symbol{
@@ -31,6 +33,7 @@ public:
     SymState state;
     SymType type;
     Value* val = nullptr;
+    AST* proc;
 private:
 };
 

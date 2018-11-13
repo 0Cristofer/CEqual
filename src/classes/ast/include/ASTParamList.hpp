@@ -13,6 +13,8 @@ class ASTParamList : public AST{
 public:
     ASTParamList(AST* ast, Scope *s);
 
+    std::vector<std::pair<LiteralType, SymType>*>* params;
+    std::vector<Symbol*>* syms;
 protected:
     Value *inEval() override;
 };

@@ -5,9 +5,8 @@ var e = ar[1] > 2 ? 10 : 15: int;
 var x[2] : int;
 var y[3] = {36, 2, 2} : int;
 
-{
-  write t;
-  write a;
-  {
-  }
+var foi = 9999: int;
+def main(): int{
+
+  write foi, a;
 }

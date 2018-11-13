@@ -18,6 +18,8 @@
 extern int yylineno;
 extern FILE *yyin;
 extern Scope* actual_scope;
+extern AST* main_proc;
+extern AST* first;
 
 // Lexical parser function
 int yylex();

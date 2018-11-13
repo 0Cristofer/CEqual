@@ -4,7 +4,9 @@
    Edited: 07/11/2018 */
 
 #include <cstdlib>
-#include <src/include/util.hpp>
+#include <src/classes/ast/include/AST.hpp>
+
+#include "src/include/util.hpp"
 
 #include "include/AST.hpp"
 
@@ -20,8 +22,14 @@ Value* AST::eval(){
     Value* res = this->inEval(); // Calls the main evaluation of the node
 
     for(AST* ast : children){
-        free(ast);
+        if(!ast) continue;
+        if((scope->prev == nullptr) && (ast->a_type == DECVAR)) free(ast); // Only free this child if it is a
+                                                                           // variable declaration in the global scope
     }
 
     return res;
+}
+
+void AST::printNode() {
+
 }

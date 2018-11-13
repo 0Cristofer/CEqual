@@ -40,6 +40,7 @@ Value* ASTDecVar::inEval(){
             }
             else{
                 s->vals = new std::vector<Value*>();
+                //inserir elemento inicial
                 s->state = DEFINED;
             }
         }

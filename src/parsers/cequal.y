@@ -20,10 +20,15 @@
   #include "src/classes/ast/include/ASTListDec.hpp"
   #include "src/classes/ast/include/ASTParamSpec.hpp"
   #include "src/classes/ast/include/ASTParamList.hpp"
+  #include "src/classes/ast/include/ASTDecSub.hpp"
+  #include "src/classes/ast/include/ASTExpList.hpp"
+  #include "src/classes/ast/include/ASTCallProc.hpp"
   #include "src/classes/value/include/LiteralStr.hpp"
 
   bool declaring = false;
   Scope* actual_scope;
+  AST* main_proc;
+  AST* first;
 %}
 
 %union{
@@ -78,11 +83,12 @@
 %right T_SYM_NOT
 %right UMINUS
 
-%type <sym> id param
-%type <ast> expression literal
+%type <sym> id param startfunc
+%type <ast> expression literal callFunc
 %type <ast> listDec dec decVar listSpecVar specVar
 %type <ast> specVarSim specVarSimInit specVarArr specVarArrInit arrInit
-%type <ast> block varUse cmds cmd simCmd paramSpec paramDef paramList
+%type <ast> block varUse cmds cmd simCmd
+%type <ast> paramSpec paramDef paramList decProc decFunc decSub expList
 %type <ast> cmdWrite
 %type <l_type> type
 
@@ -95,7 +101,7 @@
 /* Start rules */
 
 program:
-  listDec {$1->eval();}
+  listDec {first = $1;}
 ;
 
 listDec:
@@ -108,8 +114,7 @@ listDec:
 
 dec:
   decVar {$$ = $1;}
-  |block {$$ = $1;}
-  //|decSub
+  |decSub {$$ = $1;}
 ;
 
 /* Variable declaration rules. TODO: String specifics */
@@ -170,24 +175,36 @@ arrInit:
 /* Routine declaration rules */
 
 decSub:
-  decProc
-  |decFunc
+  decProc {$$ = $1;}
+  |decFunc {$$ = $1;}
 ;
 
 // Starting a new function, should start a new scope
 startfunc:
   T_RES_DEF id T_SYM_OP {
+                          $$ = $2;
+                          actual_scope->addSym($2);
                           actual_scope = new Scope(actual_scope);
                           declaring = true;
                         }
 ;
 
 decProc:
-  startfunc paramList T_SYM_CP block
+  startfunc paramList T_SYM_CP block {
+                                        $$ = new ASTDecSub(actual_scope, $2, $4, INT);
+                                        $1->type = PROC;
+                                        $1->proc = $$;
+                                     }
 ;
 
 decFunc:
-  startfunc paramList T_SYM_CP T_SYM_COL type block
+  startfunc paramList T_SYM_CP T_SYM_COL type block {
+                                                      $$ = new ASTDecSub(actual_scope, $2, $6, $5);
+                                                      $1->type = FUNC;
+                                                      $1->proc = $$;
+
+                                                      if($1->id->compare("main") == 0) main_proc = $$;
+                                                    }
 ;
 
 paramList:
@@ -201,7 +218,7 @@ paramList:
 
 paramDef:
   paramSpec T_SYM_COL type {
-                                $1->type = $3;
+                                ((ASTParamSpec*)$1)->type = $3;
                                 $$ = $1;
                            }
 ;
@@ -210,14 +227,14 @@ paramSpec:
   param {$$ = new ASTParamSpec($1, actual_scope);}
   |param T_SYM_CMA paramSpec {
                                 $$ = $3;
-                                $3->addSymbol($1);
+                                ((ASTParamSpec*)$3)->addSymbol($1);
                              }
 ;
 
 param:
   id {
       $1->type = SIM;
-      $$ = $1
+      $$ = $1;
      }
   |id T_SYM_OBK T_SYM_CBK {
                             $1->type = ARRAY;
@@ -301,17 +318,24 @@ expression:
   |T_SYM_OP expression T_SYM_CP      {$$ = $2;}
   |literal                           {$$ = $1;}
   |varUse                            {$$ = $1;}
-  //|callFunc
+  |callFunc
 ;
 
-/*callFunc:
-  id T_SYM_OP expList T_SYM_CP
-;*/
+/* A chamada de função deve procurar na tabela de símbolos o id da função.
+   Para chamar, utilizar a função call() do nó guardado na símbolo passando
+   a lista de expressões.
+*/
+callFunc:
+  id T_SYM_OP expList T_SYM_CP {$$ = new ASTCallProc(actual_scope, $1, $3, FUNC);}
+;
 
 expList:
-
-  |expression
-  |expression T_SYM_CMA expList
+    {$$ = nullptr;}
+  |expression {$$ = new ASTExpList($1, actual_scope);}
+  |expression T_SYM_CMA expList {
+                                  $$ = $3;
+                                  $3->addChild($1);
+                                }
 ;
 
 /* Commands */
@@ -395,8 +419,8 @@ cmdRead:
 ;
 
 cmdWrite:
-  //T_RES_WRITE expList T_SYM_SMC
-  T_RES_WRITE varUse T_SYM_SMC {$$ = new ASTCmdWrite($2, actual_scope);}
+  T_RES_WRITE expList T_SYM_SMC {$$ = new ASTCmdWrite($2, actual_scope);}
+  |T_RES_WRITE varUse T_SYM_SMC {$$ = new ASTCmdWrite($2, actual_scope);}
 ;
 
 %%
@@ -421,6 +445,9 @@ int main(int argc, char** argv){
   actual_scope = new Scope(NULL);
 
   yyparse();
+
+  first->eval();
+  ((ASTDecSub*)main_proc)->call(nullptr);
 
   free(actual_scope);
 

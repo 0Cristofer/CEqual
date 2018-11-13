@@ -3,10 +3,10 @@
    Created: 12/11/2018
    Edited: 12/11/2018 */
 
-#include <src/classes/ast/include/ASTParamSpec.hpp>
-#include <src/classes/value/include/LiteralInt.hpp>
-#include <src/classes/value/include/LiteralBool.hpp>
-#include <src/classes/value/include/LiteralStr.hpp>
+#include "src/classes/ast/include/ASTParamSpec.hpp"
+#include "src/classes/value/include/LiteralInt.hpp"
+#include "src/classes/value/include/LiteralBool.hpp"
+#include "src/classes/value/include/LiteralStr.hpp"
 
 #include "src/classes/ast/include/ASTParamSpec.hpp"
 

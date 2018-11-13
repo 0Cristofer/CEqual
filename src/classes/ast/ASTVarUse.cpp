@@ -42,17 +42,17 @@ Value* ASTVarUse::inEval(){
 
 
     //std::cout << "usou variável: " << *sym->id << ", com valor: " << ((LiteralInt*)(*sym->vals)[ind])->val << std::endl;
-    /*switch (((Literal*)(sym->val))->type) {
+    switch (((Literal*)v)->type) {
         case INT:
-            v = new LiteralInt(((LiteralInt*)(sym->val))->val);
+            v = new LiteralInt(((LiteralInt*)v)->val);
             break;
         case BOOL:
-            v = new LiteralBool(((LiteralBool*)(sym->val))->val);
+            v = new LiteralBool(((LiteralBool*)v)->val);
             break;
         case STR:
-            v = new LiteralStr(new std::string(*(((LiteralStr*)(sym->val))->val)));
+            v = new LiteralStr(new std::string(*(((LiteralStr*)v)->val)));
             break;
-    }*/
+    }
 
     return v;
 }
