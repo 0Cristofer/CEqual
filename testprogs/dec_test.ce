@@ -1,12 +1,14 @@
 var a = -3 + ((1 + 1)/2 + 3 + 7)*2, t = a + 2: int;
-var er[5] = {22, 32, 1, 10, 88} : int;
-var ar[5] = {47, 32, 3, 12, 76} : int;
-var e = ar[1] > 2 ? 10 : 15: int;
-var x[2] : int;
-var y[3] = {36, 2, 2} : int;
 
-var foi = 9999: int;
+def xxx(): int{
+  write a;
+}
+
 def main(): int{
+  var foi = 9999: int;
 
-  write foi, a;
+  xxx();
+  xxx();
+  xxx();
+  write "foi";
 }

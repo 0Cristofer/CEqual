@@ -66,9 +66,8 @@ Value * ASTDecSub::call(AST *a) {
     }
 
     if(ok){ // Arguments verified, can evaluate this procedure's block
-        for(AST* ast: children[1]->children){
-            ast->eval(); //TODO encontrar o return para pegar o valor
-        }
+        children[1]->eval();
+        //TODO encontrar o return para pegar o valor
     }
 
     return nullptr;

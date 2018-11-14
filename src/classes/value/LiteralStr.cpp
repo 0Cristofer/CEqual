@@ -5,8 +5,11 @@
 
 #include "include/LiteralStr.hpp"
 
-LiteralStr::LiteralStr(std::string* s): Literal(STR), val(s){
+LiteralStr::LiteralStr(std::string* s): Literal(STR){
+    s->erase(0, 1);
+    s->erase(s->size()-1, 1);
 
+    val = s;
 }
 
 LiteralStr::~LiteralStr(){

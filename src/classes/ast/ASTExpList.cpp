@@ -12,8 +12,8 @@ ASTExpList::ASTExpList(AST* a, Scope *s) : AST(EXPLIST, s) {
 Value *ASTExpList::inEval() {
     vals = new std::vector<Value*>();
 
-    for(AST* a: children){
-        vals->push_back(a->eval());
+    for(auto it = children.rbegin(); it != children.rend(); ++it){
+        vals->push_back((*it)->eval());
     }
 
     return nullptr;

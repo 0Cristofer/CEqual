@@ -87,7 +87,7 @@
 %type <ast> expression literal callFunc
 %type <ast> listDec dec decVar listSpecVar specVar
 %type <ast> specVarSim specVarSimInit specVarArr specVarArrInit arrInit
-%type <ast> block varUse cmds cmd simCmd
+%type <ast> block varUse cmds cmd simCmd cmdCallProc
 %type <ast> paramSpec paramDef paramList decProc decFunc decSub expList
 %type <ast> cmdWrite
 %type <l_type> type
@@ -192,6 +192,7 @@ startfunc:
 decProc:
   startfunc paramList T_SYM_CP block {
                                         $$ = new ASTDecSub(actual_scope, $2, $4, INT);
+                                        $1->state = DEFINED;
                                         $1->type = PROC;
                                         $1->proc = $$;
                                      }
@@ -200,6 +201,7 @@ decProc:
 decFunc:
   startfunc paramList T_SYM_CP T_SYM_COL type block {
                                                       $$ = new ASTDecSub(actual_scope, $2, $6, $5);
+                                                      $1->state = DEFINED;
                                                       $1->type = FUNC;
                                                       $1->proc = $$;
 
@@ -360,10 +362,10 @@ simCmd:
   |cmdFor
   |cmdStop
   |cmdSkip
-  |cmdReturn
-  |cmdCallProc
-  |cmdRead*/
-  cmdWrite {$$ = $1;}
+  |cmdReturn*/
+  cmdCallProc {$$ = $1;}
+  /*|cmdRead*/
+  |cmdWrite {$$ = $1;}
 ;
 
 cmdAtrib:
@@ -411,7 +413,7 @@ cmdReturn:
 ;
 
 cmdCallProc:
-  id T_SYM_OP expList T_SYM_CP T_SYM_SMC
+  id T_SYM_OP expList T_SYM_CP T_SYM_SMC {$$ = new ASTCallProc(actual_scope, $1, $3, FUNC);}
 ;
 
 cmdRead:
