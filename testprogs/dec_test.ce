@@ -1,21 +1,12 @@
-def xxx(x[]: int; y: string){
-  read y;
-  x[1] += 2;
-  write y;
+def aaa(x[]: int){
+  read x[2];
+  write x[2];
 }
 
 def main(): int{
-  var a[3] = {22, 59, 101}, b = 4: int;
-  var tt = true: bool;
-  var s: string;
+  var a[5] = {45, 33, 67, 90, 11}: int;
 
-  read s;
-  write s;
-
-  a[1] -= b;
-
-  xxx(a, s);
-  write s;
-
-  write a[1];
+  write a[2];
+  aaa(a[2]);
+  write a[2];
 }

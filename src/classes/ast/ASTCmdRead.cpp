@@ -15,25 +15,47 @@ ASTCmdRead::ASTCmdRead(AST *e, Scope *sc): AST(CMDREAD, sc){
 }
 
 Value *ASTCmdRead::inEval() {
-    int i;
+    int i, ind;
     bool b;
     std::string s;
+    Symbol *sm;
 
     children[0]->eval();
 
-    switch (((Literal*)(((ASTVarUse*) children[0])->sym->val))->type){
-        case INT:
-            std::cin >> i;
-            ((LiteralInt*) ((ASTVarUse*) children[0])->sym->val)->val = i;
-            break;
-        case STR:
-            std::cin >> s;
-            ((LiteralStr*) ((ASTVarUse*) children[0])->sym->val)->val = new std::string(s);
-            break;
-        case BOOL:
-            std::cin >> b;
-            ((LiteralBool*) ((ASTVarUse*) children[0])->sym->val)->val = b;
-            break;
+    sm = ((ASTVarUse *) children[0])->sym;
+    ind = ((ASTVarUse *) children[0])->ind;
+
+    if(sm->type == SIM) {
+        switch (((Literal *) (sm->val))->type) {
+            case INT:
+                std::cin >> i;
+                ((LiteralInt *) (sm->val))->val = i;
+                break;
+            case STR:
+                std::cin >> s;
+                ((LiteralStr *) (sm->val))->val = new std::string(s);
+                break;
+            case BOOL:
+                std::cin >> b;
+                ((LiteralBool *) (sm->val))->val = b;
+                break;
+        }
+    }
+    else{
+        switch (((Literal *) (*(sm->vals))[0])->type) {
+            case INT:
+                std::cin >> i;
+                ((LiteralInt *) (*(sm->vals))[ind])->val = i;
+                break;
+            case STR:
+                std::cin >> s;
+                ((LiteralStr *) (*(sm->vals))[ind])->val = new std::string(s);
+                break;
+            case BOOL:
+                std::cin >> b;
+                ((LiteralBool *) (*(sm->vals))[ind])->val = b;
+                break;
+        }
     }
 
     return nullptr;
