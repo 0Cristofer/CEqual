@@ -23,6 +23,7 @@
   #include "src/classes/ast/include/ASTDecSub.hpp"
   #include "src/classes/ast/include/ASTExpList.hpp"
   #include "src/classes/ast/include/ASTCallProc.hpp"
+  #include "src/classes/ast/include/ASTCmdAtrib.hpp"
   #include "src/classes/value/include/LiteralStr.hpp"
 
   bool declaring = false;
@@ -37,6 +38,7 @@
   Symbol* sym;
   LiteralType l_type;
   std::string* sym_name;
+  ATRT t;
 }
 
 /* Reserved words */
@@ -87,9 +89,10 @@
 %type <ast> expression literal callFunc
 %type <ast> listDec dec decVar listSpecVar specVar
 %type <ast> specVarSim specVarSimInit specVarArr specVarArrInit arrInit
-%type <ast> block varUse cmds cmd simCmd cmdCallProc
+%type <ast> block varUse cmds cmd simCmd cmdCallProc cmdAtrib atrib
 %type <ast> paramSpec paramDef paramList decProc decFunc decSub expList
 %type <ast> cmdWrite
+%type <t> atrbSym
 %type <l_type> type
 
 %start program
@@ -356,33 +359,33 @@ cmd:
 ;
 
 simCmd:
-  /*cmdAtrib
-  |cmdIf
+  cmdAtrib {$$ = $1;}
+  /*|cmdIf
   |cmdWhile
   |cmdFor
   |cmdStop
   |cmdSkip
   |cmdReturn*/
-  cmdCallProc {$$ = $1;}
+  |cmdCallProc {$$ = $1;}
   /*|cmdRead*/
   |cmdWrite {$$ = $1;}
 ;
 
 cmdAtrib:
-  atrib T_SYM_SMC
+  atrib T_SYM_SMC {$$ = $1;}
 ;
 
 atrib:
-  varUse atrbSym expression
+  varUse atrbSym expression {$$ = new ASTCmdAtrib($1, $3, $2, actual_scope);}
 ;
 
 atrbSym:
-  T_SYM_ATR
-  |T_SYM_ATP
-  |T_SYM_ATM
-  |T_SYM_ATMUL
-  |T_SYM_ATDIV
-  |T_SYM_ATMOD
+  T_SYM_ATR    {$$ = ATR;}
+  |T_SYM_ATP   {$$ = ATP;}
+  |T_SYM_ATM   {$$ = ATM;}
+  |T_SYM_ATMUL {$$ = ATMUL;}
+  |T_SYM_ATDIV {$$ = ATDIV;}
+  |T_SYM_ATMOD {$$ = ATMOD;}
 ;
 
 cmdIf:

@@ -1,11 +1,17 @@
-var a[2] = {11, 14}: int;
-
-def rip(x, y[]: int; w: bool): int{
-  write x, y[0], w;
+def xxx(x: int; y: string){
+  x += 2;
+  write y;
 }
 
 def main(): int{
-  var i = 22, j = 39: int;
+  var a[3] = {22, 59, 101}, b = 4: int;
+  var s = "cccc3": string;
 
-  rip(i, a, true);
+  write s;
+
+  a[1] -= b;
+
+  xxx(2, s);
+
+  write a[1];
 }

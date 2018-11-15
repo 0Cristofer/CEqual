@@ -20,6 +20,7 @@ public:
 
     // The referenced symbol
     Symbol *sym;
+    int ind = 0;
 private:
 };
 

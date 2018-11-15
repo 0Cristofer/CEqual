@@ -16,7 +16,6 @@ ASTVarUse::ASTVarUse(Symbol *s, AST *e, Scope *sc): AST(VARUSE, sc), sym(s){
 }
 
 Value *ASTVarUse::inEval(){
-    int ind = 0;
     Value *v = nullptr, *e = nullptr;
 
     sym = scope->getSym(sym);

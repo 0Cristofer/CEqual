@@ -13,6 +13,7 @@
   #include "src/classes/value/include/LiteralInt.hpp"
   #include "src/classes/value/include/LiteralBool.hpp"
   #include "src/classes/value/include/LiteralStr.hpp"
+  #include "src/classes/ast/include/ASTCmdAtrib.hpp"
   #include "cequal.tab.h"
 
   int yylineno = 1;

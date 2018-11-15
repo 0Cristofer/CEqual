@@ -42,7 +42,7 @@ Value *ASTDecSub::call(AST *a) {
             if (ok){
                 for (AST *child: a->children) {
                     v = child->eval();
-
+                    // TODO pass string by reference
                     if ((*p)->second == ARRAY) { // If the parameter is an array we need to verify if the parameter is too and set up de data
                         if (child->a_type == VARUSE) {
 

@@ -6,8 +6,13 @@
 #include "include/LiteralStr.hpp"
 
 LiteralStr::LiteralStr(std::string *s): Literal(STR){
-    s->erase(0, 1);
-    s->erase(s->size()-1, 1);
+    if((*s)[0] == '\"'){
+        s->erase(0, 1);
+    }
+
+    if((*s)[s->size()-1] == '\"'){
+        s->erase(s->size()-1, 1);
+    }
 
     val = s;
 }
