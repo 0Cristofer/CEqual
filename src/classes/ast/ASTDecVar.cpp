@@ -4,6 +4,8 @@
    Edited: 07/11/2018 */
 
 #include <iostream>
+#include <src/classes/value/include/LiteralBool.hpp>
+#include <src/classes/value/include/LiteralStr.hpp>
 
 #include "include/ASTDecVar.hpp"
 #include "include/ASTListSpecVar.hpp"
@@ -30,6 +32,18 @@ Value *ASTDecVar::inEval() {
                 }
             }
             else {
+                switch (s_type) {
+                    case INT:
+                        s->val = new LiteralInt(0);
+                        break;
+                    case BOOL:
+                        s->val = new LiteralBool(false);
+                        break;
+                    case STR:
+                        s->val = new LiteralStr(new std::string(" "));
+                        break;
+                }
+
                 s->state = DEFINED;
             }
         }
@@ -41,9 +55,24 @@ Value *ASTDecVar::inEval() {
             }
             else {
                 s->vals = new std::vector<Value *>();
+
+                switch (s_type) {
+                    case INT:
+                        s->vals->push_back(new LiteralInt(0));
+                        break;
+                    case BOOL:
+                        s->vals->push_back(new LiteralBool(false));
+                        break;
+                    case STR:
+                        s->vals->push_back(new LiteralStr(new std::string(" ")));
+                        break;
+                }
+
                 s->state = DEFINED;
             }
         }
+
+
     }
 
     return nullptr;

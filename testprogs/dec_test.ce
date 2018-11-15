@@ -1,17 +1,21 @@
-def xxx(x: int; y: string){
-  x += 2;
+def xxx(x[]: int; y: string){
+  read y;
+  x[1] += 2;
   write y;
 }
 
 def main(): int{
   var a[3] = {22, 59, 101}, b = 4: int;
-  var s = "cccc3": string;
+  var tt = true: bool;
+  var s: string;
 
+  read s;
   write s;
 
   a[1] -= b;
 
-  xxx(2, s);
+  xxx(a, s);
+  write s;
 
   write a[1];
 }
