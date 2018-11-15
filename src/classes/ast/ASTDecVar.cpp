@@ -30,6 +30,9 @@ Value *ASTDecVar::inEval() {
                 if(typeCheck((Literal *) s->val, s_type, line)) {
                     s->state = DEFINED;
                 }
+                else{ // TODO error case
+                    semanticError(line);
+                }
             }
             else {
                 switch (s_type) {
@@ -52,19 +55,28 @@ Value *ASTDecVar::inEval() {
                 if(typeCheck((*(s->vals))[0], s_type, line)) {
                     s->state = DEFINED;
                 }
+                else{ // TODO error case
+                    semanticError(line);
+                }
             }
             else {
                 s->vals = new std::vector<Value *>();
 
                 switch (s_type) {
                     case INT:
-                        s->vals->push_back(new LiteralInt(0));
+                        for(int i = 0; i < s->size; i++){
+                            s->vals->push_back(new LiteralInt(0));
+                        }
                         break;
                     case BOOL:
-                        s->vals->push_back(new LiteralBool(false));
+                        for(int i = 0; i < s->size; i++) {
+                            s->vals->push_back(new LiteralBool(false));
+                        }
                         break;
                     case STR:
-                        s->vals->push_back(new LiteralStr(new std::string(" ")));
+                        for(int i = 0; i < s->size; i++) {
+                            s->vals->push_back(new LiteralStr(new std::string(" ")));
+                        }
                         break;
                 }
 
