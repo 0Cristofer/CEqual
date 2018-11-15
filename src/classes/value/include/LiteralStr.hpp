@@ -3,8 +3,8 @@
    Created: 19/10/2018
    Edited: 19/10/2018 */
 
-#ifndef LITERALSTR_HPP
-#define LITERALSTR_HPP
+#ifndef LITERALSTR_HPP_CEQUAL
+#define LITERALSTR_HPP_CEQUAL
 
 #include <string>
 
@@ -13,10 +13,10 @@
 class LiteralStr: public Literal{
 public:
     // Stores the boolean value of the node
-    explicit LiteralStr(std::string* s);
+    explicit LiteralStr(std::string *s);
     ~LiteralStr();
 
     std::string* val;
 };
 
-#endif /* LITERALSTR_HPP */
+#endif /* LITERALSTR_HPP_CEQUAL */

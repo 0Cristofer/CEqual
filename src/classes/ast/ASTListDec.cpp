@@ -7,7 +7,7 @@
 
 #include "src/classes/ast/include/ASTListDec.hpp"
 
-ASTListDec::ASTListDec(AST* child, Scope* s) : AST(LISTDEC, s) {
+ASTListDec::ASTListDec(AST *child, Scope *s) : AST(LISTDEC, s) {
     children.push_back(child);
 }
 

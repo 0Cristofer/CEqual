@@ -4,9 +4,10 @@
    Edited: 07/11/2018 */
 
 #include <iostream>
+
 #include "src/classes/ast/include/ASTCmds.hpp"
 
-ASTCmds::ASTCmds(Scope* s) : AST(CMDS, s) {
+ASTCmds::ASTCmds(Scope *s) : AST(CMDS, s) {
 }
 
 Value *ASTCmds::inEval() {
@@ -19,5 +20,4 @@ Value *ASTCmds::inEval() {
 
 void ASTCmds::printNode() {
     std::cout << "Node type: ASTCmds" << std::endl;
-
 }

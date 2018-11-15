@@ -1,4 +1,4 @@
-/* Abstract Syntax Tree abstract class.
+/* Abstract Syntax Tree subprogram declaration class.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 12/11/2018
    Edited: 12/11/2018 */
@@ -10,15 +10,20 @@
 
 class ASTDecSub: public AST {
 public:
-    ASTDecSub(Scope *s, AST *param, AST *block, LiteralType t);
+    // Creates a new node by getting the parameters node, the block of this subprogram and its return type (default: INT)
+    ASTDecSub(AST *param, AST *block, LiteralType t, Scope *s);
 
-    Value * call(AST *a);
+    // Calls this function, recieving its arguments and verifing them
+    Value *call(AST *a);
+
+    void printNode() override;
 
     LiteralType type;
-    std::vector<std::pair<LiteralType, SymType>*>* params = nullptr;
-    std::vector<Symbol*>* syms;
+    std::vector<std::pair<LiteralType, SymType> *> *params = nullptr; // Used for argument verification <type, var type (simple or array)>
+    std::vector<Symbol *> *syms = nullptr; // The symbols refering the arguments
 
 protected:
+    // Evaluates the arguments node, setting up the params var
     Value *inEval() override;
 };
 

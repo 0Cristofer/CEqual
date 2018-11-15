@@ -3,8 +3,8 @@
    Created: 15/10/2018
    Edited: 15/10/2018 */
 
-#ifndef LITERALINT_HPP
-#define LITERALINT_HPP
+#ifndef LITERALINT_HPP_CEQUAL
+#define LITERALINT_HPP_CEQUAL
 
 #include "Literal.hpp"
 
@@ -16,4 +16,4 @@ public:
     int val;
 };
 
-#endif /* LITERALINT_HPP */
+#endif /* LITERALINT_HPP_CEQUAL */

@@ -12,22 +12,20 @@ ASTListSpecVar::ASTListSpecVar(AST* r, Scope* s): AST(LISTSPECVAR, s){
     if(r) addChild(r);
 }
 
-Value* ASTListSpecVar::inEval(){
-    AST* a;
-    Symbol* sym;
+Value *ASTListSpecVar::inEval(){
+    Symbol *sym;
 
     for(auto it = children.rbegin(); it != children.rend(); ++it){
-        a = *it;
-        sym = ((ASTSpecVar*)a)->sym;
+        sym = ((ASTSpecVar *)(*it))->sym;
 
         sym->state = DEFINING;
         scope->addSym(sym);
 
         if(sym->type == SIM){
-            sym->val = a->eval();
+            sym->val = (*it)->eval();
         }
         else{
-            a->eval();
+            (*it)->eval();
         }
 
         syms.push_back(sym);
@@ -35,24 +33,6 @@ Value* ASTListSpecVar::inEval(){
 
     return nullptr;
 }
-
-/*Value* ASTListSpecVar::inEval(){
-    Symbol* sym;
-
-    for(AST* a : children){
-        sym = ((ASTSpecVar*)a)->sym;
-
-        if(sym->type == SIM){
-            sym->val = a->eval();
-        }
-        else{
-            a->eval();
-        }
-        syms.push_back(sym);
-    }
-
-    return nullptr;
-}*/
 
 void ASTListSpecVar::printNode(){
     std::cout << "Node type: ASTSListSpecVar" << std::endl;

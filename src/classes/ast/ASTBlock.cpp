@@ -7,17 +7,16 @@
 
 #include "include/ASTBlock.hpp"
 
-ASTBlock::ASTBlock(Scope* s): AST(BLOCK, s){
+ASTBlock::ASTBlock(Scope *s): AST(BLOCK, s) {
 
 }
 
-// TODO
-Value* ASTBlock::inEval(){
+Value *ASTBlock::inEval() {
+    // Children must be evaluated in inverse order because of the botton-up read
     for(auto it = children.rbegin(); it != children.rend(); ++it){
         (*it)->eval();
     }
 
-    free(scope);
     return nullptr;
 }
 

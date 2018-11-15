@@ -11,14 +11,14 @@
 
 class ASTDecVar: public AST{
 public:
-    ASTDecVar(AST* list, LiteralType t, Scope* s);
+    ASTDecVar(AST *list, LiteralType t, Scope *s);
 
-    // May have more than one child, the id and the variable initialization. Adds the id to the current scope
-    Value* inEval() override;
     void printNode() override;
-
     LiteralType s_type; // The type of the new variable
+
 private:
+    // May have more than one child, the id and the variable initialization. Adds the id to the current scope
+    Value *inEval() override;
 };
 
 #endif /* ASTDECVAR_HPP_CEQUAL */

@@ -9,14 +9,15 @@
 #include "AST.hpp"
 #include "../../symbol/include/Scope.hpp"
 
-class ASTBlock: public AST{
+class ASTBlock: public AST {
 public:
-    // Sets up scope stored by this node
-    explicit ASTBlock(Scope* s);
+    explicit ASTBlock(Scope *s);
 
-    Value* inEval() override;
     void printNode() override;
-private:
+
+protected:
+    // Just iterate the children evaluating them
+    Value *inEval() override;
 };
 
 #endif /* ASTBLOCK_HPP_CEQUAL */

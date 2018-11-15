@@ -3,21 +3,22 @@
    Created: 07/11/2018
    Edited: 07/11/2018 */
 
-#ifndef CEQUAL_ASTLISTDEC_HPP
-#define CEQUAL_ASTLISTDEC_HPP
+#ifndef ASTLISTDEC_HPP_CEQUAL
+#define ASTLISTDEC_HPP_CEQUAL
 
 
 #include "AST.hpp"
 
 class ASTListDec: public AST {
 public:
-    explicit ASTListDec(AST* child, Scope* s);
+    explicit ASTListDec(AST *child, Scope *s);
 
     void printNode() override;
 
 protected:
+    // Just evaluate the children
     Value *inEval() override;
 };
 
 
-#endif //CEQUAL_ASTLISTDEC_HPP
+#endif /* ASTLISTDEC_HPP_CEQUAL */

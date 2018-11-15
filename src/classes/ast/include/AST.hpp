@@ -13,33 +13,35 @@
 #include "../../symbol/include/Scope.hpp"
 
 // Possible AST types
-enum ASTType{
+enum ASTType {
     LITERAL, EXPRESSION, BLOCK, SPECVAR, LISTSPECVAR, ARRAYINIT, DECVAR, VARUSE, CMDWRITE, LISTDEC, CMDS,
     PARAMSPEC, PARAMLIST, DECSUB, EXPLIST, CALLPROC
 };
 
-class AST{
+class AST {
 public:
-    explicit AST(ASTType t, Scope* s);
+    // Sets up scope stored by this node and its type
+    explicit AST(ASTType t, Scope *s);
 
     // Adds a child to this node
-    void addChild(AST* ast);
-    // Evaluates the node, freeing its children and returning a generic value
-    Value* eval();
+    void addChild(AST *ast);
+    // Evaluates the node, calling inEval() and returning a generic value
+    Value *eval();
 
     // Pure virtual. Should print node information
-    virtual void printNode();
+    virtual void printNode() = 0;
 
     // Actual node tipe
     ASTType a_type;
-    std::vector<AST*> children;
+    std::vector<AST *> children;
+
 protected:
     // Pure virtual. Should make the actual evaluation of the node and its children
-    virtual Value* inEval() = 0;
+    virtual Value *inEval() = 0;
 
     int line = 0;
 
-    Scope* scope;
+    Scope *scope;
 };
 
 #endif /* AST_HPP_CEQUAL */

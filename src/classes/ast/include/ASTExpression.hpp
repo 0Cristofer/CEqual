@@ -12,7 +12,7 @@
 #include "../../value/include/LiteralBool.hpp"
 
 // Possible expression operands
-enum Operand{
+enum Operand {
     PLUS, MINUS, MUL, DIV, MOD, U_MINUS, // Aritmetic operands
     EQL, DIF, GRT, GRE, LES, LEQ, // Comparition operands
     OR, AND, NOT, // Logic operands
@@ -20,14 +20,14 @@ enum Operand{
 };
 
 // Possible expression types
-enum ExpType{
+enum ExpType {
     ARITM, COMP, LOGIC, TERN
 };
 
-class ASTExpression: public AST{
+class ASTExpression: public AST {
 public:
     // Creates a expression node with its type, operand em children
-    ASTExpression(ExpType t, Operand op, AST* l, AST* r, AST* test, Scope* s);
+    ASTExpression(ExpType t, Operand op, AST *l, AST *r, AST *test, Scope *s);
 
     //Evaluates the expression, verifing its operands and returning a generic value
     Value* inEval() override;
@@ -35,11 +35,11 @@ public:
 
 private:
     // Evaluates a integer expression
-    LiteralInt* intEval(int l, int r);
+    LiteralInt *intEval(int l, int r);
     // Evaluates a comparition expression
-    LiteralBool* compEval(int l, int r);
+    LiteralBool *compEval(int l, int r);
     // Evaluates a logic expression
-    LiteralBool* logicEval(bool l, bool r);
+    LiteralBool *logicEval(bool l, bool r);
 
     ExpType type;
     Operand operand;

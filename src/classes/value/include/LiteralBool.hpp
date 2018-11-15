@@ -3,8 +3,8 @@
    Created: 18/10/2018
    Edited: 18/10/2018 */
 
-#ifndef LITERALBOOL_HPP
-#define LITERALBOOL_HPP
+#ifndef LITERALBOOL_HPP_CEQUAL
+#define LITERALBOOL_HPP_CEQUAL
 
 #include "Literal.hpp"
 
@@ -16,4 +16,4 @@ public:
     bool val;
 };
 
-#endif /* LITERALBOOL_HPP */
+#endif /* LITERALBOOL_HPP_CEQUAL */

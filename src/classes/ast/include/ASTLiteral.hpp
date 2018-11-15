@@ -12,13 +12,13 @@
 class ASTLiteral: public AST{
 public:
     // Sets up the literal value stored by this node
-    explicit ASTLiteral(Literal* lit, Scope* s);
+    explicit ASTLiteral(Literal *lit, Scope *s);
 
     // Evaluates the literal by returning a literal value
     Value* inEval() override;
     void printNode() override;
 private:
-    Literal* literal;
+    Literal *literal;
 };
 
 #endif /* ASTLITERAL_HPP_CEQUAL */

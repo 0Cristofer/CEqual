@@ -1,14 +1,9 @@
-var a = -3 + ((1 + 1)/2 + 3 + 7)*2, t = a + 2: int;
-
-def xxx(): int{
-  write a;
+def rip(x, y: int; w: bool): int{
+  write x, y, w;
 }
 
 def main(): int{
-  var foi = 9999: int;
+  var i = 22, j = 39: int;
 
-  xxx();
-  xxx();
-  xxx();
-  write "foi";
+  rip(i, j, true);
 }

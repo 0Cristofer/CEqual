@@ -35,7 +35,6 @@ Symbol *Scope::getSym(Symbol *s) {
     Symbol* a_sym = nullptr;
 
     if (sm != sym_tab.end()){
-        free(s);
         return *sm;
     }
 

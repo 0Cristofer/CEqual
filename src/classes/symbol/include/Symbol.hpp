@@ -3,8 +3,8 @@
    Created: 19/10/2018
    Edited: 07/11/2018 */
 
-#ifndef SYMBOL_HPP
-#define SYMBOL_HPP
+#ifndef SYMBOL_HPP_CEQUAL
+#define SYMBOL_HPP_CEQUAL
 
 #include <string>
 #include <vector>
@@ -13,28 +13,27 @@
 
 class AST;
 
-enum SymState{
+enum SymState {
     UNDEFINED, DEFINING, DEFINED
 };
 
-enum SymType{
+enum SymType {
     SIM, ARRAY, PROC, FUNC
 };
 
-class Symbol{
+class Symbol {
 public:
-    Symbol(std::string* sym, int n);
+    Symbol(std::string *sym, int n);
     ~Symbol();
 
-    int lineno;
-    int size;
-    std::string* id;
-    std::vector<Value*>* vals;
+    int lineno; // Line of the declaration
+    int size; // Number of elements (if it is an array)
+    std::string *id; // String (name) of this symbol
+    std::vector<Value *> *vals; // Vector with the values (if it is an array)
     SymState state;
     SymType type;
-    Value* val = nullptr;
-    AST* proc;
-private:
+    Value *val = nullptr; // Value of this symbol (if it is a simpĺe var)
+    AST *proc; // Pointer to the DecSub node (if it as procedure symbol)
 };
 
 // Implements the symbol pointer comparition for use in set
@@ -42,4 +41,4 @@ struct SymCmp{
     bool operator()(const Symbol* l, const Symbol* r) const;
 };
 
-#endif /* SYMBOL_HPP */
+#endif /* SYMBOL_HPP_CEQUAL */

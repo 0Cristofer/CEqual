@@ -3,8 +3,8 @@
    Created: 19/10/2018
    Edited: 19/10/2018 */
 
-#ifndef SCOPE_HPP
-#define SCOPE_HPP
+#ifndef SCOPE_HPP_CEQUAL
+#define SCOPE_HPP_CEQUAL
 
 #include <set>
 
@@ -17,14 +17,14 @@ public:
     ~Scope();
 
     // Adds a symbol to this scope's table
-    Symbol* addSym(Symbol* s);
+    Symbol *addSym(Symbol *s);
 
     // Gets a symbol from this scope or previus one
-    Symbol* getSym(Symbol* s);
+    Symbol *getSym(Symbol *s);
 
-    Scope* prev;
+    Scope *prev;
 private:
-    std::set<Symbol*, SymCmp> sym_tab;
+    std::set<Symbol *, SymCmp> sym_tab;
 };
 
-#endif /* SCOPE_HPP */
+#endif /* SCOPE_HPP_CEQUAL */

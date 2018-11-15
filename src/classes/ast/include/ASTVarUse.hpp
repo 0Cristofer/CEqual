@@ -12,14 +12,14 @@
 class ASTVarUse: public AST{
 public:
     // Gets the symbol referenced by the ID and the value to access (if it is an array)
-    ASTVarUse(Symbol* s, AST* e, Scope* sc);
+    ASTVarUse(Symbol *s, AST *e, Scope *sc);
 
     // Reads the value stored in this symbol, if it exists
     Value* inEval() override;
     void printNode() override;
 
     // The referenced symbol
-    Symbol* sym;
+    Symbol *sym;
 private:
 };
 

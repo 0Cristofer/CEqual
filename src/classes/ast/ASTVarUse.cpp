@@ -11,17 +11,17 @@
 #include "../value/include/LiteralStr.hpp"
 #include "../../include/util.hpp"
 
-ASTVarUse::ASTVarUse(Symbol* s, AST* e, Scope* sc): AST(VARUSE, sc), sym(s){
+ASTVarUse::ASTVarUse(Symbol *s, AST *e, Scope *sc): AST(VARUSE, sc), sym(s){
     if(e) addChild(e);
 }
 
-Value* ASTVarUse::inEval(){
+Value *ASTVarUse::inEval(){
     int ind = 0;
-    Value* v = nullptr, *e = nullptr;
+    Value *v = nullptr, *e = nullptr;
 
     sym = scope->getSym(sym);
 
-    if(sym->state == UNDEFINED){
+    if(sym->state == UNDEFINED){ // TODO error case
         notInitializedError(line, *(sym->id));
         free(sym);
         return new LiteralInt(0);
@@ -31,7 +31,7 @@ Value* ASTVarUse::inEval(){
         e = children[0]->eval();
 
         if(typeCheck(e, INT, line)){
-            ind = ((LiteralInt*)e)->val;
+            ind = ((LiteralInt *)e)->val;
             v = (*(sym->vals))[ind];
         }
 
@@ -40,17 +40,15 @@ Value* ASTVarUse::inEval(){
         v = sym->val;
     }
 
-
-    //std::cout << "usou variável: " << *sym->id << ", com valor: " << ((LiteralInt*)(*sym->vals)[ind])->val << std::endl;
     switch (((Literal*)v)->type) {
         case INT:
-            v = new LiteralInt(((LiteralInt*)v)->val);
+            v = new LiteralInt(((LiteralInt *)v)->val);
             break;
         case BOOL:
-            v = new LiteralBool(((LiteralBool*)v)->val);
+            v = new LiteralBool(((LiteralBool *)v)->val);
             break;
         case STR:
-            v = new LiteralStr(new std::string(*(((LiteralStr*)v)->val)));
+            v = new LiteralStr(new std::string(*(((LiteralStr *)v)->val)));
             break;
     }
 

@@ -10,21 +10,21 @@
 #include "../../symbol/include/Symbol.hpp"
 
 // Variable types, simple or array
-enum SpecType{
+enum SpecType {
     SIMVAR, ARRAYVAR
 };
 
-class ASTSpecVar: public AST{
+class ASTSpecVar: public AST {
 public:
     // Sets up the literal value stored by this node (if any) and the specification type
-    ASTSpecVar(Symbol* s, SpecType t, Scope* sc);
+    ASTSpecVar(Symbol *s, SpecType t, Scope *sc);
 
     // Last phase of variable declaration. Updates the symbol tabe and sets up its data
     Value* inEval() override;
     void printNode() override;
 
     // The symbol held by this node
-    Symbol* sym;
+    Symbol *sym;
     // The type of the variable
     SpecType type;
 private:

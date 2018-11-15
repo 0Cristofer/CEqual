@@ -1,13 +1,14 @@
-/* Abstract Syntax Tree abstract class.
+/* Abstract Syntax Tree procedure call class.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
-   Created: 15/10/2018
-   Edited: 07/11/2018 */
+   Created: 12/11/2018
+   Edited: 12/11/2018 */
 
+#include <src/include/util.hpp>
 #include "src/classes/ast/include/ASTDecSub.hpp"
 #include "src/classes/ast/include/ASTCallProc.hpp"
 
-ASTCallProc::ASTCallProc(Scope *s, Symbol *sm, AST *a, SymType t) : AST(CALLPROC, s), sym(sm), s_t(t) {
-    addChild(a);
+ASTCallProc::ASTCallProc(Symbol *sm, AST *a, SymType t, Scope *s) : AST(CALLPROC, s), sym(sm), s_t(t) {
+    if(a) addChild(a);
 }
 
 Value *ASTCallProc::inEval() {
@@ -15,14 +16,23 @@ Value *ASTCallProc::inEval() {
 
     sym = scope->getSym(sym);
 
-    if(sym->state == UNDEFINED) return res; // caso de erro
+    if(sym->state == UNDEFINED) semanticError(line); // TODO error case
 
-    if((s_t == FUNC) && (sym->type == FUNC)){
-        res = ((ASTDecSub*)sym->proc)->call(children[0]);
+    if(s_t == FUNC) {
+        if(sym->type == FUNC) { // Just call as a function if the procedure is a function
+            res = ((ASTDecSub*)sym->proc)->call(children[0]);
+        }
+        else {
+            semanticError(line);
+        }
     }
-    else if(s_t == PROC){
+    else if(s_t == PROC) {
         ((ASTDecSub*)sym->proc)->call(children[0]);
     }
 
     return res;
+}
+
+void ASTCallProc::printNode() {
+    std::cout << "Node type: ASTCallProc" << std::endl;
 }

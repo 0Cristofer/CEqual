@@ -11,18 +11,17 @@
 #include "AST.hpp"
 #include "../../value/include/Value.hpp"
 
-class ASTArrayInit: public AST{
+class ASTArrayInit: public AST {
 public:
     // A array initialization gets only the first child, the others are added after
-    explicit ASTArrayInit(AST* l, Scope* s);
+    explicit ASTArrayInit(AST *l, Scope *s);
 
     // Evaluate the node by reading all literal values and checking if they are of the same type. In the end, the values are stored in vector vals
     Value* inEval() override;
     void printNode() override;
 
     // The values read
-    std::vector<Value*>* vals;
-private:
+    std::vector<Value *> *vals;
 };
 
 #endif /* ASTARRAYINIT_HPP_CEQUAL */

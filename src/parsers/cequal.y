@@ -27,7 +27,7 @@
 
   bool declaring = false;
   Scope* actual_scope;
-  AST* main_proc;
+  AST* main_proc = nullptr;
   AST* first;
 %}
 
@@ -191,7 +191,7 @@ startfunc:
 
 decProc:
   startfunc paramList T_SYM_CP block {
-                                        $$ = new ASTDecSub(actual_scope, $2, $4, INT);
+                                        $$ = new ASTDecSub($2, $4, INT, actual_scope);
                                         $1->state = DEFINED;
                                         $1->type = PROC;
                                         $1->proc = $$;
@@ -200,7 +200,7 @@ decProc:
 
 decFunc:
   startfunc paramList T_SYM_CP T_SYM_COL type block {
-                                                      $$ = new ASTDecSub(actual_scope, $2, $6, $5);
+                                                      $$ = new ASTDecSub($2, $6, $5, actual_scope);
                                                       $1->state = DEFINED;
                                                       $1->type = FUNC;
                                                       $1->proc = $$;
@@ -320,7 +320,7 @@ expression:
   |T_SYM_OP expression T_SYM_CP      {$$ = $2;}
   |literal                           {$$ = $1;}
   |varUse                            {$$ = $1;}
-  |callFunc
+  |callFunc                          {$$ = $1;}
 ;
 
 /* A chamada de função deve procurar na tabela de símbolos o id da função.
@@ -328,7 +328,7 @@ expression:
    a lista de expressões.
 */
 callFunc:
-  id T_SYM_OP expList T_SYM_CP {$$ = new ASTCallProc(actual_scope, $1, $3, FUNC);}
+  id T_SYM_OP expList T_SYM_CP {$$ = new ASTCallProc($1, $3, FUNC, actual_scope);}
 ;
 
 expList:
@@ -413,7 +413,7 @@ cmdReturn:
 ;
 
 cmdCallProc:
-  id T_SYM_OP expList T_SYM_CP T_SYM_SMC {$$ = new ASTCallProc(actual_scope, $1, $3, FUNC);}
+  id T_SYM_OP expList T_SYM_CP T_SYM_SMC {$$ = new ASTCallProc($1, $3, PROC, actual_scope);}
 ;
 
 cmdRead:
@@ -422,7 +422,6 @@ cmdRead:
 
 cmdWrite:
   T_RES_WRITE expList T_SYM_SMC {$$ = new ASTCmdWrite($2, actual_scope);}
-  |T_RES_WRITE varUse T_SYM_SMC {$$ = new ASTCmdWrite($2, actual_scope);}
 ;
 
 %%
@@ -449,6 +448,12 @@ int main(int argc, char** argv){
   yyparse();
 
   first->eval();
+
+  if(main_proc == nullptr){
+    std::cerr << "No main function, aborting." << std::endl;
+    return 0;
+  }
+
   ((ASTDecSub*)main_proc)->call(nullptr);
 
   free(actual_scope);

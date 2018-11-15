@@ -6,14 +6,14 @@
 #include "include/util.hpp"
 #include "classes/ast/include/AST.hpp"
 
-bool typeCheck(Value* v, LiteralType t, int line){
+bool typeCheck(Value *v, LiteralType t, int line){
     bool res = false;
 
     if(!v) return true;
 
     switch (v->type) {
         case LITERALVAL:
-            res = ((Literal*)v)->type == t;
+            res = ((Literal *)v)->type == t;
             if(!res) typeError(line);
             break;
 

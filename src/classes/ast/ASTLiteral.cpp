@@ -8,11 +8,11 @@
 #include "include/ASTLiteral.hpp"
 #include "../value/include/LiteralInt.hpp"
 
-ASTLiteral::ASTLiteral(Literal* lit, Scope* s): AST(LITERAL, s), literal(lit){
+ASTLiteral::ASTLiteral(Literal *lit, Scope *s): AST(LITERAL, s), literal(lit){
 
 }
 
-Value* ASTLiteral::inEval(){
+Value *ASTLiteral::inEval(){
     return literal;
 }
 

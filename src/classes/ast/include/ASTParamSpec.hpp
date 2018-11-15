@@ -1,29 +1,29 @@
-/* Abstract Syntax Tree variable list specification
+/* Abstract Syntax Tree parameter specification specification
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 12/11/2018
    Edited: 12/11/2018 */
 
-#ifndef CEQUAL_ASTPARAMSPEC_HPP
-#define CEQUAL_ASTPARAMSPEC_HPP
-
+#ifndef ASTPARAMSPEC_HPP_CEQUAL
+#define ASTPARAMSPEC_HPP_CEQUAL
 
 #include "AST.hpp"
 
 class ASTParamSpec : public AST{
 public:
-    ASTParamSpec(Symbol* sym, Scope *s);
+    // Each parameter specification refers to one type
+    ASTParamSpec(Symbol *sym, Scope *s);
 
-    void addSymbol(Symbol* sym);
+    void addSymbol(Symbol *sym);
 
-    LiteralType type;
+    void printNode() override;
+
+    LiteralType type = INT;
+    std::vector<Symbol *> syms; // All symbols fo this type
 
 protected:
+    // Evaluate all symbols, initializing them with it type
     Value *inEval() override;
-
-public:
-
-    std::vector<Symbol*> syms;
 };
 
 
-#endif /* CEQUAL_ASTPARAMSPEC_HPP */
+#endif /* ASTPARAMSPEC_HPP_CEQUAL */

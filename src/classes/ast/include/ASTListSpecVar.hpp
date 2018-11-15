@@ -13,14 +13,14 @@
 
 class ASTListSpecVar: public AST{
 public:
-    explicit ASTListSpecVar(AST* r, Scope* s);
+    explicit ASTListSpecVar(AST *r, Scope *s);
 
     // Reads all children and creates a vector with all the new variables (symbols)
-    Value* inEval() override;
+    Value *inEval() override;
     void printNode() override;
 
     // The symbol vector to be read in the next phase
-    std::vector<Symbol*> syms;
+    std::vector<Symbol *> syms;
 private:
 };
 

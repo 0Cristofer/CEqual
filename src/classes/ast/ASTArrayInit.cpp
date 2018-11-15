@@ -10,15 +10,15 @@
 #include "../symbol/include/Symbol.hpp"
 #include "../../include/util.hpp"
 
-ASTArrayInit::ASTArrayInit(AST* l, Scope* s): AST(ARRAYINIT, s){
+ASTArrayInit::ASTArrayInit(AST *l, Scope *s): AST(ARRAYINIT, s) {
     if(l) addChild(l);
 }
 
-Value* ASTArrayInit::inEval(){
+Value *ASTArrayInit::inEval() {
     int i;
     Value *v, *prev = nullptr;
 
-    vals = new std::vector<Value*>(children.size());
+    vals = new std::vector<Value *>(children.size());
 
     // Since this is a array, we initialize a vector to hold it's elements
     // and evaluate the children to populate it. Ps.: the values are inverted because of the botton-up read

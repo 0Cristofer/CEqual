@@ -10,7 +10,7 @@
 #include "include/ASTLiteral.hpp"
 
 // Adds the operands nodes if they exist
-ASTExpression::ASTExpression(ExpType t, Operand op, AST* l, AST* r, AST* test, Scope* s):
+ASTExpression::ASTExpression(ExpType t, Operand op, AST *l, AST *r, AST *test, Scope *s):
         AST(EXPRESSION, s), type(t), operand(op){
     if(l) addChild(l);
     if(r) addChild(r);
@@ -27,7 +27,7 @@ Value* ASTExpression::inEval(){
             if(operand != U_MINUS) rval = children[1]->eval(); // Only evaluate right child if it is not a unary minus operation
 
             if(typeCheck(lval, INT, line) && typeCheck(rval, INT, line)){ // Check for the type
-                res = intEval(((LiteralInt*)lval)->val, rval ? ((LiteralInt*)rval)->val : 0); // Perform action
+                res = intEval(((LiteralInt *)lval)->val, rval ? ((LiteralInt *)rval)->val : 0); // Perform action
             }
             else{
                 res = new LiteralInt(0); // If types are wrong, return 0
@@ -40,7 +40,7 @@ Value* ASTExpression::inEval(){
             rval = children[1]->eval();
 
             if(typeCheck(lval, INT, line) && typeCheck(rval, INT, line)){
-                res = compEval(((LiteralInt*)lval)->val, ((LiteralInt*)rval)->val);
+                res = compEval(((LiteralInt *)lval)->val, ((LiteralInt *)rval)->val);
             }
             else{
                 res = new LiteralBool(false);
@@ -53,7 +53,7 @@ Value* ASTExpression::inEval(){
             if(operand != NOT) rval = children[1]->eval();
 
             if(typeCheck(lval, BOOL, line) && typeCheck(rval, BOOL, line)){
-                res = logicEval(((LiteralBool*)lval)->val, rval ? ((LiteralBool*)rval)->val : false);
+                res = logicEval(((LiteralBool *)lval)->val, rval ? ((LiteralBool *)rval)->val : false);
             }
             else{
                 res = new LiteralBool(false);
@@ -65,7 +65,7 @@ Value* ASTExpression::inEval(){
             testval = children[2]->eval();
 
             if(typeCheck(testval, BOOL, line)){
-                if(((LiteralBool*)testval)->val){
+                if(((LiteralBool *)testval)->val){
                     res = children[0]->eval(); // 0 = left operand
                 }
                 else{
@@ -81,7 +81,7 @@ Value* ASTExpression::inEval(){
 }
 
 // Evaluates a integer expression by performing the correct aritmetic action based on the operator
-LiteralInt* ASTExpression::intEval(int l, int r){
+LiteralInt *ASTExpression::intEval(int l, int r){
     int res;
 
     switch (operand) {
@@ -118,7 +118,7 @@ LiteralInt* ASTExpression::intEval(int l, int r){
 }
 
 // Evaluates a comparition expression by performing the correct comparition action based on the operator
-LiteralBool* ASTExpression::compEval(int l, int r){
+LiteralBool *ASTExpression::compEval(int l, int r){
     bool res;
 
     switch (operand) {
@@ -154,7 +154,7 @@ LiteralBool* ASTExpression::compEval(int l, int r){
 }
 
 // Evaluates a logic expression by performing the correct logic action based on the operator
-LiteralBool* ASTExpression::logicEval(bool l, bool r){
+LiteralBool *ASTExpression::logicEval(bool l, bool r){
     bool res;
 
     switch (operand) {
@@ -180,13 +180,4 @@ LiteralBool* ASTExpression::logicEval(bool l, bool r){
 
 void ASTExpression::printNode(){
     std::cout << "Node type: ASTExpression" << std::endl;
-
-    std::cout << "\tHas: " << children.size() << " children, wich are:" << std::endl;
-
-    for(AST* ast : children){
-        std::cout << "\t";
-        ast->printNode();
-    }
-
-    std::cout << "------------------" << std::endl;
 }

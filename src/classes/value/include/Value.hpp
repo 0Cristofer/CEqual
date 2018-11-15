@@ -3,19 +3,19 @@
    Created: 18/10/2018
    Edited: 18/10/2018 */
 
-#ifndef VALUE_HPP
-#define VALUE_HPP
+#ifndef VALUE_HPP_CEQUAL
+#define VALUE_HPP_CEQUAL
 
 // Possible evaluation values
-enum ValueType{
+enum ValueType {
     LITERALVAL
 };
 
-class Value{
+class Value {
 public:
     explicit Value(ValueType t): type(t){}
 
     ValueType type;
 };
 
-#endif /* VALUE_HPP */
+#endif /* VALUE_HPP_CEQUAL */

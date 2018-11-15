@@ -9,32 +9,33 @@
 #include "include/ASTArrayInit.hpp"
 #include "../../include/util.hpp"
 
-ASTSpecVar::ASTSpecVar(Symbol* s, SpecType t, Scope* sc): AST(SPECVAR, sc), sym(s), type(t){
+ASTSpecVar::ASTSpecVar(Symbol *s, SpecType t, Scope *sc): AST(SPECVAR, sc), sym(s), type(t){
 
 }
 
 Value* ASTSpecVar::inEval(){
-    Value* res = nullptr;
-    std::vector<Value*>* v;
+    Value *res = nullptr;
+    std::vector<Value *> *v;
 
     if(type == SIMVAR){
-        if(!children.empty()){
+        if(!children.empty()){ // If there is children, get its value
             res = children[0]->eval();
         }
 
         sym->type = SIM;
     }
     else{
-        if(!children.empty()){
+        if(!children.empty()){ // If there is children, get all values
             children[0]->eval();
-            v = ((ASTArrayInit*)children[0])->vals;
 
-            if(v->size() > sym->size){
+            v = ((ASTArrayInit *)children[0])->vals;
+
+            if(v->size() > sym->size) {
                 arraySizeMismatchError(line);
             }
-            else{
-                if(sym->vals){
-                    for(Value* oldv : *(sym->vals)){
+            else {
+                if(sym->vals) {
+                    for(Value *oldv : *(sym->vals)) { // If there is values, free them
                         free(oldv);
                     }
 
@@ -43,7 +44,7 @@ Value* ASTSpecVar::inEval(){
 
                 sym->vals = v;
 
-                if(v->size() < sym->size){
+                if(v->size() < sym->size) {
                     v->resize(static_cast<unsigned long>(sym->size));
                 }
             }

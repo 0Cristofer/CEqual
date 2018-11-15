@@ -10,37 +10,37 @@
 #include "../value/include/LiteralInt.hpp"
 #include "../../include/util.hpp"
 
-ASTDecVar::ASTDecVar(AST* list, LiteralType t, Scope* s): AST(DECVAR, s), s_type(t){
+ASTDecVar::ASTDecVar(AST *list, LiteralType t, Scope *s): AST(DECVAR, s), s_type(t) {
     addChild(list);
 }
 
-Value* ASTDecVar::inEval(){
-    ASTListSpecVar* list;
-    children[0]->eval();
-    list = (ASTListSpecVar*)children[0];
+Value *ASTDecVar::inEval() {
+    ASTListSpecVar *list;
 
-    for(Symbol* s : list->syms){
+    children[0]->eval();
+    list = (ASTListSpecVar *)children[0];
+
+    for(Symbol* s : list->syms) {
         s->state = UNDEFINED;
 
-        if(s->type == SIM){
-            if(s->val){
-                if(typeCheck((Literal *) s->val, s_type, line)){
+        if(s->type == SIM) {
+            if(s->val) {
+                if(typeCheck((Literal *) s->val, s_type, line)) {
                     s->state = DEFINED;
                 }
             }
-            else{
+            else {
                 s->state = DEFINED;
             }
         }
-        else{
-            if(s->vals){
-                if(typeCheck((*(s->vals))[0], s_type, line)){
+        else {
+            if(s->vals) {
+                if(typeCheck((*(s->vals))[0], s_type, line)) {
                     s->state = DEFINED;
                 }
             }
-            else{
-                s->vals = new std::vector<Value*>();
-                //inserir elemento inicial
+            else {
+                s->vals = new std::vector<Value *>();
                 s->state = DEFINED;
             }
         }
@@ -49,6 +49,6 @@ Value* ASTDecVar::inEval(){
     return nullptr;
 }
 
-void ASTDecVar::printNode(){
+void ASTDecVar::printNode() {
     std::cout << "Node type: ASTDecVar" << std::endl;
 }

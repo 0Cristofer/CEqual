@@ -7,7 +7,7 @@ find_package(BISON)
 find_package(FLEX)
 
 BISON_TARGET(CequalParser ${CMAKE_SOURCE_DIR}/src/parsers/cequal.y ${CMAKE_CURRENT_BINARY_DIR}/cequal.tab.cpp
-        DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/cequal.tab.h)
+        DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/cequal.tab.h VERBOSE)
 FLEX_TARGET(CequalScanner ${CMAKE_SOURCE_DIR}/src/parsers/cequal.l  ${CMAKE_CURRENT_BINARY_DIR}/cequal.lex.cpp)
 
 ADD_FLEX_BISON_DEPENDENCY(CequalScanner CequalParser)
