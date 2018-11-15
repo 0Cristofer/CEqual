@@ -37,7 +37,12 @@ Value *ASTVarUse::inEval(){
 
     }
     else{
-        v = sym->val;
+        if(sym->type == ARRAY){ // If it is an array an no position is specified, just pass the first element
+            v = *(*(sym->vals)).begin();
+        }
+        else{
+            v = sym->val;
+        }
     }
 
     switch (((Literal*)v)->type) {

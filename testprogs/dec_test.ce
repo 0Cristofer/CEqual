@@ -1,9 +1,11 @@
-def rip(x, y: int; w: bool): int{
-  write x, y, w;
+var a[2] = {11, 14}: int;
+
+def rip(x, y[]: int; w: bool): int{
+  write x, y[0], w;
 }
 
 def main(): int{
   var i = 22, j = 39: int;
 
-  rip(i, j, true);
+  rip(i, a, true);
 }
