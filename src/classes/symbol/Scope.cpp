@@ -18,7 +18,6 @@ Symbol* Scope::addSym(Symbol* s){
 
     if(!ins.second){
         free(s);
-        //std::cout << "New symbol, id: " << *(s->id) << " at: " << s->lineno << std::endl;
     }
 
     return *ins.first;

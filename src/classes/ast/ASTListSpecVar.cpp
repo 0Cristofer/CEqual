@@ -19,7 +19,7 @@ Value *ASTListSpecVar::inEval(){
         sym = ((ASTSpecVar *)(*it))->sym;
 
         sym->state = DEFINING;
-        scope->addSym(sym);
+        sym = scope->addSym(sym);
 
         if(sym->type == SIM){
             sym->val = (*it)->eval();
