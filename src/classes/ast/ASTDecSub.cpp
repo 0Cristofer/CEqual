@@ -4,8 +4,8 @@
    Edited: 12/11/2018 */
 
 #include <iostream>
-#include <src/include/util.hpp>
 
+#include "src/include/util.hpp"
 #include "src/classes/ast/include/ASTDecSub.hpp"
 #include "src/classes/ast/include/ASTParamList.hpp"
 #include "src/classes/ast/include/ASTVarUse.hpp"
@@ -42,8 +42,8 @@ Value *ASTDecSub::call(AST *a) {
             if (ok){
                 for (AST *child: a->children) {
                     v = child->eval();
-                    // TODO pass string by reference
-                    if ((*p)->second == ARRAY) { // If the parameter is an array we need to verify if the parameter is too and set up de data
+
+                    if ((*p)->second == ARRAY) { // If the parameter is an array we need to verify if the argument is too and set up de data
                         if (child->a_type == VARUSE) {
 
                             ok = ((ASTVarUse *) (child))->sym->type == ARRAY;
@@ -69,7 +69,7 @@ Value *ASTDecSub::call(AST *a) {
                             break;
                         }
                     }
-                    else { // Else, just verify the type
+                    else { // Else, verify the type and if it is a string, pass by reference
                         ok = ((Literal *) v)->type == (*p)->first;
 
                         if (!ok){
@@ -77,7 +77,13 @@ Value *ASTDecSub::call(AST *a) {
                             break;
                         }
 
-                        (*s)->val = v;
+                        if((*p)->first == STR){
+                            (*s)->val = ((ASTVarUse *) child)->sym->val;
+                        }
+                        else{
+                            (*s)->val = v;
+                        }
+
                     }
 
                     p++;

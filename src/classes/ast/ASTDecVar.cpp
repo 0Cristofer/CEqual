@@ -83,8 +83,6 @@ Value *ASTDecVar::inEval() {
                 s->state = DEFINED;
             }
         }
-
-
     }
 
     return nullptr;

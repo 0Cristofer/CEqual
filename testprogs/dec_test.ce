@@ -1,12 +1,17 @@
-def aaa(x[]: int){
-  read x[2];
-  write x[2];
+def aaa(s: string){
+  write s;
+  read s;
+  write s;
 }
 
 def main(): int{
-  var a[5]: int;
+  var s = "xxxx": string;
 
-  write a[2];
-  aaa(a[2]);
-  write a[2];
+  write s;
+  aaa(s);
+  write s;
+  read s;
+  write s;
+  aaa(s);
+  write s;
 }
