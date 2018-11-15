@@ -23,6 +23,7 @@
   #include "src/classes/ast/include/ASTDecSub.hpp"
   #include "src/classes/ast/include/ASTExpList.hpp"
   #include "src/classes/ast/include/ASTCallProc.hpp"
+  #include "src/classes/ast/include/ASTCmdRead.hpp"
   #include "src/classes/value/include/LiteralStr.hpp"
 
   bool declaring = false;
@@ -89,7 +90,7 @@
 %type <ast> specVarSim specVarSimInit specVarArr specVarArrInit arrInit
 %type <ast> block varUse cmds cmd simCmd cmdCallProc
 %type <ast> paramSpec paramDef paramList decProc decFunc decSub expList
-%type <ast> cmdWrite
+%type <ast> cmdWrite cmdRead
 %type <l_type> type
 
 %start program
@@ -364,7 +365,7 @@ simCmd:
   |cmdSkip
   |cmdReturn*/
   cmdCallProc {$$ = $1;}
-  /*|cmdRead*/
+  |cmdRead {$$ = $1;}
   |cmdWrite {$$ = $1;}
 ;
 
@@ -417,7 +418,7 @@ cmdCallProc:
 ;
 
 cmdRead:
-  T_RES_READ varUse T_SYM_SMC
+  T_RES_READ varUse T_SYM_SMC {$$ = new ASTCmdRead($2, actual_scope);}
 ;
 
 cmdWrite:

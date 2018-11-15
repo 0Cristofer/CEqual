@@ -1,0 +1,45 @@
+/* Abstract Syntax Tree Comand Read
+   Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
+   Created: 15/11/2018
+   Edited: 15/11/2018 */
+
+#include <iostream>
+#include <src/classes/ast/include/ASTVarUse.hpp>
+#include <src/classes/value/include/LiteralInt.hpp>
+#include <src/classes/value/include/LiteralStr.hpp>
+#include <src/classes/value/include/LiteralBool.hpp>
+#include "src/classes/ast/include/ASTCmdRead.hpp"
+
+ASTCmdRead::ASTCmdRead(AST *e, Scope *sc): AST(CMDREAD, sc){
+    if(e) addChild(e);
+}
+
+Value *ASTCmdRead::inEval() {
+    int i;
+    bool b;
+    std::string s;
+
+    children[0]->eval();
+
+    switch (((Literal*)(((ASTVarUse*) children[0])->sym->val))->type){
+        case INT:
+            std::cin >> i;
+            ((LiteralInt*) ((ASTVarUse*) children[0])->sym->val)->val = i;
+            break;
+        case STR:
+            std::cin >> s;
+            ((LiteralStr*) ((ASTVarUse*) children[0])->sym->val)->val = new std::string(s);
+            break;
+        case BOOL:
+            std::cin >> b;
+            ((LiteralBool*) ((ASTVarUse*) children[0])->sym->val)->val = b;
+            break;
+    }
+
+    return nullptr;
+}
+
+void ASTCmdRead::printNode(){
+    std::cout << "Node type: ASTCmdRead" << std::endl;
+}
+

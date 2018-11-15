@@ -4,8 +4,16 @@ def rip(x, y[]: int; w: bool): int{
   write x, y[0], w;
 }
 
+def xxx(i:int){
+  write i;
+  read i;
+}
+
 def main(): int{
   var i = 22, j = 39: int;
+  var s = "oi": string;
 
-  rip(i, a, true);
+  //read s;
+  //xxx(i);
+  write s;
 }
