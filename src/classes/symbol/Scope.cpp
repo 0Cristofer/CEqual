@@ -16,10 +16,6 @@ Scope::Scope(Scope* p): prev(p){
 Symbol* Scope::addSym(Symbol* s){
     auto ins = sym_tab.insert(s);
 
-    if(!ins.second){
-        free(s);
-    }
-
     return *ins.first;
 }
 

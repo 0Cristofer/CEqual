@@ -10,6 +10,12 @@
 #include "../../include/util.hpp"
 
 ASTSpecVar::ASTSpecVar(Symbol *s, SpecType t, Scope *sc): AST(SPECVAR, sc), sym(s), type(t){
+    if(type == SIMVAR){
+        sym->type = SIM;
+    }
+    else{
+        sym->type = ARRAY;
+    }
 
 }
 
@@ -21,8 +27,6 @@ Value* ASTSpecVar::inEval(){
         if(!children.empty()){ // If there is children, get its value
             res = children[0]->eval();
         }
-
-        sym->type = SIM;
     }
     else{
         if(!children.empty()){ // If there is children, get all values
@@ -49,9 +53,7 @@ Value* ASTSpecVar::inEval(){
                 }
             }
         }
-
-        sym->type = ARRAY;
-    }
+Z    }
 
     return res;
 }
