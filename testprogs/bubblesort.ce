@@ -3,7 +3,7 @@ var v[100]: int;
 // Procedimento de ordenação por troca
 // Observe como um parâmetro de arranjo é declarado
 
-def bubblesort(v[]: int; n = 2: int) {
+def bubblesort(v[]: int; n: int) {
     var i=0, j: int;
     //var aux : int;
     var trocou = true: bool;
