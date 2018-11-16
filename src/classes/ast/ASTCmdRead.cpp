@@ -1,4 +1,4 @@
-/* Abstract Syntax Tree Comand Read
+/* Abstract Syntax Tree read command class.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 15/11/2018
    Edited: 15/11/2018 */

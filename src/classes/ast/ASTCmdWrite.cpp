@@ -24,13 +24,13 @@ Value *ASTCmdWrite::inEval() {
         if (val != nullptr) {
             switch (((Literal *) val)->type) {
                 case INT:
-                    std::cout << ((LiteralInt *) val)->val << std::endl;
+                    std::cout << ((LiteralInt *) val)->val;
                     break;
                 case BOOL:
-                    std::cout << ((LiteralBool *) val)->val << std::endl;
+                    std::cout << ((LiteralBool *) val)->val;
                     break;
                 case STR:
-                    std::cout << *(((LiteralStr *) val)->val) << std::endl;
+                    std::cout << *(((LiteralStr *) val)->val);
                     break;
             }
         }

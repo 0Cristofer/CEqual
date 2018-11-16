@@ -25,6 +25,9 @@
   #include "src/classes/ast/include/ASTCallProc.hpp"
   #include "src/classes/ast/include/ASTCmdAtrib.hpp"
   #include "src/classes/ast/include/ASTCmdRead.hpp"
+  #include "src/classes/ast/include/ASTCmdIf.hpp"
+  #include "src/classes/ast/include/ASTCmdWhile.hpp"
+  #include "src/classes/ast/include/ASTCmdFor.hpp"
   #include "src/classes/value/include/LiteralStr.hpp"
 
   bool declaring = false;
@@ -92,7 +95,7 @@
 %type <ast> specVarSim specVarSimInit specVarArr specVarArrInit arrInit
 %type <ast> block varUse cmds cmd simCmd cmdCallProc cmdAtrib atrib
 %type <ast> paramSpec paramDef paramList decProc decFunc decSub expList
-%type <ast> cmdWrite cmdRead
+%type <ast> cmdWrite cmdRead cmdIf cmdWhile cmdFor
 %type <t> atrbSym
 %type <l_type> type
 
@@ -360,16 +363,16 @@ cmd:
 ;
 
 simCmd:
-  cmdAtrib {$$ = $1;}
-  /*|cmdIf
-  |cmdWhile
+  cmdAtrib     {$$ = $1;}
+  |cmdIf       {$$ = $1;}
+  |cmdWhile    {$$ = $1;}
   |cmdFor
-  |cmdStop
+  /*|cmdStop
   |cmdSkip
   |cmdReturn*/
   |cmdCallProc {$$ = $1;}
-  |cmdRead {$$ = $1;}
-  |cmdWrite {$$ = $1;}
+  |cmdRead     {$$ = $1;}
+  |cmdWrite    {$$ = $1;}
 ;
 
 cmdAtrib:
@@ -390,17 +393,23 @@ atrbSym:
 ;
 
 cmdIf:
-  T_RES_IF T_SYM_OP expression T_SYM_CP cmd %prec LOWER_THEN_ELSE
-  |T_RES_IF T_SYM_OP expression T_SYM_CP cmd T_RES_ELSE cmd
+  T_RES_IF T_SYM_OP expression T_SYM_CP cmd %prec LOWER_THEN_ELSE {$$ = new ASTCmdIf($5, nullptr, $3, actual_scope);}
+  |T_RES_IF T_SYM_OP expression T_SYM_CP cmd T_RES_ELSE cmd {$$ = new ASTCmdIf($5, $7, $3, actual_scope);}
 ;
 
 cmdWhile:
-  T_RES_WHILE T_SYM_OP expression T_SYM_CP cmd
+  T_RES_WHILE T_SYM_OP expression T_SYM_CP cmd {$$ = new ASTCmdWhile($5, $3, actual_scope);}
 ;
 
+cmdForStart:
+  T_RES_FOR T_SYM_OP {
+                        actual_scope = new Scope(actual_scope);
+                        declaring = true;
+                     }
+;
 
 cmdFor:
-  T_RES_FOR T_SYM_OP atrib T_SYM_SMC expression T_SYM_SMC atrib T_SYM_CP cmd
+  cmdForStart atrib T_SYM_SMC expression T_SYM_SMC atrib T_SYM_CP cmd {$$ = new ASTCmdFor($2, $6, $8, $4, actual_scope);}
 ;
 
 cmdStop:

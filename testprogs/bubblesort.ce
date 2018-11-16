@@ -22,20 +22,23 @@ def bubblesort(v[]: int; n: int) {
 }
 
 def main(): int {
-    var i: int;
+    var i, tam: int;
+
+    write "Digite o tamanho do arranjo:\n";
+    read tam;
 
     write "Digite os valores do arranjo:\n";
 
-    for (i=0; i<10; i+=1) {
+    for (i=0; i<tam; i+=1) {
         write "A[", i, "] = ";
         read v[i];
     }
 
-    bubblesort(v, 10);
+    bubblesort(v, tam);
 
     write "Arranjo ordenado:\nA = ";
 
-    for (i=0; i<10; i+=1) {
+    for (i=0; i<tam; i+=1) {
         write v[i], " ";
     }
 

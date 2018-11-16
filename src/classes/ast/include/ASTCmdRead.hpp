@@ -1,9 +1,10 @@
-//
-// Created by cristofer on 15/11/18.
-//
+/* Abstract Syntax Tree read command class.
+   Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
+   Created: 15/11/2018
+   Edited: 15/11/2018 */
 
-#ifndef CEQUAL_ASTCMDREAD_HPP
-#define CEQUAL_ASTCMDREAD_HPP
+#ifndef ASTCMDREAD_HPP_CEQUAL
+#define ASTCMDREAD_HPP_CEQUAL
 
 #include "AST.hpp"
 #include "../../symbol/include/Symbol.hpp"
@@ -20,4 +21,4 @@ public:
 private:
 };
 
-#endif //CEQUAL_ASTCMDREAD_HPP
+#endif /* ASTCMDREAD_HPP_CEQUAL */

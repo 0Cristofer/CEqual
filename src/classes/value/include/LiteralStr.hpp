@@ -14,6 +14,7 @@ class LiteralStr: public Literal{
 public:
     // Stores the boolean value of the node
     explicit LiteralStr(std::string *s);
+
     ~LiteralStr();
 
     std::string* val;
