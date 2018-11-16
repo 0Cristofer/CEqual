@@ -27,7 +27,11 @@ Value *ASTCmdWrite::inEval() {
                     std::cout << ((LiteralInt *) val)->val;
                     break;
                 case BOOL:
-                    std::cout << ((LiteralBool *) val)->val;
+                    if(((LiteralBool *) val)->val){
+                        std::cout << "true";
+                    } else {
+                        std::cout << "false";
+                    }
                     break;
                 case STR:
                     std::cout << *(((LiteralStr *) val)->val);

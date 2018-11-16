@@ -36,7 +36,8 @@ Value *ASTCmdRead::inEval() {
                 ((LiteralStr *) (sm->val))->val = new std::string(s);
                 break;
             case BOOL:
-                std::cin >> b;
+                std::cin >> s;
+                b = s.compare("true") == 0;
                 ((LiteralBool *) (sm->val))->val = b;
                 break;
         }
@@ -52,7 +53,8 @@ Value *ASTCmdRead::inEval() {
                 ((LiteralStr *) (*(sm->vals))[ind])->val = new std::string(s);
                 break;
             case BOOL:
-                std::cin >> b;
+                std::cin >> s;
+                b = s.compare("true") == 0;
                 ((LiteralBool *) (*(sm->vals))[ind])->val = b;
                 break;
         }
