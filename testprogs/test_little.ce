@@ -1,1 +1,21 @@
-var a, b, c, d, e : int;
+var num : int; //variavel global pro fatorial
+
+def fat(n : int){
+  if(n <= 1){
+    write num;
+  } else {
+    num = num * n;
+    n = n-1;
+    //write num;
+    fat(n);
+  }
+}
+
+def main() : int {
+  var n : int;
+  write "Fatorial de: ";
+  read num;
+
+  n = num - 1;
+  fat(n);
+}
