@@ -54,6 +54,9 @@ Value *ASTVarUse::inEval(){
         case STR:
             v = new LiteralStr(new std::string(*(((LiteralStr *)v)->val)));
             break;
+        case VOID:
+            std::cerr << "Not Implemented" << std::endl;
+            break;
     }
 
     return v;

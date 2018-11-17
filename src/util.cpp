@@ -18,7 +18,7 @@ bool typeCheck(Value *v, LiteralType t, int line){
             break;
 
         default:
-            std::cout << "Not implemented" << std::endl;
+            std::cerr << "Not implemented" << std::endl;
             break;
     }
 

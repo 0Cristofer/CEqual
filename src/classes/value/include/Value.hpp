@@ -8,7 +8,7 @@
 
 // Possible evaluation values
 enum ValueType {
-    LITERALVAL
+    LITERALVAL, STOPTYPE
 };
 
 class Value {

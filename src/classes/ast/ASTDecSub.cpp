@@ -1,10 +1,11 @@
 /* Abstract Syntax Tree subprogram declaration class.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 12/11/2018
-   Edited: 12/11/2018 */
+   Edited: 16/11/2018 */
 
 #include <iostream>
 
+#include "src/classes/value/include/StopType.hpp"
 #include "src/include/util.hpp"
 #include "src/classes/ast/include/ASTDecSub.hpp"
 #include "src/classes/ast/include/ASTParamList.hpp"
@@ -27,7 +28,7 @@ Value *ASTDecSub::inEval() {
 }
 
 Value *ASTDecSub::call(AST *a) {
-    Value *v;
+    Value *v = nullptr;
     bool ok = true; // Used for parameter - argument verification
 
     if(params) { // If there is parameteres
@@ -94,14 +95,54 @@ Value *ASTDecSub::call(AST *a) {
     }
 
     if(ok){ // Arguments verified, can evaluate this procedure's block
-        children[1]->eval();
-        //TODO read the return
+        v = children[1]->eval();
+
+
+        if(v->type == STOPTYPE){
+            switch (((StopType *)v)->stype){
+                case STOP:
+                case SKIP:
+                    semanticError(line);
+                    break;
+                case RETURN:
+                    if(((StopType *)v)->val){
+                        if(type == VOID){
+                            semanticError(line); // TODO error case
+                        }
+                        else{
+                            if(typeCheck(((StopType *)v)->val, type, line)){
+                                v = ((StopType *)v)->val;
+                            }
+                            else{
+                                semanticError(line); // TODO error case
+
+                            }
+                        }
+                    }
+                    else{
+                        if(type != VOID){
+                            semanticError(line); // TODO error case
+                        }
+                    }
+
+                    break;
+                case END:
+                    if(type != VOID){
+                        semanticError(line); // TODO error case
+                    }
+
+                    break;
+            }
+        }
+        else{ // TODO error case
+            semanticError(line);
+        }
     }
     else{
         semanticError(line);
     }
 
-    return nullptr;
+    return v;
 }
 
 void ASTDecSub::printNode() {

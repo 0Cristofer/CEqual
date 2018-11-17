@@ -1,7 +1,7 @@
 /* Abstract Syntax Tree command list
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 07/11/2018
-   Edited: 07/11/2018 */
+   Edited: 16/11/2018 */
 
 #include <iostream>
 
@@ -11,11 +11,19 @@ ASTCmds::ASTCmds(Scope *s) : AST(CMDS, s) {
 }
 
 Value *ASTCmds::inEval() {
+    Value* v = nullptr;
+
     for(auto it = children.rbegin(); it != children.rend(); ++it){
-        (*it)->eval();
+        v = (*it)->eval();
+
+        if(v){
+            if(v->type == STOPTYPE){
+                return v;
+            }
+        }
     }
 
-    return nullptr;
+    return v;
 }
 
 void ASTCmds::printNode() {

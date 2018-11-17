@@ -3,8 +3,8 @@
    Created: 18/10/2018
    Edited: 07/11/2018 */
 
-#ifndef UTIL_HPP
-#define UTIL_HPP
+#ifndef UTIL_HPP_CEQUAL
+#define UTIL_HPP_CEQUAL
 
 #include <cstdio>
 #include <iostream>
@@ -38,4 +38,4 @@ void arraySizeMismatchError(int line);
 // Prints to standart error output a not initizlized error
 void notInitializedError(int line, std::string symbol);
 
-#endif /* UTIL_HPP */
+#endif /* UTIL_HPP_CEQUAL */

@@ -1,10 +1,11 @@
 /* Abstract Syntax Tree for command class.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 15/11/2018
-   Edited: 15/11/2018 */
+   Edited: 16/11/2018 */
 
 #include <iostream>
 
+#include "src/classes/value/include/StopType.hpp"
 #include "src/classes/ast/include/ASTListSpecVar.hpp"
 #include "src/include/util.hpp"
 #include "src/classes/value/include/LiteralBool.hpp"
@@ -19,7 +20,7 @@ ASTCmdFor::ASTCmdFor(AST *init, AST *step, AST *cmd, AST* test, Scope *s) : AST(
 
 Value *ASTCmdFor::inEval() {
     bool cont = true;
-    Value *res;
+    Value *res = nullptr;
 
     children[0]->eval();
 
@@ -35,11 +36,28 @@ Value *ASTCmdFor::inEval() {
 
         if(!cont) break;
 
-        children[2]->eval();
+        res = children[2]->eval();
+
+        if(res){
+            if(res->type == STOPTYPE){
+                if((((StopType *)res)->stype == STOP) || (((StopType *)res)->stype == RETURN)){
+                    break;
+                }
+            }
+        }
+
         children[1]->eval();
     }
 
-    return nullptr;
+    if(res){
+        if(res->type == STOPTYPE){
+            if((((StopType *)res)->stype == STOP) || (((StopType *)res)->stype == SKIP)){
+                res = nullptr;
+            }
+        }
+    }
+
+    return res;
 }
 
 void ASTCmdFor::printNode() {

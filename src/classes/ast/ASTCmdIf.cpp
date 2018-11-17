@@ -1,7 +1,7 @@
 /* Abstract Syntax Tree if command class.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 15/11/2018
-   Edited: 15/11/2018 */
+   Edited: 16/11/2018 */
 
 #include <src/include/util.hpp>
 
@@ -25,15 +25,15 @@ Value *ASTCmdIf::inEval() {
     }
 
     if(((LiteralBool *)res)->val){
-        children[0]->eval();
+        res = children[0]->eval();
     }
     else{
         if(children[1]){
-            children[1]->eval();
+            res = children[1]->eval();
         }
     }
 
-    return nullptr;
+    return res;
 }
 
 void ASTCmdIf::printNode() {

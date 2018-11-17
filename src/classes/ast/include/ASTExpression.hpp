@@ -37,7 +37,9 @@ private:
     // Evaluates a integer expression
     LiteralInt *intEval(int l, int r);
     // Evaluates a comparition expression
-    LiteralBool *compEval(int l, int r);
+    LiteralBool *intCompEval(int l, int r);
+    LiteralBool *strCompEval(std::string* l, std::string* r);
+    LiteralBool *boolCompEval(bool l, bool r);
     // Evaluates a logic expression
     LiteralBool *logicEval(bool l, bool r);
 

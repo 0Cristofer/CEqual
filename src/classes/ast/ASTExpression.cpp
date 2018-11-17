@@ -4,6 +4,7 @@
    Edited: 07/11/2018 */
 
 #include <iostream>
+#include <src/classes/value/include/LiteralStr.hpp>
 
 #include "../../include/util.hpp"
 #include "include/ASTExpression.hpp"
@@ -39,10 +40,22 @@ Value* ASTExpression::inEval(){
             lval = children[0]->eval();
             rval = children[1]->eval();
 
-            if(typeCheck(lval, INT, line) && typeCheck(rval, INT, line)){
-                res = compEval(((LiteralInt *)lval)->val, ((LiteralInt *)rval)->val);
+            if(typeCheck(lval, ((Literal*)rval)->type, line)){
+                switch (((Literal*)rval)->type){
+                    case INT:
+                        res = intCompEval(((LiteralInt *) lval)->val, ((LiteralInt *) rval)->val);
+                        break;
+                    case BOOL:
+                        res = boolCompEval(((LiteralBool *) lval)->val, ((LiteralBool *) rval)->val);
+                        break;
+                    case STR:
+                        res = strCompEval(((LiteralStr *) lval)->val, ((LiteralStr *) rval)->val);
+                        break;
+                    case VOID:
+                        break;
+                }
             }
-            else{
+            else{ // TODO error case
                 res = new LiteralBool(false);
             }
 
@@ -118,7 +131,79 @@ LiteralInt *ASTExpression::intEval(int l, int r){
 }
 
 // Evaluates a comparition expression by performing the correct comparition action based on the operator
-LiteralBool *ASTExpression::compEval(int l, int r){
+LiteralBool *ASTExpression::intCompEval(int l, int r){
+    bool res;
+
+    switch (operand) {
+        case EQL:
+            res = l == r;
+            break;
+
+        case DIF:
+            res = l != r;
+            break;
+
+        case GRT:
+            res = l > r;
+            break;
+
+        case GRE:
+            res = l >= r;
+            break;
+
+        case LES:
+            res = l < r;
+            break;
+
+        case LEQ:
+            res = l <= r;
+            break;
+
+        default:
+            res = false;
+    }
+
+    return new LiteralBool(res);
+}
+
+// Evaluates a comparition expression by performing the correct comparition action based on the operator
+LiteralBool *ASTExpression::strCompEval(std::string* l, std::string* r){
+    bool res;
+
+    switch (operand) {
+        case EQL:
+            res = *l == *r;
+            break;
+
+        case DIF:
+            res = *l != *r;
+            break;
+
+        case GRT:
+            res = l->compare(*r) > 0;
+            break;
+
+        case GRE:
+            res = l->compare(*r) >= 0;
+            break;
+
+        case LES:
+            res = l->compare(*r) < 0;
+            break;
+
+        case LEQ:
+            res = l->compare(*r) <= 0;
+            break;
+
+        default:
+            res = false;
+    }
+
+    return new LiteralBool(res);
+}
+
+// Evaluates a comparition expression by performing the correct comparition action based on the operator
+LiteralBool *ASTExpression::boolCompEval(bool l, bool r){
     bool res;
 
     switch (operand) {

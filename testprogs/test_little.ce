@@ -1,7 +1,16 @@
+def add(a: int; s: string){
+  if(a == 0) return;
+  write s;
+}
 
 def main() : int {
-  var b : bool;
-  read b;
+  var i, x = 2, y = 3 : int;
+  var as = "ccccc": string;
 
-  write b;
+  read x;
+  write x;
+
+  add(x, as);
+
+  return 0;
 }
