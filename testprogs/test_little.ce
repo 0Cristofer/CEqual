@@ -1,16 +1,19 @@
-def add(a: int; s: string){
-  if(a == 0) return;
-  write s;
+def add(a,b: int) : int{
+  return a + b;
 }
 
 def main() : int {
-  var i, x = 2, y = 3 : int;
-  var as = "ccccc": string;
-
+  var x,y : int;
   read x;
-  write x;
+  read y;
 
-  add(x, as);
+  if(x > y){
+    write "x maior que y";
+  }
+  else
+        if(x == y) write "x igual a y";
+        else write "x menor que y";
 
+   write "meu cu";
   return 0;
 }

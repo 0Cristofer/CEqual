@@ -4,6 +4,7 @@
    Edited: 16/11/2018 */
 
 #include <src/include/util.hpp>
+#include <src/classes/value/include/StopType.hpp>
 
 #include "src/classes/value/include/LiteralBool.hpp"
 #include "src/classes/ast/include/ASTCmdIf.hpp"
@@ -30,6 +31,14 @@ Value *ASTCmdIf::inEval() {
     else{
         if(children[1]){
             res = children[1]->eval();
+        }
+    }
+
+    if(res){
+        if(res->type == STOPTYPE){
+            if(((StopType *)res)->stype == END){
+                res = nullptr;
+            }
         }
     }
 

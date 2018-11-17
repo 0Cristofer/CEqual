@@ -1,0 +1,16 @@
+def fat(n : int) : int {
+    write n,"...";
+    if(n == 0) return 0;
+    if(n == 1) return 42;
+
+    return fat(n-1) * n;
+}
+
+def main() : int {
+    var n : int;
+    write "Fatorial de: ";
+    read n;
+
+    write fat(n);
+    return 0;
+}
