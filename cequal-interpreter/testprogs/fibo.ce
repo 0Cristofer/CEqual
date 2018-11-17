@@ -1,0 +1,17 @@
+def fibo(n : int) : int{
+    if( n < 3) return 1;
+    else
+        return fibo(n-1) + fibo(n-2);
+}
+
+def main() : int {
+    var n, i : int;
+    write "Numero de termos: ";
+    read n;
+
+    for(i = 1; i <= n; i += 1){
+        write fibo(i) , " ";
+    }
+
+    return 0;
+}
