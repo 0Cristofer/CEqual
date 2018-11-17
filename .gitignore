@@ -1,2 +1,5 @@
-.idea/
-cmake-build-debug/
+cequal-interpreter/.idea/
+cequal-compiler/.idea/
+
+cequal-interpreter/cmake-build-debug/
+cequal-compiler/cmake-build-debug/
