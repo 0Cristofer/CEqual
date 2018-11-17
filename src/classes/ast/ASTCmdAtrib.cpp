@@ -1,15 +1,16 @@
 /* Abstract Syntax Tree atribution command class.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 15/11/2018
-   Edited: 15/11/2018 */
+   Edited: 17/11/2018 */
 
 #include <iostream>
-#include <src/classes/ast/include/ASTVarUse.hpp>
-#include <src/include/util.hpp>
-#include <src/classes/value/include/LiteralInt.hpp>
-#include "src/classes/ast/include/ASTCmdAtrib.hpp"
 
-ASTCmdAtrib::ASTCmdAtrib(AST* use, AST* exp, ATRT t, Scope *s) : AST(CMDATRIB, s), attype(t) {
+#include "include/ASTVarUse.hpp"
+#include "include/ASTCmdAtrib.hpp"
+#include "../value/include/LiteralInt.hpp"
+#include "../../include/util.hpp"
+
+ASTCmdAtrib::ASTCmdAtrib(AST* use, AST* exp, ATRT t) : AST(CMDATRIB), attype(t) {
     addChild(use);
     addChild(exp);
 }

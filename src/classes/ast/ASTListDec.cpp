@@ -1,13 +1,13 @@
 /* Abstract Syntax Tree array declaration list
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 07/11/2018
-   Edited: 16/11/2018 */
+   Edited: 17/11/2018 */
 
 #include <iostream>
 
-#include "src/classes/ast/include/ASTListDec.hpp"
+#include "include/ASTListDec.hpp"
 
-ASTListDec::ASTListDec(AST *child, Scope *s) : AST(LISTDEC, s) {
+ASTListDec::ASTListDec(AST *child) : AST(LISTDEC) {
     children.push_back(child);
 }
 

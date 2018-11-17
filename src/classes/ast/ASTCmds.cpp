@@ -1,13 +1,13 @@
 /* Abstract Syntax Tree command list
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 07/11/2018
-   Edited: 16/11/2018 */
+   Edited: 17/11/2018 */
 
 #include <iostream>
 
-#include "src/classes/ast/include/ASTCmds.hpp"
+#include "include/ASTCmds.hpp"
 
-ASTCmds::ASTCmds(Scope *s) : AST(CMDS, s) {
+ASTCmds::ASTCmds() : AST(CMDS) {
 }
 
 Value *ASTCmds::inEval() {

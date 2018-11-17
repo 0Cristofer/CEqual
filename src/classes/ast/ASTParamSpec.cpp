@@ -1,16 +1,16 @@
 /* Abstract Syntax Tree parameter specification specification
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 12/11/2018
-   Edited: 12/11/2018 */
+   Edited: 17/11/2018 */
 
 #include <iostream>
-#include "src/classes/ast/include/ASTParamSpec.hpp"
-#include "src/classes/value/include/LiteralInt.hpp"
-#include "src/classes/value/include/LiteralBool.hpp"
-#include "src/classes/value/include/LiteralStr.hpp"
-#include "src/classes/ast/include/ASTParamSpec.hpp"
 
-ASTParamSpec::ASTParamSpec(Symbol* sym, Scope *s) : AST(PARAMSPEC, s) {
+#include "include/ASTParamSpec.hpp"
+#include "../value/include/LiteralInt.hpp"
+#include "../value/include/LiteralBool.hpp"
+#include "../value/include/LiteralStr.hpp"
+
+ASTParamSpec::ASTParamSpec(Symbol* sym) : AST(PARAMSPEC) {
     addSymbol(sym);
 }
 
@@ -45,6 +45,8 @@ Value *ASTParamSpec::inEval() {
                     s->vals->push_back(new LiteralStr(new std::string()));
                 }
                 break;
+
+            case VOID:break;
         }
     }
 

@@ -1,14 +1,15 @@
 /* Abstract Syntax Tree variable list specification
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 12/11/2018
-   Edited: 12/11/2018 */
+   Edited: 17/11/2018 */
 
 #include <iostream>
 
-#include "src/classes/ast/include/ASTParamSpec.hpp"
-#include "src/classes/ast/include/ASTParamList.hpp"
+#include "include/ASTParamSpec.hpp"
+#include "include/ASTParamList.hpp"
+#include "../../include/util.hpp"
 
-ASTParamList::ASTParamList(AST *ast, Scope *s) : AST(PARAMLIST, s) {
+ASTParamList::ASTParamList(AST *ast) : AST(PARAMLIST) {
     addChild(ast);
 }
 
@@ -27,8 +28,6 @@ Value *ASTParamList::inEval() {
                 params->push_back(new std::pair<LiteralType, SymType>(((Literal *)((*(s->vals))[0]))->type, ARRAY));
             }
 
-            s->state = DEFINED;
-            scope->addSym(s);
             syms->push_back(s);
         }
     }

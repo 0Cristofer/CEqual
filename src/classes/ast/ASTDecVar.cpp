@@ -1,18 +1,18 @@
 /* Abstract Syntax Tree variable list specification
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 19/10/2018
-   Edited: 07/11/2018 */
+   Edited: 17/11/2018 */
 
 #include <iostream>
-#include <src/classes/value/include/LiteralBool.hpp>
-#include <src/classes/value/include/LiteralStr.hpp>
 
 #include "include/ASTDecVar.hpp"
 #include "include/ASTListSpecVar.hpp"
+#include "../value/include/LiteralBool.hpp"
+#include "../value/include/LiteralStr.hpp"
 #include "../value/include/LiteralInt.hpp"
 #include "../../include/util.hpp"
 
-ASTDecVar::ASTDecVar(AST *list, LiteralType t, Scope *s): AST(DECVAR, s), s_type(t) {
+ASTDecVar::ASTDecVar(AST *list, LiteralType t): AST(DECVAR), s_type(t) {
     addChild(list);
 }
 
@@ -44,6 +44,8 @@ Value *ASTDecVar::inEval() {
                         break;
                     case STR:
                         s->val = new LiteralStr(new std::string(" "));
+                        break;
+                    case VOID:
                         break;
                 }
 
@@ -77,6 +79,8 @@ Value *ASTDecVar::inEval() {
                         for(int i = 0; i < s->size; i++) {
                             s->vals->push_back(new LiteralStr(new std::string(" ")));
                         }
+                        break;
+                    case VOID:
                         break;
                 }
 

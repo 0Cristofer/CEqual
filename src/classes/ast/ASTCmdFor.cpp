@@ -1,17 +1,17 @@
 /* Abstract Syntax Tree for command class.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 15/11/2018
-   Edited: 16/11/2018 */
+   Edited: 17/11/2018 */
 
 #include <iostream>
 
-#include "src/classes/value/include/StopType.hpp"
-#include "src/classes/ast/include/ASTListSpecVar.hpp"
-#include "src/include/util.hpp"
-#include "src/classes/value/include/LiteralBool.hpp"
-#include "src/classes/ast/include/ASTCmdFor.hpp"
+#include "include/ASTListSpecVar.hpp"
+#include "include/ASTCmdFor.hpp"
+#include "../value/include/StopType.hpp"
+#include "../value/include/LiteralBool.hpp"
+#include "../../include/util.hpp"
 
-ASTCmdFor::ASTCmdFor(AST *init, AST *step, AST *cmd, AST* test, Scope *s) : AST(CMDFOR, s) {
+ASTCmdFor::ASTCmdFor(AST *init, AST *step, AST *cmd, AST* test) : AST(CMDFOR) {
     addChild(init);
     addChild(step);
     addChild(cmd);

@@ -1,19 +1,34 @@
-def add(a,b: int) : int{
-  return a + b;
+
+def add(a[], n: int): int{
+  var x = 0: int;
+  var i: int;
+
+  for(i = 0; i < n; i = i + 1){
+    x = x + a[i];
+  }
+
+  return x;
+}
+
+def addInPlace(a[], b, n : int){
+  var x: int;
+  var i: int;
+
+  for(i = 0; i < n; i = i + 1){
+    x = add(a, n);
+    a[i] = a[i] + x;
+  }
 }
 
 def main() : int {
-  var x,y : int;
-  read x;
-  read y;
+    var x[4] = {1, 1, 1, 1}, y = 2: int;
+    var i: int;
 
-  if(x > y){
-    write "x maior que y";
-  }
-  else
-        if(x == y) write "x igual a y";
-        else write "x menor que y";
+    addInPlace(x, y, 4);
 
-   write "meu cu";
-  return 0;
+    for(i = 0; i < 4; i = i + 1){
+      write x[i], ".....";
+    }
+
+    return 0;
 }

@@ -1,18 +1,19 @@
 /* Abstract Syntax Tree procedure call class.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 12/11/2018
-   Edited: 12/11/2018 */
+   Edited: 17/11/2018 */
 
 #ifndef ASTCALLPROC_HPP_CEQUAL
 #define ASTCALLPROC_HPP_CEQUAL
 
 #include "AST.hpp"
+#include "src/classes/symbol/include/Symbol.hpp"
 
 class ASTCallProc: public AST {
 public:
     // Creates a precedure call command, recieving the symbol representing the procedure,
     // the arguments and the type of call (funcion or procedure)
-    ASTCallProc(Symbol *sm, AST *a, SymType t, Scope *s);
+    ASTCallProc(Symbol *sm, AST *a, SymType t);
 
     void printNode() override;
 

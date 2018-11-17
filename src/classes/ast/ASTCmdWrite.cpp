@@ -1,17 +1,17 @@
 /* Abstract Syntax Tree command write
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 20/10/2018
-   Edited: 15/11/2018 */
+   Edited: 17/11/2018 */
 
 #include <iostream>
-#include <src/classes/ast/include/ASTExpList.hpp>
 
 #include "include/ASTCmdWrite.hpp"
+#include "include/ASTExpList.hpp"
 #include "../value/include/LiteralInt.hpp"
 #include "../value/include/LiteralBool.hpp"
 #include "../value/include/LiteralStr.hpp"
 
-ASTCmdWrite::ASTCmdWrite(AST *e, Scope *s): AST(CMDWRITE, s) {
+ASTCmdWrite::ASTCmdWrite(AST *e): AST(CMDWRITE) {
     if(e) addChild(e);
 }
 
@@ -35,6 +35,8 @@ Value *ASTCmdWrite::inEval() {
                     break;
                 case STR:
                     std::cout << *(((LiteralStr *) val)->val);
+                    break;
+                case VOID:
                     break;
             }
         }

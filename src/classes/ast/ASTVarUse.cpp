@@ -11,14 +11,14 @@
 #include "../value/include/LiteralStr.hpp"
 #include "../../include/util.hpp"
 
-ASTVarUse::ASTVarUse(Symbol *s, AST *e, Scope *sc): AST(VARUSE, sc), sym(s){
+ASTVarUse::ASTVarUse(Symbol *s, AST *e): AST(VARUSE), sym(s){
     if(e) addChild(e);
 }
 
 Value *ASTVarUse::inEval(){
     Value *v = nullptr, *e = nullptr;
 
-    sym = scope->getSym(sym);
+    sym = actual_scope->getSym(sym);
 
     if(sym->state == UNDEFINED){ // TODO error case
         notInitializedError(line, *(sym->id));

@@ -1,7 +1,7 @@
-/* Abstract Syntax Tree abstract class.
+/* Abstract Syntax Tree atribution command class.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 15/11/2018
-   Edited: 15/11/2018 */
+   Edited: 17/11/2018 */
 
 #ifndef ASTCMDATRIB_HPP_CEQUAL
 #define ASTCMDATRIB_HPP_CEQUAL
@@ -14,7 +14,7 @@ enum ATRT {
 
 class ASTCmdAtrib: public AST {
 public:
-    ASTCmdAtrib(AST *use, AST *exp, ATRT t, Scope *s);
+    ASTCmdAtrib(AST *use, AST *exp, ATRT t);
 
     void printNode() override;
 

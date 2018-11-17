@@ -4,8 +4,6 @@
    Edited: 07/11/2018 */
 
 #include <iostream>
-#include <src/classes/symbol/include/Scope.hpp>
-
 
 #include "include/Scope.hpp"
 

@@ -1,7 +1,7 @@
 /* Abstract Syntax Tree for command class.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 15/11/2018
-   Edited: 15/11/2018 */
+   Edited: 17/11/2018 */
 
 #ifndef ASTCMDFOR_HPP_CEQUAL
 #define ASTCMDFOR_HPP_CEQUAL
@@ -12,7 +12,7 @@
 class ASTCmdFor: public AST {
 public:
     // Constructs the node by recieving the initialization, step, command and test nodes
-    ASTCmdFor(AST *init, AST *step, AST *cmd, AST* test, Scope *s);
+    ASTCmdFor(AST *init, AST *step, AST *cmd, AST* test);
 
     void printNode() override;
 

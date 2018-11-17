@@ -1,7 +1,7 @@
 /* Abstract Syntax Tree variable declarations
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 19/10/2018
-   Edited: 07/11/2018 */
+   Edited: 17/11/2018 */
 
 #ifndef ASTDECVAR_HPP_CEQUAL
 #define ASTDECVAR_HPP_CEQUAL
@@ -11,7 +11,7 @@
 
 class ASTDecVar: public AST{
 public:
-    ASTDecVar(AST *list, LiteralType t, Scope *s);
+    ASTDecVar(AST *list, LiteralType t);
 
     void printNode() override;
     LiteralType s_type; // The type of the new variable

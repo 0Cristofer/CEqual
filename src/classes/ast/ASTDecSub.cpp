@@ -1,18 +1,18 @@
 /* Abstract Syntax Tree subprogram declaration class.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 12/11/2018
-   Edited: 16/11/2018 */
+   Edited: 17/11/2018 */
 
 #include <iostream>
 
-#include "src/classes/value/include/StopType.hpp"
-#include "src/include/util.hpp"
-#include "src/classes/ast/include/ASTDecSub.hpp"
-#include "src/classes/ast/include/ASTParamList.hpp"
-#include "src/classes/ast/include/ASTVarUse.hpp"
-#include "src/classes/ast/include/ASTDecSub.hpp"
+#include "include/ASTDecSub.hpp"
+#include "include/ASTBlock.hpp"
+#include "include/ASTParamList.hpp"
+#include "include/ASTVarUse.hpp"
+#include "../value/include/StopType.hpp"
+#include "../../include/util.hpp"
 
-ASTDecSub::ASTDecSub(AST *param, AST *block, LiteralType t, Scope *s) : AST(DECSUB, s), type(t) {
+ASTDecSub::ASTDecSub(AST *param, AST *block, LiteralType t) : AST(DECSUB), type(t) {
     addChild(param);
     addChild(block);
 }
@@ -27,8 +27,9 @@ Value *ASTDecSub::inEval() {
     return nullptr;
 }
 
-Value *ASTDecSub::call(AST *a) {
+Value *ASTDecSub::call(AST *a, bool unstack) {
     Value *v = nullptr;
+    Scope *prev = nullptr;
     bool ok = true; // Used for parameter - argument verification
 
     if(params) { // If there is parameteres
@@ -93,8 +94,17 @@ Value *ASTDecSub::call(AST *a) {
             }
         }
     }
+    else{ // If there is no parameters and arguments were passed
+        if(a) ok = false;
+    }
 
     if(ok){ // Arguments verified, can evaluate this procedure's block
+        if(unstack){
+            prev = actual_scope; // Since we are calling a procedure, we need to "unstack" the actual scope
+            actual_scope = actual_scope->prev;
+        }
+
+        ((ASTBlock *) children[1])->add_symbols = syms;
         v = children[1]->eval();
 
 
@@ -141,6 +151,8 @@ Value *ASTDecSub::call(AST *a) {
     else{
         semanticError(line);
     }
+
+    if(unstack) actual_scope = prev;
 
     return v;
 }

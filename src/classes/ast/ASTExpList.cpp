@@ -1,13 +1,13 @@
 /* Abstract Syntax Tree expression list class.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 12/11/2018
-   Edited: 12/11/2018 */
+   Edited: 17/11/2018 */
 
 #include <iostream>
 
-#include "src/classes/ast/include/ASTExpList.hpp"
+#include "include/ASTExpList.hpp"
 
-ASTExpList::ASTExpList(AST* a, Scope *s) : AST(EXPLIST, s) {
+ASTExpList::ASTExpList(AST* a) : AST(EXPLIST) {
     addChild(a);
 }
 

@@ -1,7 +1,9 @@
 def main() : int {
   var num, n : int;
+
   write "Fatorial de: ";
   read num;
+  
   n = num - 1;
 
   while(n > 1){

@@ -1,15 +1,14 @@
 /* Abstract Syntax Tree abstract class definitions.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 15/10/2018
-   Edited: 07/11/2018 */
+   Edited: 17/11/2018 */
 
 #include <cstdlib>
 
-#include "src/classes/ast/include/AST.hpp"
-#include "src/include/util.hpp"
 #include "include/AST.hpp"
+#include "../../include/util.hpp"
 
-AST::AST(ASTType t, Scope *s): a_type(t), scope(s) {
+AST::AST(ASTType t): a_type(t){
     line = yylineno;
 }
 

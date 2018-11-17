@@ -1,25 +1,25 @@
 /* Abstract Syntax Tree while command class.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 15/11/2018
-   Edited: 16/11/2018 */
+   Edited: 17/11/2018 */
 
 #include <iostream>
 
-#include "src/classes/value/include/LiteralBool.hpp"
-#include "src/classes/value/include/StopType.hpp"
-#include "src/include/util.hpp"
-#include "src/classes/ast/include/ASTCmdWhile.hpp"
+#include "include/ASTCmdWhile.hpp"
+#include "../value/include/LiteralBool.hpp"
+#include "../value/include/StopType.hpp"
+#include "../../include/util.hpp"
 
-ASTCmdWhile::ASTCmdWhile(AST *t, AST *e, Scope *s) : AST(CMDWHILE, s) {
+ASTCmdWhile::ASTCmdWhile(AST *t, AST *e) : AST(CMDWHILE) {
     addChild(t);
     addChild(e);
 }
 
 Value *ASTCmdWhile::inEval() {
-    bool cont = true;
+    bool cont;
     Value *res = nullptr;
 
-    while(cont){
+    while(true){
         res = children[1]->eval();
 
         if(!typeCheck(res, BOOL, line)){ // TODO error case

@@ -1,15 +1,14 @@
 /* Abstract Syntax Tree if command class.
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 15/11/2018
-   Edited: 16/11/2018 */
+   Edited: 17/11/2018 */
 
-#include <src/include/util.hpp>
-#include <src/classes/value/include/StopType.hpp>
+#include "include/ASTCmdIf.hpp"
+#include "../value/include/StopType.hpp"
+#include "../value/include/LiteralBool.hpp"
+#include "../../include/util.hpp"
 
-#include "src/classes/value/include/LiteralBool.hpp"
-#include "src/classes/ast/include/ASTCmdIf.hpp"
-
-ASTCmdIf::ASTCmdIf(AST *t, AST *f, AST *e, Scope *s) : AST(CMDIF, s) {
+ASTCmdIf::ASTCmdIf(AST *t, AST *f, AST *e) : AST(CMDIF) {
     addChild(t);
     addChild(f);
     addChild(e);

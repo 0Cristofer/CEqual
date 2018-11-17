@@ -1,18 +1,18 @@
 /* Abstract Syntax Tree expression node definitions
    Authors: Bruno Cesar, Cristofer Oswald and Narcizo Gabriel
    Created: 15/10/2018
-   Edited: 07/11/2018 */
+   Edited: 17/11/2018 */
 
 #include <iostream>
-#include <src/classes/value/include/LiteralStr.hpp>
 
-#include "../../include/util.hpp"
 #include "include/ASTExpression.hpp"
 #include "include/ASTLiteral.hpp"
+#include "../value/include/LiteralStr.hpp"
+#include "../../include/util.hpp"
 
 // Adds the operands nodes if they exist
-ASTExpression::ASTExpression(ExpType t, Operand op, AST *l, AST *r, AST *test, Scope *s):
-        AST(EXPRESSION, s), type(t), operand(op){
+ASTExpression::ASTExpression(ExpType t, Operand op, AST *l, AST *r, AST *test):
+        AST(EXPRESSION), type(t), operand(op){
     if(l) addChild(l);
     if(r) addChild(r);
     if(test) addChild(test);
@@ -30,7 +30,7 @@ Value* ASTExpression::inEval(){
             if(typeCheck(lval, INT, line) && typeCheck(rval, INT, line)){ // Check for the type
                 res = intEval(((LiteralInt *)lval)->val, rval ? ((LiteralInt *)rval)->val : 0); // Perform action
             }
-            else{
+            else{ // TODO error case
                 res = new LiteralInt(0); // If types are wrong, return 0
             }
 
@@ -40,23 +40,33 @@ Value* ASTExpression::inEval(){
             lval = children[0]->eval();
             rval = children[1]->eval();
 
-            if(typeCheck(lval, ((Literal*)rval)->type, line)){
-                switch (((Literal*)rval)->type){
-                    case INT:
-                        res = intCompEval(((LiteralInt *) lval)->val, ((LiteralInt *) rval)->val);
-                        break;
-                    case BOOL:
-                        res = boolCompEval(((LiteralBool *) lval)->val, ((LiteralBool *) rval)->val);
-                        break;
-                    case STR:
-                        res = strCompEval(((LiteralStr *) lval)->val, ((LiteralStr *) rval)->val);
-                        break;
-                    case VOID:
-                        break;
+            if((operand == EQL) || (operand == DIF)) {
+                if (typeCheck(lval, ((Literal *) rval)->type, line)) {
+                    switch (((Literal *) rval)->type) {
+                        case INT:
+                            res = intCompEval(((LiteralInt *) lval)->val, ((LiteralInt *) rval)->val);
+                            break;
+                        case BOOL:
+                            res = boolCompEval(((LiteralBool *) lval)->val, ((LiteralBool *) rval)->val);
+                            break;
+                        case STR:
+                            res = strCompEval(((LiteralStr *) lval)->val, ((LiteralStr *) rval)->val);
+                            break;
+                        case VOID:
+                            break;
+                    }
+                }
+                else { // TODO error case
+                    res = new LiteralBool(false);
                 }
             }
-            else{ // TODO error case
-                res = new LiteralBool(false);
+            else{
+                if (typeCheck(lval, INT, line) && typeCheck(rval, INT, line)) {
+                    res = intCompEval(((LiteralInt *) lval)->val, ((LiteralInt *) rval)->val);
+                }
+                else { // TODO error case
+                    res = new LiteralBool(false);
+                }
             }
 
             break;
@@ -68,7 +78,7 @@ Value* ASTExpression::inEval(){
             if(typeCheck(lval, BOOL, line) && typeCheck(rval, BOOL, line)){
                 res = logicEval(((LiteralBool *)lval)->val, rval ? ((LiteralBool *)rval)->val : false);
             }
-            else{
+            else{ // TODO error case
                 res = new LiteralBool(false);
             }
 
@@ -85,7 +95,7 @@ Value* ASTExpression::inEval(){
                     res = children[1]->eval(); // 1 = right operand
                 }
             }
-            else{
+            else{ // TODO error case
                 res = new LiteralInt(0);
             }
     }
@@ -178,23 +188,6 @@ LiteralBool *ASTExpression::strCompEval(std::string* l, std::string* r){
         case DIF:
             res = *l != *r;
             break;
-
-        case GRT:
-            res = l->compare(*r) > 0;
-            break;
-
-        case GRE:
-            res = l->compare(*r) >= 0;
-            break;
-
-        case LES:
-            res = l->compare(*r) < 0;
-            break;
-
-        case LEQ:
-            res = l->compare(*r) <= 0;
-            break;
-
         default:
             res = false;
     }
@@ -213,22 +206,6 @@ LiteralBool *ASTExpression::boolCompEval(bool l, bool r){
 
         case DIF:
             res = l != r;
-            break;
-
-        case GRT:
-            res = l > r;
-            break;
-
-        case GRE:
-            res = l >= r;
-            break;
-
-        case LES:
-            res = l < r;
-            break;
-
-        case LEQ:
-            res = l <= r;
             break;
 
         default:
