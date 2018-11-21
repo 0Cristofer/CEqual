@@ -91,7 +91,7 @@
 %right UMINUS
 
 %type <sym> id param startfunc
-%type <ast> expression literal callFunc
+%type <ast> expression literal callFunc expressionSequence paramSequence
 %type <ast> listDec dec decVar listSpecVar specVar
 %type <ast> specVarSim specVarSimInit specVarArr specVarArrInit arrInit
 %type <ast> block varUse cmds cmd simCmd cmdCallProc cmdAtrib atrib
@@ -227,12 +227,16 @@ decFunc:
 ;
 
 paramList:
-            {$$ = nullptr;}
-  |paramDef {$$ = new ASTParamList($1);}
-  |paramDef T_SYM_SMC paramList {
-                                    $$ = $3;
-                                    $3->addChild($1);
-                                }
+    {$$ = nullptr;}
+  |paramSequence {$$ = $1;}
+;
+
+paramSequence:
+    paramDef {$$ = new ASTParamList($1);}
+    |paramDef T_SYM_SMC paramSequence {
+                                        $$ = $3;
+                                        $3->addChild($1);
+                                      }
 ;
 
 paramDef:
@@ -331,11 +335,15 @@ callFunc:
 
 expList:
     {$$ = nullptr;}
-  |expression {$$ = new ASTExpList($1);}
-  |expression T_SYM_CMA expList {
-                                  $$ = $3;
-                                  $3->addChild($1);
-                                }
+  |expressionSequence {$$ = $1;}
+;
+
+expressionSequence:
+    expression {$$ = new ASTExpList($1);}
+    |expression T_SYM_CMA expressionSequence {
+                                                $$ = $3;
+                                                $3->addChild($1);
+                                             }
 ;
 
 /* Commands */

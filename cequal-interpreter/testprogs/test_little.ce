@@ -1,34 +1,10 @@
+def test(a, c: int){
 
-def add(a[], n: int): int{
-  var x = 0: int;
-  var i: int;
-
-  for(i = 0; i < n; i = i + 1){
-    x = x + a[i];
-  }
-
-  return x;
 }
 
-def addInPlace(a[], b, n : int){
-  var x: int;
-  var i: int;
-
-  for(i = 0; i < n; i = i + 1){
-    x = add(a, n);
-    a[i] = a[i] + x;
-  }
-}
-
-def main() : int {
-    var x[4] = {1, 1, 1, 1}, y = 2: int;
-    var i: int;
-
-    addInPlace(x, y, 4);
-
-    for(i = 0; i < 4; i = i + 1){
-      write x[i], ".....";
-    }
+def main(): int{
+    write "test_little\n";
+    write "test_little";
 
     return 0;
 }
