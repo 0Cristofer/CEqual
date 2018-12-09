@@ -30,8 +30,8 @@ Value *ASTDecVar::inEval() {
                 if(typeCheck((Literal *) s->val, s_type, line)) {
                     s->state = DEFINED;
                 }
-                else{ // TODO error case
-                    semanticError(line);
+                else{
+                    variableTypeWrong(line, *(s->id));
                 }
             }
             else {
@@ -57,8 +57,8 @@ Value *ASTDecVar::inEval() {
                 if(typeCheck((*(s->vals))[0], s_type, line)) {
                     s->state = DEFINED;
                 }
-                else{ // TODO error case
-                    semanticError(line);
+                else{
+                    variableTypeWrong(line, *(s->id));
                 }
             }
             else {

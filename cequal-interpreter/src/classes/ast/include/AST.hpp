@@ -33,11 +33,11 @@ public:
     ASTType a_type;
     std::vector<AST *> children;
 
+    int line = 0;
 protected:
+
     // Pure virtual. Should make the actual evaluation of the node and its children
     virtual Value *inEval() = 0;
-
-    int line = 0;
 };
 
 #endif /* AST_HPP_CEQUAL */

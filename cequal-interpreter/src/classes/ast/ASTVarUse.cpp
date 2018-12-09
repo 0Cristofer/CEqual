@@ -20,8 +20,8 @@ Value *ASTVarUse::inEval(){
 
     sym = actual_scope->getSym(sym);
 
-    if(sym->state == UNDEFINED){ // TODO error case
-        notInitializedError(line, *(sym->id));
+    if(sym->state == UNDEFINED){
+        notDefinedError(line, *(sym->id));
         free(sym);
         return new LiteralInt(0);
     }

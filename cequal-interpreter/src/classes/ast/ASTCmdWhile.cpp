@@ -22,8 +22,8 @@ Value *ASTCmdWhile::inEval() {
     while(true){
         res = children[1]->eval();
 
-        if(!typeCheck(res, BOOL, line)){ // TODO error case
-            semanticError(line);
+        if(!typeCheck(res, BOOL, line)){
+            expectedBoolExp(line, "Sem nome de tipo caralho!"); // TODO error case
             return nullptr;
         }
 

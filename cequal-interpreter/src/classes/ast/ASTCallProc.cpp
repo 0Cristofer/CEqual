@@ -16,14 +16,17 @@ Value *ASTCallProc::inEval() {
 
     sym = actual_scope->getSym(sym);
 
-    if(sym->state == UNDEFINED) semanticError(line); // TODO error case
+    if(sym->state == UNDEFINED){
+        notDefinedError(line, *(sym->id));
+        return nullptr;
+    }
 
     if(s_t == FUNC) {
         if(sym->type == FUNC) { // Just call as a function if the procedure is a function
             res = ((ASTDecSub*)sym->proc)->call(children[0], true);
         }
         else {
-            semanticError(line);
+            invalidUseOfProc(line, *(sym->id));
         }
     }
     else if(s_t == PROC) {

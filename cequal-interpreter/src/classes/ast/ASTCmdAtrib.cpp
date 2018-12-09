@@ -21,10 +21,12 @@ Value *ASTCmdAtrib::inEval() {
     Symbol *sm;
 
     var = children[0]->eval();
-    ex = children[1]->eval();
+    ex = children[1]->eval(); //expression
+
+    if(ex == nullptr) return nullptr;
 
     if((((Literal*)var)->type != INT) && (attype != ATR)){ // TODO error case
-        semanticError(line);
+        invalidAritmeticAttribution(line, *(((ASTVarUse *) children[0])->sym->id) , "SEM NOME DE TIPO (por enquanto :3 )");
         return nullptr;
     }
 
@@ -78,7 +80,8 @@ Value *ASTCmdAtrib::inEval() {
         }
     }
     else{ // TODO error case
-        semanticError(line);
+        invalidAttribution(line, *(((ASTVarUse *) children[0])->sym->id) , "SEM NOME DE TIPO (por enquanto :3 )");
+        return nullptr;
     }
 
     return nullptr;

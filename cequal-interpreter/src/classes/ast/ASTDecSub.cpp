@@ -34,6 +34,7 @@ Value *ASTDecSub::call(AST *a, bool unstack) {
 
     if(params) { // If there is parameteres
         if(!a) { // And none is passed
+            parametersExpected(line);
             ok = false;
         }
         else {
@@ -45,20 +46,20 @@ Value *ASTDecSub::call(AST *a, bool unstack) {
                 for (AST *child: a->children) {
                     v = child->eval();
 
-                    if ((*p)->second == ARRAY) { // If the parameter is an array we need to verify if the argument is too and set up de data
+                    if ((*p)->second == ARRAY) { // If the parameter is an array we need to verify if the argument is too and set up the data
                         if (child->a_type == VARUSE) {
 
                             ok = ((ASTVarUse *) (child))->sym->type == ARRAY;
 
                             if (!ok){
-                                // TODO error case
+                                wrongParameter(line, "array", "single");
                                 break;
                             }
 
                             ok = ok && (((Literal *) (*(((ASTVarUse *) child)->sym->vals))[0])->type ==
                                         (*p)->first);
                             if (!ok) {
-                                // TODO error case
+                                wrongParameter(line, "EXPECTED", "GOT"); // TODO error case
                                 break;
                             }
 
@@ -66,7 +67,7 @@ Value *ASTDecSub::call(AST *a, bool unstack) {
                             (*s)->size = ((ASTVarUse *) child)->sym->size;
                         }
                         else {
-                            // TODO error case
+                            invalidArrayUse(line);
                             ok = false;
                             break;
                         }
@@ -75,7 +76,7 @@ Value *ASTDecSub::call(AST *a, bool unstack) {
                         ok = ((Literal *) v)->type == (*p)->first;
 
                         if (!ok){
-                            // TODO error case
+                            wrongParameter(line, "EXPECTED", "GOT"); // TODO error case
                             break;
                         }
 
@@ -95,7 +96,10 @@ Value *ASTDecSub::call(AST *a, bool unstack) {
         }
     }
     else{ // If there is no parameters and arguments were passed
-        if(a) ok = false;
+        if(a) {
+            ok = false;
+            parametersNotExpected(line);
+        }
     }
 
     if(ok){ // Arguments verified, can evaluate this procedure's block
@@ -111,34 +115,35 @@ Value *ASTDecSub::call(AST *a, bool unstack) {
         if(v->type == STOPTYPE){
             switch (((StopType *)v)->stype){
                 case STOP:
+                    invalidUseOf(children[1]->line, "STOP");
+                    break;
                 case SKIP:
-                    semanticError(line);
+                    invalidUseOf(children[1]->line, "SKIP");
                     break;
                 case RETURN:
                     if(((StopType *)v)->val){
                         if(type == VOID){
-                            semanticError(line); // TODO error case
+                            returnInProcedure(children[1]->line);
                         }
                         else{
                             if(typeCheck(((StopType *)v)->val, type, line)){
                                 v = ((StopType *)v)->val;
                             }
                             else{
-                                semanticError(line); // TODO error case
-
+                                invalidReturnType(line);
                             }
                         }
                     }
                     else{
                         if(type != VOID){
-                            semanticError(line); // TODO error case
+                            voidReturnInFunction(line);
                         }
                     }
 
                     break;
                 case END:
                     if(type != VOID){
-                        semanticError(line); // TODO error case
+                        missingReturnInFunction(line);
                     }
 
                     break;

@@ -10,6 +10,7 @@
 #include "../value/include/LiteralInt.hpp"
 #include "../value/include/LiteralStr.hpp"
 #include "../value/include/LiteralBool.hpp"
+#include "../../include/util.hpp"
 
 ASTCmdRead::ASTCmdRead(AST *e): AST(CMDREAD){
     if(e) addChild(e);
@@ -43,6 +44,8 @@ Value *ASTCmdRead::inEval() {
                 break;
             case VOID:
                 break;
+            default:
+                semanticError(line);
         }
     }
     else{
@@ -62,6 +65,8 @@ Value *ASTCmdRead::inEval() {
                 break;
             case VOID:
                 break;
+            default:
+                semanticError(line);
         }
     }
 

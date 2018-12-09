@@ -19,8 +19,8 @@ Value *ASTCmdIf::inEval() {
 
     res = children[2]->eval();
 
-    if(!typeCheck(res, BOOL, line)){ // TODO error case
-        semanticError(line);
+    if(!typeCheck(res, BOOL, line)){
+        expectedBoolExp(line, "Sem nome de tipo ainda mano!"); // TODO error case
         return nullptr;
     }
 

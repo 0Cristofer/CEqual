@@ -30,7 +30,8 @@ Value* ASTExpression::inEval(){
             if(typeCheck(lval, INT, line) && typeCheck(rval, INT, line)){ // Check for the type
                 res = intEval(((LiteralInt *)lval)->val, rval ? ((LiteralInt *)rval)->val : 0); // Perform action
             }
-            else{ // TODO error case
+            else{
+                invalidTypeInExpression(line);
                 res = new LiteralInt(0); // If types are wrong, return 0
             }
 
@@ -56,7 +57,8 @@ Value* ASTExpression::inEval(){
                             break;
                     }
                 }
-                else { // TODO error case
+                else {
+                    invalidCompType(line);
                     res = new LiteralBool(false);
                 }
             }
@@ -64,7 +66,8 @@ Value* ASTExpression::inEval(){
                 if (typeCheck(lval, INT, line) && typeCheck(rval, INT, line)) {
                     res = intCompEval(((LiteralInt *) lval)->val, ((LiteralInt *) rval)->val);
                 }
-                else { // TODO error case
+                else {
+                    invalidIntComparition(line);
                     res = new LiteralBool(false);
                 }
             }
@@ -78,7 +81,8 @@ Value* ASTExpression::inEval(){
             if(typeCheck(lval, BOOL, line) && typeCheck(rval, BOOL, line)){
                 res = logicEval(((LiteralBool *)lval)->val, rval ? ((LiteralBool *)rval)->val : false);
             }
-            else{ // TODO error case
+            else{
+                invalidBoolComparition(line);
                 res = new LiteralBool(false);
             }
 
@@ -96,6 +100,7 @@ Value* ASTExpression::inEval(){
                 }
             }
             else{ // TODO error case
+                expectedBoolExp(line, "sad");
                 res = new LiteralInt(0);
             }
     }

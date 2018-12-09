@@ -36,6 +36,41 @@ void typeError(int line);
 // Prints to standart error output a array size mismatch error
 void arraySizeMismatchError(int line);
 // Prints to standart error output a not initizlized error
-void notInitializedError(int line, std::string symbol);
-
+void notDefinedError(int line, std::string symbol);
+// Prints to standart error output an invalid atribution
+void invalidAttribution(int line, std::string symbol, std::string type);
+// wooho sathurday night fun
+void invalidAritmeticAttribution(int line, std::string symbol, std::string type);
+// So much fun
+void invalidUseOfProc(int line, std::string symbol);
+// Tão me ameaçando
+void expectedBoolExp(int line, std::string type);
+// não quero
+void wrongParameter(int line, std::string expected, std::string got);
+// Sunday shitshow
+void invalidArrayUse(int line);
+// Takamine
+void parametersExpected(int line);
+// Tá chegando o carvão
+void parametersNotExpected(int line);
+// O carvão não chegou
+void invalidUseOf(int line, std::string symbol);
+// O carvão chegou
+void returnInProcedure(int line);
+// Rosh feito, narga montado, virando o carvão
+void invalidReturnType(int line);
+// Arguile aceso
+void voidReturnInFunction(int line);
+// Minha vez no arguile
+void missingReturnInFunction(int line);
+// Passei a vez
+void variableTypeWrong(int line, std::string symbol);
+// Bruno foi dormir
+void invalidTypeInExpression(int line);
+// Eu to quase indo tambem
+void invalidCompType(int line);
+// Força ta acabando
+void invalidIntComparition(int line);
+// Esse nem deu graça
+void invalidBoolComparition(int line);
 #endif /* UTIL_HPP_CEQUAL */
