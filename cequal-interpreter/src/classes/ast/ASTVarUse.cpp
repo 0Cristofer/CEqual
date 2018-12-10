@@ -24,7 +24,7 @@ Value *ASTVarUse::inEval(){
         notDefinedError(line, *(sym->id));
         free(sym);
         sym = nullptr;
-        return new LiteralInt(0);
+        return nullptr;
     }
 
     if(!children.empty()){

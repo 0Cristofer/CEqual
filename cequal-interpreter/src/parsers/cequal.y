@@ -201,7 +201,6 @@ startfunc:
   T_RES_DEF id T_SYM_OP {
                           $$ = $2;
                           actual_scope->addSym($2);
-                          actual_scope = new Scope(actual_scope);
                           declaring = true;
                         }
 ;
