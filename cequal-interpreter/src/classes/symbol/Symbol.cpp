@@ -61,7 +61,7 @@ Symbol *Symbol::duplicate() {
                     break;
             }
         }
-        else{ // TODO error case
+        else{
             semanticError(lineno);
         }
     }

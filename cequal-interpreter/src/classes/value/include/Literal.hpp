@@ -9,9 +9,11 @@
 #include <string>
 #include "Value.hpp"
 
+extern std::string LITER[3];
+
 // Possble literal types
 enum LiteralType {
-    INT, BOOL, STR, VOID
+    INT = 0, BOOL, STR, VOID
 };
 
 class Literal: public Value {

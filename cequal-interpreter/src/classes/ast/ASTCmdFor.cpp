@@ -28,7 +28,7 @@ Value *ASTCmdFor::inEval() {
         res = children[3]->eval();
 
         if(!typeCheck(res, BOOL, children[0]->line)){
-            expectedBoolExp(children[0]->line, ((Literal*)res)->name); // TODO error case
+            expectedBoolExp(children[0]->line, ((Literal*)res)->name);
             return nullptr;
         }
 

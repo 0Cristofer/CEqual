@@ -99,8 +99,8 @@ Value* ASTExpression::inEval(){
                     res = children[1]->eval(); // 1 = right operand
                 }
             }
-            else{ // TODO error case
-                expectedBoolExp(line, "sad");
+            else{
+                expectedBoolExp(line, ((Literal *)testval)->name);
                 res = new LiteralInt(0);
             }
     }

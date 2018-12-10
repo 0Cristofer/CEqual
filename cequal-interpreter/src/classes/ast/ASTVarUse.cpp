@@ -35,7 +35,7 @@ Value *ASTVarUse::inEval(){
             v = (*(sym->vals))[ind];
         }
         else{
-            // TODO error case
+            neededExpression(line, ((Literal*)e)->name);
             return nullptr;
         }
 

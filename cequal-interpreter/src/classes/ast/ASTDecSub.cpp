@@ -36,7 +36,6 @@ Value *ASTDecSub::call(AST *a, bool unstack, int c_line) {
     Value *v = nullptr;
     Scope *prev = nullptr;
     bool ok = true; // Used for parameter - argument verification
-    Symbol* s;
 
     if(params) { // If there is parameteres
         if(!a) { // And none is passed
@@ -65,7 +64,7 @@ Value *ASTDecSub::call(AST *a, bool unstack, int c_line) {
                             ok = ok && (((Literal *) (*(((ASTVarUse *) child)->sym->vals))[0])->type ==
                                         (*p)->first);
                             if (!ok) {
-                                wrongParameter(line, "EXPECTED", "GOT"); // TODO error case
+                                wrongParameter(line, ((Literal *) (*(((ASTVarUse *) child)->sym->vals))[0])->name, LITER[((*p)->first)]);
                                 break;
                             }
 
@@ -82,7 +81,7 @@ Value *ASTDecSub::call(AST *a, bool unstack, int c_line) {
                         ok = ((Literal *) v)->type == (*p)->first;
 
                         if (!ok){
-                            wrongParameter(line, "EXPECTED", "GOT"); // TODO error case
+                            wrongParameter(line, ((Literal *) v)->name, LITER[((*p)->first)]);
                             break;
                         }
 
@@ -112,7 +111,7 @@ Value *ASTDecSub::call(AST *a, bool unstack, int c_line) {
     }
 
     if(ok){ // Arguments verified, can evaluate this procedure's block
-
+        Symbol* s;
 
         if(unstack){
             s = actual_scope->getSym(sym);
@@ -165,7 +164,7 @@ Value *ASTDecSub::call(AST *a, bool unstack, int c_line) {
                     break;
             }
         }
-        else{ // TODO error case
+        else{
             semanticError(line);
         }
     }

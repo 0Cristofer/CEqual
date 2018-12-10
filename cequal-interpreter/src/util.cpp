@@ -130,6 +130,11 @@ void invalidCompType(int line){
     std::cerr << "Semantic error: Invalid comparition in line " << line << std::endl;
 }
 
+void neededExpression(int line, std::string type){
+    r_error = true;
+    std::cerr << "Semantic error: Array usage must be with int expression, got: \'" << type << "\', at line " << line << std::endl;
+}
+
 void invalidIntComparition(int line){
     r_error = true;
     std::cerr << "Semantic error: This type of comparition at line " << line << " must be done with int type" << std::endl;

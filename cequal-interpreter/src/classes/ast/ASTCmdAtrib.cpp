@@ -25,8 +25,8 @@ Value *ASTCmdAtrib::inEval() {
 
     if(ex == nullptr) return nullptr;
 
-    if((((Literal*)var)->type != INT) && (attype != ATR)){ // TODO error case
-        invalidAritmeticAttribution(line, *(((ASTVarUse *) children[0])->sym->id) , "SEM NOME DE TIPO (por enquanto :3 )");
+    if((((Literal*)var)->type != INT) && (attype != ATR)){
+        invalidAritmeticAttribution(line, *(((ASTVarUse *) children[0])->sym->id) , (((Literal*)var)->name));
         return nullptr;
     }
 
@@ -81,7 +81,7 @@ Value *ASTCmdAtrib::inEval() {
             }
         }
     }
-    else{ // TODO error case
+    else{
         invalidAttribution(line, *(((ASTVarUse *) children[0])->sym->id), ((Literal*)var)->name, ((Literal*)ex)->name);
         return nullptr;
     }

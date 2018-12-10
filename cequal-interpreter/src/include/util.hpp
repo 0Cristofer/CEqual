@@ -76,4 +76,6 @@ void invalidIntComparition(int line);
 void invalidBoolComparition(int line);
 
 void incorrectNumberArguments(int line, int parm, int args);
+
+void neededExpression(int line, std::string type);
 #endif /* UTIL_HPP_CEQUAL */

@@ -7,6 +7,12 @@
 
 #include "include/Literal.hpp"
 
+std::string LITER[3] = {
+        "int",
+        "bool"
+        "string"
+};
+
 Literal::Literal(LiteralType t, std::string name): Value(LITERALVAL), type(t), name(std::move(name)){
 
 }
