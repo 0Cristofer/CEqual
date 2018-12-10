@@ -21,7 +21,6 @@ Value *ASTDecSub::inEval() {
     actual_scope->addSym(sym);
 
     sym->state = DEFINED;
-    sym->type = PROC;
     sym->proc = this;
 
     if(children[0]) {
@@ -37,6 +36,7 @@ Value *ASTDecSub::call(AST *a, bool unstack) {
     Value *v = nullptr;
     Scope *prev = nullptr;
     bool ok = true; // Used for parameter - argument verification
+    Symbol* s;
 
     if(params) { // If there is parameteres
         if(!a) { // And none is passed
@@ -109,9 +109,16 @@ Value *ASTDecSub::call(AST *a, bool unstack) {
     }
 
     if(ok){ // Arguments verified, can evaluate this procedure's block
+
+
         if(unstack){
-            prev = actual_scope; // Since we are calling a procedure, we need to "unstack" the actual scope
-            actual_scope = actual_scope->prev;
+            s = actual_scope->getSym(sym);
+
+            if(s != sym){
+                prev = actual_scope; // Since we are calling a procedure, we need to "unstack" the actual scope
+                actual_scope = actual_scope->prev;
+            }
+            else unstack = false;
         }
 
         ((ASTBlock *) children[1])->add_symbols = syms;

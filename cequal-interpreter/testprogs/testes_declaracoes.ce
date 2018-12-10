@@ -8,6 +8,11 @@ def aninhada2(){
     }
 }
 
+def numParametros(i, j : int){
+    write "2 parametros";
+}
+
+
 def main(): int{
     var a = true, b = "aaa", c = 1: int;
 
@@ -23,5 +28,6 @@ def main(): int{
     write t;
     fora();
 
+    numParametros(1, 2, 3);
     return 0;
 }
