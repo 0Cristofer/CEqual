@@ -92,7 +92,7 @@
 
 %type <sym> id param startfunc
 %type <ast> expression literal callFunc expressionSequence paramSequence
-%type <ast> listDec dec decVar listSpecVar specVar
+%type <ast> listDec dec decVar listSpecVar specVar startBlock
 %type <ast> specVarSim specVarSimInit specVarArr specVarArrInit arrInit
 %type <ast> block varUse cmds cmd simCmd cmdCallProc cmdAtrib atrib
 %type <ast> paramSpec paramDef paramList decProc decFunc decSub expList
@@ -288,14 +288,18 @@ type:
 ;
 
 // When the block ends, its scope is finalized and the actual scope is the previus one
+startBlock:
+  T_SYM_OBC {$$ = new ASTBlock();}
+;
+
 block:
-  T_SYM_OBC listDec cmds T_SYM_CBC {
-                                      $$ = new ASTBlock();
+  startBlock listDec cmds T_SYM_CBC {
+                                      $$ = $1;
                                       $$->addChild($3);
                                       $$->addChild($2);
                                     }
-  |T_SYM_OBC cmds T_SYM_CBC {
-                                $$ = new ASTBlock();
+  |startBlock cmds T_SYM_CBC {
+                                $$ = $1;
                                 $$->addChild($2);
                              }
 ;

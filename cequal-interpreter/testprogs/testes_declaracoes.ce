@@ -1,0 +1,8 @@
+def main(): int{
+    var a = true, b = "aaa", c = 1: int;
+
+    read a;
+    write b;
+
+    return 0;
+}

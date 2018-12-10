@@ -5,7 +5,7 @@
 
 #include "include/LiteralStr.hpp"
 
-LiteralStr::LiteralStr(std::string *s): Literal(STR){
+LiteralStr::LiteralStr(std::string *s): Literal(STR, "string"){
     if((*s)[0] == '\"'){
         s->erase(0, 1);
     }

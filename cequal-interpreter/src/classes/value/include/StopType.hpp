@@ -14,10 +14,11 @@ enum SType{
 
 class StopType: public Value {
 public:
-    explicit StopType(SType s);
+    explicit StopType(SType s, int line);
 
     SType stype;
     Value *val = nullptr;
+    int line;
 };
 
 

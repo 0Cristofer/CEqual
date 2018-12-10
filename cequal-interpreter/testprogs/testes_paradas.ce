@@ -1,0 +1,38 @@
+def t1_ret(){
+    return 1;
+}
+
+def t2_ret(): int{
+    var i = false: bool;
+
+    return i;
+}
+
+def t3_ret(): int{
+    return;
+}
+
+def t_stop(){
+    stop;
+}
+
+def main(): int{
+    var i = 2: int;
+
+    t1_ret();
+    t2_ret();
+    t3_ret();
+    t_stop();
+
+    skip;
+
+    while(i > 0){
+        if(i == 1) stop;
+        else{
+            i = i - 1;
+            skip;
+        }
+    }
+
+    return 0;
+}

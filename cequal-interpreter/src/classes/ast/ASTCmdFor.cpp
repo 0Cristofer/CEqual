@@ -27,8 +27,8 @@ Value *ASTCmdFor::inEval() {
     while (cont){
         res = children[3]->eval();
 
-        if(!typeCheck(res, BOOL, line)){
-            expectedBoolExp(line, "Sem nome de tipo ainda mano!"); // TODO error case
+        if(!typeCheck(res, BOOL, children[0]->line)){
+            expectedBoolExp(children[0]->line, ((Literal*)res)->name); // TODO error case
             return nullptr;
         }
 

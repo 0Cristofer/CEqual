@@ -5,6 +5,6 @@
 
 #include "include/LiteralBool.hpp"
 
-LiteralBool::LiteralBool(bool b): Literal(BOOL), val(b){
+LiteralBool::LiteralBool(bool b): Literal(BOOL, "bool"), val(b){
 
 }

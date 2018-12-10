@@ -12,7 +12,7 @@ ASTStopType::ASTStopType(SType stop, AST* exp) : AST(CMDSTOP), stype(stop) {
 }
 
 Value *ASTStopType::inEval() {
-    auto *stop = new StopType(stype);
+    auto *stop = new StopType(stype, line);
 
     if(stype == RETURN){
         if(!children.empty()){

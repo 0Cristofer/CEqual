@@ -54,7 +54,7 @@ void invalidUseOfProc(int line, std::string symbol){
 }
 
 void expectedBoolExp(int line, std::string type){
-    std::cerr << "Semantic error: Expected boolean expression in condition at line " << line << ". Got " << type << std::endl;
+    std::cerr << "Semantic error: Expected boolean expression in condition at line " << line << ". Got \'" << type << "\'" << std::endl;
 }
 
 void wrongParameter(int line, std::string expected, std::string got){
@@ -74,11 +74,11 @@ void parametersNotExpected(int line){
 }
 
 void invalidUseOf(int line, std::string symbol){
-    std::cerr << "Semantic error: Invalid use of command " << symbol << " at line " << line << std::endl;
+    std::cerr << "Semantic error: Command " << symbol << " outside loop at line " << line << std::endl;
 }
 
 void returnInProcedure(int line){
-    std::cerr << "Semantic error: Return in procedure at line " << line << std::endl;
+    std::cerr << "Semantic error: Return command in procedure at line " << line << std::endl;
 }
 
 void invalidReturnType(int line){
@@ -94,7 +94,7 @@ void missingReturnInFunction(int line){
 }
 
 void variableTypeWrong(int line, std::string symbol){
-    std::cerr << "Semantic error: Variable "<< symbol << " initialized with wrong type at line " <<line << std::endl;
+    std::cerr << "Semantic error: Variable \'"<< symbol << "\' initialized with wrong type at line " <<line << std::endl;
 }
 
 void invalidTypeInExpression(int line){

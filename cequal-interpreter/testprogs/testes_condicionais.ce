@@ -1,0 +1,17 @@
+def main(): int{
+    var a = 0 : int;
+
+    for(a=0; a; a+=1){
+
+    }
+
+    if("aaa"){
+
+    }
+
+    while(2){
+
+    }
+
+    return 0;
+}

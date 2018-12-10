@@ -5,6 +5,6 @@
 
 #include "src/classes/value/include/StopType.hpp"
 
-StopType::StopType(SType s) : Value(STOPTYPE), stype(s) {
+StopType::StopType(SType s, int line) : Value(STOPTYPE), stype(s), line(line) {
 
 }

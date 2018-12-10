@@ -42,7 +42,7 @@ Value *ASTBlock::inEval() {
     }
 
     actual_scope = prev;
-    v = new StopType(END);
+    v = new StopType(END, line);
 
     return v;
 }

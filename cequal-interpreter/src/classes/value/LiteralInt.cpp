@@ -5,6 +5,6 @@
 
 #include "include/LiteralInt.hpp"
 
-LiteralInt::LiteralInt(int v): Literal(INT), val(v){
+LiteralInt::LiteralInt(int v): Literal(INT, "int"), val(v){
 
 }

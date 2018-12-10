@@ -115,28 +115,28 @@ Value *ASTDecSub::call(AST *a, bool unstack) {
         if(v->type == STOPTYPE){
             switch (((StopType *)v)->stype){
                 case STOP:
-                    invalidUseOf(children[1]->line, "STOP");
+                    invalidUseOf(((StopType *)v)->line, "stop");
                     break;
                 case SKIP:
-                    invalidUseOf(children[1]->line, "SKIP");
+                    invalidUseOf(((StopType *)v)->line, "skip");
                     break;
                 case RETURN:
                     if(((StopType *)v)->val){
                         if(type == VOID){
-                            returnInProcedure(children[1]->line);
+                            returnInProcedure(((StopType *)v)->line);
                         }
                         else{
-                            if(typeCheck(((StopType *)v)->val, type, line)){
+                            if(typeCheck(((StopType *)v)->val, type, ((StopType *)v)->line)){
                                 v = ((StopType *)v)->val;
                             }
                             else{
-                                invalidReturnType(line);
+                                invalidReturnType(((StopType *)v)->line);
                             }
                         }
                     }
                     else{
                         if(type != VOID){
-                            voidReturnInFunction(line);
+                            voidReturnInFunction(((StopType *)v)->line);
                         }
                     }
 

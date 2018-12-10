@@ -27,6 +27,8 @@ Value *ASTCmdRead::inEval() {
     sm = ((ASTVarUse *) children[0])->sym;
     ind = ((ASTVarUse *) children[0])->ind;
 
+    if(!sm) return nullptr;
+
     if(sm->type == SIM) {
         switch (((Literal *) (sm->val))->type) {
             case INT:

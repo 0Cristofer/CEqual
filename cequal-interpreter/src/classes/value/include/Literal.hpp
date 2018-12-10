@@ -6,6 +6,7 @@
 #ifndef LITERAL_HPP_CEQUAL
 #define LITERAL_HPP_CEQUAL
 
+#include <string>
 #include "Value.hpp"
 
 // Possble literal types
@@ -15,9 +16,10 @@ enum LiteralType {
 
 class Literal: public Value {
 public:
-    explicit Literal(LiteralType t);
+    explicit Literal(LiteralType t, std::string name);
 
     LiteralType type;
+    std::string name;
 };
 
 #endif /* LITERAL_HPP_CEQUAL */

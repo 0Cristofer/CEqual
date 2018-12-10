@@ -8,7 +8,7 @@
 #include "../../include/util.hpp"
 
 ASTCallProc::ASTCallProc(Symbol *sm, AST *a, SymType t) : AST(CALLPROC), sym(sm), s_t(t) {
-    if(a) addChild(a);
+    addChild(a);
 }
 
 Value *ASTCallProc::inEval() {

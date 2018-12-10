@@ -23,6 +23,7 @@ Value *ASTVarUse::inEval(){
     if(sym->state == UNDEFINED){
         notDefinedError(line, *(sym->id));
         free(sym);
+        sym = nullptr;
         return new LiteralInt(0);
     }
 
