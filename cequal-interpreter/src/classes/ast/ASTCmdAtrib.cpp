@@ -80,7 +80,7 @@ Value *ASTCmdAtrib::inEval() {
         }
     }
     else{ // TODO error case
-        invalidAttribution(line, *(((ASTVarUse *) children[0])->sym->id) , "SEM NOME DE TIPO (por enquanto :3 )");
+        invalidAttribution(line, *(((ASTVarUse *) children[0])->sym->id), ((Literal*)var)->name, ((Literal*)ex)->name);
         return nullptr;
     }
 

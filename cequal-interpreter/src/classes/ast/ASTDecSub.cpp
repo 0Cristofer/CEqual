@@ -12,12 +12,18 @@
 #include "../value/include/StopType.hpp"
 #include "../../include/util.hpp"
 
-ASTDecSub::ASTDecSub(AST *param, AST *block, LiteralType t) : AST(DECSUB), type(t) {
+ASTDecSub::ASTDecSub(AST *param, AST *block, Symbol* sym, LiteralType t) : AST(DECSUB), type(t), sym(sym) {
     addChild(param);
     addChild(block);
 }
 
 Value *ASTDecSub::inEval() {
+    actual_scope->addSym(sym);
+
+    sym->state = DEFINED;
+    sym->type = PROC;
+    sym->proc = this;
+
     if(children[0]) {
         children[0]->eval();
         params = ((ASTParamList *)children[0])->params;

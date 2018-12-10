@@ -125,7 +125,7 @@ dec:
   |decSub {$$ = $1;}
 ;
 
-/* Variable declaration rules. TODO: String specifics */
+/* Variable declaration rules */
 
 decVar:
   T_RES_VAR listSpecVar T_SYM_COL type T_SYM_SMC {$$ = new ASTDecVar($2, $4);}
@@ -200,26 +200,18 @@ decSub:
 startfunc:
   T_RES_DEF id T_SYM_OP {
                           $$ = $2;
-                          actual_scope->addSym($2);
-                          declaring = true;
                         }
 ;
 
 decProc:
   startfunc paramList T_SYM_CP block {
-                                        $$ = new ASTDecSub($2, $4, VOID);
-                                        $1->state = DEFINED;
-                                        $1->type = PROC;
-                                        $1->proc = $$;
+                                        $$ = new ASTDecSub($2, $4, $1, VOID);
                                      }
 ;
 
 decFunc:
   startfunc paramList T_SYM_CP T_SYM_COL type block {
-                                                      $$ = new ASTDecSub($2, $6, $5);
-                                                      $1->state = DEFINED;
-                                                      $1->type = FUNC;
-                                                      $1->proc = $$;
+                                                      $$ = new ASTDecSub($2, $6, $1, $5);
 
                                                       if($1->id->compare("main") == 0) main_proc = $$;
                                                     }

@@ -38,7 +38,7 @@ void arraySizeMismatchError(int line);
 // Prints to standart error output a not initizlized error
 void notDefinedError(int line, std::string symbol);
 // Prints to standart error output an invalid atribution
-void invalidAttribution(int line, std::string symbol, std::string type);
+void invalidAttribution(int line, std::string symbol, std::string type1, std::string type2);
 // wooho sathurday night fun
 void invalidAritmeticAttribution(int line, std::string symbol, std::string type);
 // So much fun

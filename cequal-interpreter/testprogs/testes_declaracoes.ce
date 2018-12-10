@@ -1,5 +1,19 @@
+def fora() {
+    aninhada();
+}
+
+def aninhada2(){
+    def aninhada(){
+        write "aninhada3";
+    }
+}
+
 def main(): int{
     var a = true, b = "aaa", c = 1: int;
+
+    def aninhada(){
+        write "aninhada";
+    }
 
     if(true){
         var t = 1: int;
@@ -7,6 +21,7 @@ def main(): int{
 
     read b;
     write t;
+    fora();
 
     return 0;
 }

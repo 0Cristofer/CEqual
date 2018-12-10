@@ -13,7 +13,7 @@
 class ASTDecSub: public AST {
 public:
     // Creates a new node by getting the parameters node, the block of this subprogram and its return type (default: INT)
-    ASTDecSub(AST *param, AST *block, LiteralType t);
+    ASTDecSub(AST *param, AST *block, Symbol* sym, LiteralType t);
 
 
     // Calls this function, recieving its arguments and verifing them. Only unstack the scope if needed
@@ -22,6 +22,7 @@ public:
     void printNode() override;
 
     LiteralType type;
+    Symbol* sym;
     std::vector<std::pair<LiteralType, SymType> *> *params = nullptr; // Used for argument verification <type, var type (simple or array)>
     std::vector<Symbol *> *syms = nullptr; // The symbols refering the arguments
 

@@ -41,8 +41,8 @@ void notDefinedError(int line, std::string symbol){
     std::cerr << "Semantic error: Use of undefined symbol \'" << symbol  << "\' at line " << line << std::endl;
 }
 
-void invalidAttribution(int line, std::string symbol, std::string type){
-    std::cerr << "Semantic error: Trying to assign an int value to a not int variable at line " << line << ". " << symbol << " have type of " << type << std::endl;
+void invalidAttribution(int line, std::string symbol, std::string type1, std::string type2){
+    std::cerr << "Semantic error: Invalid atribution with \'" << symbol << "\', types are not equal: \'" << type1 << "\' and \'" << type2 << "\', at line " << line << std::endl;
 }
 
 void invalidAritmeticAttribution(int line, std::string symbol, std::string type){
