@@ -1,33 +1,30 @@
-def fora() {
-    aninhada();
+def tp1(a, b: int){
+
 }
 
-def aninhada2(){
-    def aninhada(){
-        write "aninhada3";
+def t1(){
+    def tt1(){
+
     }
 }
-
-def numParametros(i, j : int){
-    write "2 parametros";
-}
-
 
 def main(): int{
-    var a = true, b = "aaa", c = 1: int;
+    var a = 0, b = "sdsd", c = true: int;
+    var x[3] = {2, 3}: int;
 
-    def aninhada(){
-        write "aninhada";
+    def t2(){
+
     }
 
-    if(true){
-        var t = 1: int;
-    }
+    write a;
+    write b;
+    write x[0];
+    write c;
 
-    read b;
-    write t;
-    fora();
+    t1();
+    t2();
+    tp1(2);
+    tt1();
 
-    numParametros(1, 2, 3);
     return 0;
 }

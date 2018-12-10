@@ -37,3 +37,15 @@ Symbol *Scope::getSym(Symbol *s) {
 
     return s;
 }
+
+void Scope::removeSym(Symbol *s) {
+    auto sm = sym_tab.find(s);
+    Symbol* a_sym = nullptr;
+
+    if (sm != sym_tab.end()){
+        sym_tab.erase(sm);
+    }
+
+    a_sym = s;
+    if(prev != nullptr) prev->removeSym(a_sym);
+}

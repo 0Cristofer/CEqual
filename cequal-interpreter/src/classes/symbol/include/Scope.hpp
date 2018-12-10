@@ -22,6 +22,8 @@ public:
     // Gets a symbol from this scope or previus one
     Symbol *getSym(Symbol *s);
 
+    void removeSym(Symbol *s);
+
     Scope *prev;
 private:
     std::set<Symbol *, SymCmp> sym_tab;

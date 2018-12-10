@@ -32,7 +32,7 @@ Value *ASTDecSub::inEval() {
     return nullptr;
 }
 
-Value *ASTDecSub::call(AST *a, bool unstack) {
+Value *ASTDecSub::call(AST *a, bool unstack, int c_line) {
     Value *v = nullptr;
     Scope *prev = nullptr;
     bool ok = true; // Used for parameter - argument verification
@@ -98,6 +98,9 @@ Value *ASTDecSub::call(AST *a, bool unstack) {
                     p++;
                     s++;
                 }
+            }
+            else{
+                incorrectNumberArguments(c_line, static_cast<int>(params->size()), static_cast<int>(a->children.size()));
             }
         }
     }
@@ -166,11 +169,8 @@ Value *ASTDecSub::call(AST *a, bool unstack) {
             semanticError(line);
         }
     }
-    else{
-        semanticError(line);
-    }
 
-    if(unstack) actual_scope = prev;
+    if(unstack && ok) actual_scope = prev;
 
     return v;
 }

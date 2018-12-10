@@ -32,6 +32,7 @@ Value *ASTDecVar::inEval() {
                 }
                 else{
                     variableTypeWrong(line, *(s->id));
+                    actual_scope->removeSym(s);
                 }
             }
             else {

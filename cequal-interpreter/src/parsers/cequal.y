@@ -35,6 +35,7 @@
   Scope* actual_scope;
   AST* main_proc = nullptr;
   AST* first;
+  bool r_error = false;
 %}
 
 %union{
@@ -205,14 +206,12 @@ startfunc:
 
 decProc:
   startfunc paramList T_SYM_CP block {
-                                        $1->type = PROC;
                                         $$ = new ASTDecSub($2, $4, $1, VOID);
                                      }
 ;
 
 decFunc:
   startfunc paramList T_SYM_CP T_SYM_COL type block {
-                                                      $1->type = FUNC;
                                                       $$ = new ASTDecSub($2, $6, $1, $5);
 
                                                       if($1->id->compare("main") == 0) main_proc = $$;
@@ -456,7 +455,7 @@ int main(int argc, char** argv){
     return 0;
   }
 
-  ((ASTDecSub*)main_proc)->call(nullptr, false);
+  ((ASTDecSub*)main_proc)->call(nullptr, false, main_proc->line);
 
   free(actual_scope);
 

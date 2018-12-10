@@ -46,7 +46,10 @@ Value *ASTCmdFor::inEval() {
             }
         }
 
+        if(r_error) break;
+
         children[1]->eval();
+
     }
 
     if(res){

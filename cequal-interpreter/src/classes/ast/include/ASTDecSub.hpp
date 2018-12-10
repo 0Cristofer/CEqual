@@ -17,7 +17,7 @@ public:
 
 
     // Calls this function, recieving its arguments and verifing them. Only unstack the scope if needed
-    Value *call(AST *a, bool unstack);
+    Value *call(AST *a, bool unstack, int c_line);
 
     void printNode() override;
 

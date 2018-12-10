@@ -27,7 +27,7 @@ Value *ASTCmdIf::inEval() {
     if(((LiteralBool *)res)->val){
         res = children[0]->eval();
     }
-    else{
+    else if(r_error || (!((LiteralBool *)res)->val)){
         if(children[1]){
             res = children[1]->eval();
         }

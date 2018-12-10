@@ -40,6 +40,8 @@ Value *ASTCmdWhile::inEval() {
                 }
             }
         }
+
+        if(r_error) break;
     }
 
     if(res){

@@ -34,6 +34,10 @@ Value *ASTVarUse::inEval(){
             ind = ((LiteralInt *)e)->val;
             v = (*(sym->vals))[ind];
         }
+        else{
+            // TODO error case
+            return nullptr;
+        }
 
     }
     else{

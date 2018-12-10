@@ -30,6 +30,7 @@ Value *ASTCmdRead::inEval() {
     if(!sm) return nullptr;
 
     if(sm->type == SIM) {
+        if(r_error) return nullptr;
         switch (((Literal *) (sm->val))->type) {
             case INT:
                 std::cin >> i;

@@ -20,6 +20,7 @@ extern FILE *yyin;
 extern Scope* actual_scope;
 extern AST* main_proc;
 extern AST* first;
+extern bool r_error;
 
 // Lexical parser function
 int yylex();
@@ -73,4 +74,6 @@ void invalidCompType(int line);
 void invalidIntComparition(int line);
 // Esse nem deu graça
 void invalidBoolComparition(int line);
+
+void incorrectNumberArguments(int line, int parm, int args);
 #endif /* UTIL_HPP_CEQUAL */

@@ -23,14 +23,14 @@ Value *ASTCallProc::inEval() {
 
     if(s_t == FUNC) {
         if(sym->type == FUNC) { // Just call as a function if the procedure is a function
-            res = ((ASTDecSub*)sym->proc)->call(children[0], true);
+            res = ((ASTDecSub*)sym->proc)->call(children[0], true, line);
         }
         else {
             invalidUseOfProc(line, *(sym->id));
         }
     }
     else if(s_t == PROC) {
-        ((ASTDecSub*)sym->proc)->call(children[0], true);
+        ((ASTDecSub*)sym->proc)->call(children[0], true, line);
     }
 
     return res;

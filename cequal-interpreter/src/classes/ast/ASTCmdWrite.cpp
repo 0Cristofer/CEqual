@@ -4,6 +4,7 @@
    Edited: 17/11/2018 */
 
 #include <iostream>
+#include <src/include/util.hpp>
 
 #include "include/ASTCmdWrite.hpp"
 #include "include/ASTExpList.hpp"
@@ -21,6 +22,7 @@ Value *ASTCmdWrite::inEval() {
     auto vals = ((ASTExpList*)children[0])->vals;
 
     for(Value *val : *vals) {
+        if(r_error) return nullptr;
         if (val != nullptr) {
             switch (((Literal *) val)->type) {
                 case INT:

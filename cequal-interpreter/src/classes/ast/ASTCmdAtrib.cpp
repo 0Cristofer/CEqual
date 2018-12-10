@@ -31,6 +31,8 @@ Value *ASTCmdAtrib::inEval() {
     }
 
     if(((Literal*)var)->type == ((Literal*)ex)->type){
+        if(r_error) return nullptr;
+
         sm = ((ASTVarUse *) children[0])->sym;
 
         if(((ASTVarUse *) children[0])->sym->type == ARRAY){
