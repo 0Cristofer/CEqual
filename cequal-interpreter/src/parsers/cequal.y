@@ -220,12 +220,14 @@ startfunc:
 
 decProc:
   startfunc paramList T_SYM_CP block {
+                                        $1->type = PROC;
                                         $$ = new ASTDecSub($2, $4, $1, VOID);
                                      }
 ;
 
 decFunc:
   startfunc paramList T_SYM_CP T_SYM_COL type block {
+                                                      $1->type = FUNC;
                                                       $$ = new ASTDecSub($2, $6, $1, $5);
 
                                                       if($1->id->compare("main") == 0) main_proc = $$;

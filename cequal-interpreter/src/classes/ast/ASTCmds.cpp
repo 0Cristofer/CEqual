@@ -4,6 +4,7 @@
    Edited: 17/11/2018 */
 
 #include <iostream>
+#include <src/classes/value/include/StopType.hpp>
 
 #include "include/ASTCmds.hpp"
 
@@ -18,7 +19,9 @@ Value *ASTCmds::inEval() {
 
         if(v){
             if(v->type == STOPTYPE){
-                return v;
+                if(((StopType*)v)->stype != END) {
+                    return v;
+                }
             }
         }
     }

@@ -1,9 +1,7 @@
-
 def main(): int{
-    var a = 10 : int;
-    var a = 10 : int;
+    var a = 2: int;
+    
+    write "\"", a, "\"\n";
 
-    if(){
-        write "nao deu ruim nao";
-    }
+    return 0;
 }

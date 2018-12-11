@@ -35,8 +35,10 @@ Value *ASTBlock::inEval() {
 
         if(v){
             if(v->type == STOPTYPE){
-                actual_scope = prev;
-                return v;
+                if(((StopType*)v)->stype != END){
+                    actual_scope = prev;
+                    return v;
+                }
             }
         }
     }

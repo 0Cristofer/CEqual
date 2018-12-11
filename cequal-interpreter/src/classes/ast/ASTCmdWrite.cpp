@@ -17,6 +17,8 @@ ASTCmdWrite::ASTCmdWrite(AST *e): AST(CMDWRITE) {
 }
 
 Value *ASTCmdWrite::inEval() {
+    std::string* st;
+
     children[0]->eval();
 
     auto vals = ((ASTExpList*)children[0])->vals;
@@ -36,6 +38,14 @@ Value *ASTCmdWrite::inEval() {
                     }
                     break;
                 case STR:
+                    st = ((LiteralStr *) val)->val;
+                    /*std::cout << st->size()<<std::endl;
+                    for(auto c: *st){
+                        if(c=='\\') continue;
+                        std::cout.put(c);
+                    }*/
+
+                    //std::cout.write(st->c_str(), st->size());
                     std::cout << *(((LiteralStr *) val)->val);
                     break;
                 case VOID:
