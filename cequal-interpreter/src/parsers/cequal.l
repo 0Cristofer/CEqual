@@ -101,5 +101,6 @@ void lexicalError(char *s){
 }
 
 void yyerror(std::string s){
+  r_error = true;
   std::cerr << "Syntax error at line " << yylineno << ". Message: " << s << ". Character: " << yytext << std::endl;
 }

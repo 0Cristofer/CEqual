@@ -430,7 +430,6 @@ cmdSkip:
 cmdReturn:
   T_RES_RETURN T_SYM_SMC {$$ = new ASTStopType(RETURN, nullptr);}
   |T_RES_RETURN expression T_SYM_SMC {$$ = new ASTStopType(RETURN, $2);}
-  | T_RES_RETURN {yyerror("Missing semicolon!");}
 ;
 
 cmdCallProc:
@@ -445,7 +444,6 @@ cmdRead:
 
 cmdWrite:
   T_RES_WRITE expList T_SYM_SMC {$$ = new ASTCmdWrite($2);}
-  | T_RES_WRITE expList {yyerror("Missing semicolon in Write command");}
 ;
 
 %%
@@ -477,6 +475,8 @@ int main(int argc, char** argv){
     std::cerr << "No main function, aborting." << std::endl;
     return 0;
   }
+
+  if(r_error) return 0;
 
   ((ASTDecSub*)main_proc)->call(nullptr, false, main_proc->line);
 
