@@ -1,7 +1,9 @@
+
 def main(): int{
-    var i = 0: int;
+    var a = 10 : int;
+    var a = 10 : int;
 
-    i = "aaa";
-
-    return 0;
+    if(){
+        write "nao deu ruim nao";
+    }
 }

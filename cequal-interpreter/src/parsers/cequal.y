@@ -130,6 +130,7 @@ dec:
 
 decVar:
   T_RES_VAR listSpecVar T_SYM_COL type T_SYM_SMC {$$ = new ASTDecVar($2, $4);}
+  | T_RES_VAR listSpecVar T_SYM_COL type {yyerror("Missing semicolon at end of declaration");}
 ;
 
 listSpecVar:
@@ -149,6 +150,19 @@ specVar:
 
 specVarSim:
   id {$$ = new ASTSpecVar($1, SIMVAR);}
+  | T_RES_IF {yyerror("using a reserved word as an id");} //implementando erros lexicos
+  | T_RES_ELSE {yyerror("using a reserved word as an id");}
+  | T_RES_FOR {yyerror("using a reserved word as an id");}
+  | T_RES_WHILE {yyerror("using a reserved word as an id");}
+  | T_RES_SKIP {yyerror("using a reserved word as an id");}
+  | T_RES_STOP {yyerror("using a reserved word as an id");}
+  | T_RES_DEF {yyerror("using a reserved word as an id");}
+  | T_RES_RETURN {yyerror("using a reserved word as an id");}
+  | T_RES_READ {yyerror("using a reserved word as an id");}
+  | T_RES_WRITE {yyerror("using a reserved word as an id");}
+  | T_SYM_SMC {yyerror("using a reserved word as an id");}
+  | literal {yyerror("using a literal as an id");}
+  | type {yyerror("using a reserved word as an id");}
 ;
 
 specVarSimInit:
@@ -372,6 +386,7 @@ simCmd:
 
 cmdAtrib:
   atrib T_SYM_SMC {$$ = $1;}
+  | atrib {yyerror("Missing semicolon at end of attribution");}
 ;
 
 atrib:
@@ -390,10 +405,12 @@ atrbSym:
 cmdIf:
   T_RES_IF T_SYM_OP expression T_SYM_CP cmd %prec LOWER_THEN_ELSE {$$ = new ASTCmdIf($5, nullptr, $3);}
   |T_RES_IF T_SYM_OP expression T_SYM_CP cmd T_RES_ELSE cmd {$$ = new ASTCmdIf($5, $7, $3);}
+  | T_RES_IF T_SYM_OP T_SYM_CP cmd {yyerror("Missing expression in if comand");}
 ;
 
 cmdWhile:
   T_RES_WHILE T_SYM_OP expression T_SYM_CP cmd {$$ = new ASTCmdWhile($5, $3);}
+  | T_RES_WHILE T_SYM_OP T_SYM_CP cmd {yyerror("Missing expression in while comand");}
 ;
 
 cmdFor:
@@ -402,27 +419,33 @@ cmdFor:
 
 cmdStop:
   T_RES_STOP T_SYM_SMC {$$ = new ASTStopType(STOP, nullptr);}
+  | T_RES_STOP {yyerror("Missing semicolon!");}
 ;
 
 cmdSkip:
   T_RES_SKIP T_SYM_SMC {$$ = new ASTStopType(SKIP, nullptr);}
+  | T_RES_SKIP {yyerror("Missing semicolon!");}
 ;
 
 cmdReturn:
   T_RES_RETURN T_SYM_SMC {$$ = new ASTStopType(RETURN, nullptr);}
   |T_RES_RETURN expression T_SYM_SMC {$$ = new ASTStopType(RETURN, $2);}
+  | T_RES_RETURN {yyerror("Missing semicolon!");}
 ;
 
 cmdCallProc:
   id T_SYM_OP expList T_SYM_CP T_SYM_SMC {$$ = new ASTCallProc($1, $3, PROC);}
+  | id T_SYM_OP expList T_SYM_CP {yyerror("Missing semicolon when calling a procedure");}
 ;
 
 cmdRead:
   T_RES_READ varUse T_SYM_SMC {$$ = new ASTCmdRead($2);}
+  | T_RES_READ varUse {yyerror("Missing semicolon in Read command");}
 ;
 
 cmdWrite:
   T_RES_WRITE expList T_SYM_SMC {$$ = new ASTCmdWrite($2);}
+  | T_RES_WRITE expList {yyerror("Missing semicolon in Write command");}
 ;
 
 %%
@@ -460,10 +483,6 @@ int main(int argc, char** argv){
   free(actual_scope);
 
   return 0;
-}
-
-void yyerror(std::string s){
-  std::cerr << "Syntax error at line " << yylineno << ". Message: " << s << std::endl;
 }
 
 /*//Lê os argumentos com optarg

@@ -99,3 +99,7 @@
 void lexicalError(char *s){
   std::cerr << "Lexical error: unrecognized character " << s << " at line " << yylineno << std::endl;
 }
+
+void yyerror(std::string s){
+  std::cerr << "Syntax error at line " << yylineno << ". Message: " << s << ". Character: " << yytext << std::endl;
+}
