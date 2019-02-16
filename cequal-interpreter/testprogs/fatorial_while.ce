@@ -14,8 +14,8 @@ def main(): int{
         return num;
     }
 
-    //fatorial();
-    //write num;
+    fatorial();
+    write num;
     print(fatorial());
     return 0;
 }

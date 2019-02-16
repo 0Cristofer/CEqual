@@ -1,7 +1,17 @@
+
+
 def main(): int{
     var a = 2: int;
-    
-    write "\"", a, "\"\n";
+    var b: bool;
+
+    b = 2*a > 5 || a < 0;
+
+    if(b){
+        var a = true: bool;
+        write a;
+    }
+
+    write a;
 
     return 0;
 }
